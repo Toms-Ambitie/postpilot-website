@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pagina niet gevonden — PostPilot</title>
+  <meta name="robots" content="noindex">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .nf {
+      min-height: 100vh;
+      background: var(--ink);
+      color: var(--paper);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 48px 24px;
+      gap: 22px;
+    }
+    .nf .mark { width: 48px; height: 48px; margin-bottom: 8px; }
+    .nf .code {
+      font-family: var(--mono);
+      font-size: 13px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--signal);
+    }
+    .nf h1 { color: var(--paper); margin: 0; }
+    .nf p { color: rgba(247,244,237,0.7); max-width: 42ch; margin: 0; font-size: 18px; }
+    .nf .links { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; margin-top: 8px; }
+  </style>
+</head>
+<body>
+  <main class="nf">
+    <svg class="mark" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <rect width="40" height="40" rx="5" fill="#E8A640"></rect>
+      <rect x="10" y="8" width="22" height="13" fill="#0E1014"></rect>
+      <rect x="10" y="21" width="7" height="11" fill="#0E1014"></rect>
+      <rect x="14" y="11" width="14" height="6" fill="#E8A640"></rect>
+    </svg>
+    <span class="code">404 · PAGINA NIET GEVONDEN</span>
+    <h1 class="display-md">Deze pagina is er (nog) niet.</h1>
+    <p>De link klopt niet meer, of de pagina bestaat nog niet. Geen zorgen — vanaf de homepage vind je alles terug.</p>
+    <div class="links">
+      <a href="index.html" class="btn btn-primary btn-lg">
+        Terug naar home
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+      </a>
+      <a href="prijzen.html" class="btn btn-ghost btn-lg" style="color:var(--paper);border-color:rgba(247,244,237,0.3);">Bekijk prijzen</a>
+    </div>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>
