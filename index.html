@@ -1,0 +1,701 @@
+<!doctype html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PostPilot — Jouw LinkedIn copilot</title>
+  <meta name="description" content="Van losse gedachte naar LinkedIn-post in 60 seconden. Voor professionals die zichtbaar willen zijn zonder content creator te worden.">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- ============================================== ANNOUNCEMENT BAR -->
+  <div class="founder-strip" data-screen-label="founder-bar">
+    <span class="dot" aria-hidden="true"></span>
+    <span><span class="hide-sm">Founder Deal — </span>€199 lifetime, max 100 stuks.</span>
+    <span class="hide-sm" style="opacity:.55;">·</span>
+    <span class="hide-sm">33 plekken nog beschikbaar.</span>
+    <a href="#founder">Bekijk &rarr;</a>
+  </div>
+
+  <!-- ============================================== NAV -->
+  <div class="nav-wrap" id="nav">
+    <div class="wrap">
+      <nav class="nav" aria-label="Hoofdnavigatie">
+        <div class="nav-left">
+          <a href="#" class="nav-logo" aria-label="PostPilot home">
+            <svg class="mark" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <rect width="40" height="40" rx="5" fill="#E8A640"></rect>
+              <rect x="10" y="8" width="22" height="13" fill="#0E1014"></rect>
+              <rect x="10" y="21" width="7" height="11" fill="#0E1014"></rect>
+              <rect x="14" y="11" width="14" height="6" fill="#E8A640"></rect>
+            </svg>
+            <span class="name">PostPilot</span>
+          </a>
+          <div class="nav-links">
+            <a href="#hoe">Hoe het werkt</a>
+            <a href="#voor-wie">Voor wie</a>
+            <a href="#voorbeelden">Voorbeelden</a>
+            <a href="#pricing">Prijzen</a>
+            <a href="#faq">FAQ</a>
+          </div>
+        </div>
+        <div class="nav-right">
+          <a href="#login" class="btn btn-link btn-sm">Inloggen</a>
+          <a href="#start" class="btn btn-primary btn-sm">
+            Probeer gratis
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+          </a>
+          <button class="nav-mobile-toggle" aria-label="Menu" id="mobileToggle">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg>
+          </button>
+        </div>
+      </nav>
+    </div>
+  </div>
+
+  <!-- ============================================== HERO -->
+  <section class="hero" data-screen-label="01 hero">
+    <div class="wrap">
+      <div class="hero-grid">
+        <div class="hero-copy">
+          <div class="eyebrow-saffron">JOUW LINKEDIN COPILOT</div>
+          <h1 class="display-xl">
+            Van losse gedachte naar LinkedIn-post in 60&nbsp;seconden.
+          </h1>
+          <p class="hero-lede">
+            Geef PostPilot een idee, een ervaring of een klantcase — wij maken er een professionele post van in jouw eigen toon. Voor mensen die zichtbaar willen zijn zonder content creator te worden.
+          </p>
+          <div class="hero-ctas">
+            <a href="#start" class="btn btn-primary btn-lg">
+              Probeer gratis
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </a>
+            <a href="#hoe" class="btn btn-ghost btn-lg">Bekijk hoe het werkt</a>
+          </div>
+          <div class="trust-line">
+            GEEN CREDIT CARD · 60 SECONDEN TOT JE EERSTE POST
+          </div>
+        </div>
+
+        <!-- Hero preview: post creator + LinkedIn preview, floating -->
+        <div class="preview-stack hero-float">
+          <div class="preview-card">
+            <div class="head">
+              <div class="head-l">
+                <span class="lights"><i></i><i></i><i></i></span>
+                <span>postpilotapp.nl &nbsp;·&nbsp; Post Creator</span>
+              </div>
+              <span class="label">live</span>
+            </div>
+            <div class="stage">
+              <div class="composer">
+                <div class="idea-box">
+                  <span class="label">Jouw idee</span>
+                  <em>Klant belde vanochtend: kreeg na 4 maanden stilte een opdracht uit een oude pitch. Lesje: opvolgen werkt, maar geduld werkt beter.</em>
+                </div>
+                <div class="composer-row">
+                  <div class="left">
+                    <span class="pill active">Toon · Reflectief</span>
+                    <span class="pill">Lengte · Kort</span>
+                  </div>
+                  <div class="composer-action">
+                    <span class="t">↵ Genereer</span>
+                  </div>
+                </div>
+
+                <div class="linkedin-post hero-post">
+                  <div class="author">
+                    <div class="avatar">CD</div>
+                    <div class="meta">
+                      <div class="n">Christiaan van Dijk</div>
+                      <div class="r">Co-founder · 1m · 🌐</div>
+                    </div>
+                  </div>
+                  <div class="body">Vier maanden geleden gaf ik een pitch waarvan ik dacht: die landt niet.
+
+Vanochtend belde de klant. Het landde wel. Het had alleen tijd nodig.
+
+Sales is niet altijd opvolgen. Soms is het ruimte geven en wachten tot het kwartje valt — bij hen, niet bij jou.
+
+Wat is jouw langste 'ja' geweest?</div>
+                  <div class="actions">
+                    <span class="reacts">👍 ❤️ 💡 <strong>234</strong></span>
+                    <span>18 reacties</span>
+                    <span>4 reposts</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================== PROBLEM -->
+  <section class="section problem" data-screen-label="02 probleem">
+    <div class="wrap">
+      <div class="problem-block">
+        <div class="saffron-bar" aria-hidden="true"></div>
+        <div class="problem-content">
+          <div class="eyebrow-saffron">HET PROBLEEM</div>
+          <h2 class="display-md">Goede ideeën verdienen meer dan een lege cursor.</h2>
+          <div class="problem-body">
+            <p>
+              Je weet dat LinkedIn werkt. Je hebt verhalen genoeg — uit klantgesprekken, ervaringen, kleine ergernissen die je dagelijks tegenkomt. Maar tegen de tijd dat je voor het scherm zit, ben je de helft kwijt en is de andere helft moeilijker op te schrijven dan je dacht.
+            </p>
+            <p>
+              Dus blijft het stil. Tot de volgende keer dat je denkt: "ik zou eens vaker moeten posten." En de volgende keer. En de volgende.
+            </p>
+          </div>
+          <blockquote class="pull-quote">
+            97% van LinkedIn-users post zelden of nooit. <span class="accent">Niet door gebrek aan kennis. Door gebrek aan systeem.</span>
+          </blockquote>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================== HOW IT WORKS -->
+  <section class="section" id="hoe" data-screen-label="03 hoe het werkt">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="meta">
+          <span class="eyebrow-mono">HOE HET WERKT</span>
+          <h2 class="display-md">Drie stappen, één minuut.</h2>
+        </div>
+        <p class="body-lg">
+          Geen prompt-engineering, geen content-strategie. Geef je idee, laat PostPilot werken, publiceer wanneer jij wilt.
+        </p>
+      </div>
+
+      <div class="how-grid">
+        <article class="how-card" data-reveal>
+          <span class="step-num">01 · CONTEXT</span>
+          <h3 class="heading-lg">Geef je idee in één zin</h3>
+          <p>Een gedachte, een ervaring, een klantcase, een gebeurtenis. In één of twee zinnen. Geen prompt-engineering nodig.</p>
+          <div class="how-visual">
+            <div class="how-input">
+              <span class="label">Wat wil je vandaag delen?</span>
+              <span class="how-cursor">Klant zei vandaag: 'ik wist niet dat dat kon'<i class="caret"></i></span>
+            </div>
+          </div>
+        </article>
+
+        <span class="how-arrow" aria-hidden="true">
+          <svg width="32" height="14" viewBox="0 0 32 14" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="0" y1="7" x2="28" y2="7"/><polyline points="22 1, 28 7, 22 13"/></svg>
+        </span>
+
+        <article class="how-card" data-reveal style="transition-delay: 0.08s;">
+          <span class="step-num">02 · GENEREREN</span>
+          <h3 class="heading-lg">PostPilot maakt de post</h3>
+          <p>Complete LinkedIn-post in jouw eigen tone of voice. Inclusief preview. Aanpassen waar nodig — één klik om bij te slijpen.</p>
+          <div class="how-visual">
+            <div class="how-progress">
+              <div class="how-progress-bar"><i></i></div>
+              <span class="how-progress-label">Schrijven · 14 / 60s</span>
+            </div>
+            <div class="how-post-preview">
+              <div class="line line-90"></div>
+              <div class="line line-70"></div>
+              <div class="line line-80"></div>
+              <div class="line line-50"></div>
+            </div>
+          </div>
+        </article>
+
+        <span class="how-arrow" aria-hidden="true">
+          <svg width="32" height="14" viewBox="0 0 32 14" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="0" y1="7" x2="28" y2="7"/><polyline points="22 1, 28 7, 22 13"/></svg>
+        </span>
+
+        <article class="how-card" data-reveal style="transition-delay: 0.16s;">
+          <span class="step-num">03 · PUBLICEREN</span>
+          <h3 class="heading-lg">Plan in of post direct</h3>
+          <p>Direct publiceren via LinkedIn, inplannen voor later, of bewaren als concept. Jij houdt altijd controle.</p>
+          <div class="how-visual">
+            <div class="how-buttons">
+              <span class="how-btn ghost">Opslaan</span>
+              <span class="how-btn outline">Plan in</span>
+              <span class="how-btn primary">Publiceer nu</span>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================== PERSONAS -->
+  <section class="section bone-bg" id="voor-wie" data-screen-label="04 voor wie">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="meta">
+          <span class="eyebrow-mono">VOOR WIE</span>
+          <h2 class="display-md">Vier mensen, één probleem.</h2>
+        </div>
+        <p class="body-lg">
+          PostPilot is gebouwd voor professionals met meer expertise dan tijd. Niet voor influencers, niet voor agencies — voor mensen die hun eigen verhaal willen vertellen, in hun eigen woorden.
+        </p>
+      </div>
+
+      <div class="persona-grid">
+        <article class="persona" data-reveal>
+          <span class="persona-eyebrow">PERSONA 01</span>
+          <h3 class="heading-lg">De Consultant</h3>
+          <p>Je hebt expertise voor 10 posts per week. Maar factureerbare uren krijgen voorrang. PostPilot maakt van 5 minuten "onderweg" een week zichtbaarheid.</p>
+        </article>
+
+        <article class="persona" data-reveal style="transition-delay: 0.08s;">
+          <span class="persona-eyebrow">PERSONA 02</span>
+          <h3 class="heading-lg">De Solopreneur</h3>
+          <p>Marketing doe je naast running the business. Posten gebeurt "als het uitkomt" — en het komt zelden uit. PostPilot geeft je ritme zonder dat je content creator hoeft te worden.</p>
+        </article>
+
+        <article class="persona" data-reveal style="transition-delay: 0.16s;">
+          <span class="persona-eyebrow">PERSONA 03</span>
+          <h3 class="heading-lg">De Marketingmanager</h3>
+          <p>Je zorgt voor de bedrijfscontent, maar je eigen profiel ligt stil. PostPilot maakt persoonlijke zichtbaarheid licht — zonder corporate cliché.</p>
+        </article>
+
+        <article class="persona" data-reveal style="transition-delay: 0.24s;">
+          <span class="persona-eyebrow">PERSONA 04</span>
+          <h3 class="heading-lg">De Expert</h3>
+          <p>Spreker, coach, trainer. Je verkoopt autoriteit en thought leadership. Je hebt verhalen genoeg uit sessies en klantwerk. PostPilot zet die om in posts zonder dat je eigen stem verdwijnt.</p>
+        </article>
+      </div>
+
+      <p class="persona-bottom">
+        Eén ding gemeen: jullie hebben expertise, weinig tijd, en willen geen "influencer" worden.
+      </p>
+    </div>
+  </section>
+
+  <!-- ============================================== EXAMPLES -->
+  <section class="section" id="voorbeelden" data-screen-label="05 voorbeelden">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="meta">
+          <span class="eyebrow-mono">VOORBEELDEN</span>
+          <h2 class="display-md">Zo ziet de output eruit.</h2>
+        </div>
+        <p class="body-lg">
+          Geen template-tekst, geen sparkle-AI. Hieronder drie posts gegenereerd uit één of twee zinnen idee — in drie verschillende registers.
+        </p>
+      </div>
+
+      <div class="examples-row">
+        <article class="example" data-reveal>
+          <div class="linkedin-post">
+            <div class="author">
+              <div class="avatar">CD</div>
+              <div class="meta">
+                <div class="n">Christiaan van Dijk</div>
+                <div class="r">Co-founder · 1d · 🌐</div>
+              </div>
+            </div>
+            <div class="body">Vorige week kwam een klant met een chaotisch idee. Niet eens een briefing — meer een onderbuikgevoel.
+
+Drie dagen later stond er een product.
+
+Niet omdat we zo snel zijn. Maar omdat we niet wachten op perfect.
+
+Ideeën die in je hoofd blijven, worden geen producten. Geen posts. Geen klanten.
+
+Begin gewoon. De rest komt vanzelf.</div>
+            <div class="actions">
+              <span class="reacts">👍 ❤️ 💡 <strong>234</strong></span>
+              <span>18 reacties</span>
+              <span>4 reposts</span>
+            </div>
+          </div>
+          <span class="example-label">VOORBEELD · INSPIREREND</span>
+        </article>
+
+        <article class="example" data-reveal style="transition-delay: 0.08s;">
+          <div class="linkedin-post">
+            <div class="author">
+              <div class="avatar">MJ</div>
+              <div class="meta">
+                <div class="n">Maartje Jansen</div>
+                <div class="r">Strategisch adviseur · 3u · 🌐</div>
+              </div>
+            </div>
+            <div class="body">Een advocatenkantoor zei: "Wij hebben geen tijd voor LinkedIn."
+
+Twee maanden later: 14 nieuwe gesprekken via posts.
+
+Wat veranderde? Niet de tijd. De drempel.
+
+Eerst: "Ik moet een post schrijven." (45 minuten, niemand kijkt naar de cursor)
+
+Nu: "Ik had vandaag dit gesprek." (60 seconden, klaar)
+
+Zichtbaarheid komt niet voort uit meer tijd. Uit minder weerstand.</div>
+            <div class="actions">
+              <span class="reacts">👍 ❤️ 💡 <strong>412</strong></span>
+              <span>37 reacties</span>
+              <span>9 reposts</span>
+            </div>
+          </div>
+          <span class="example-label">VOORBEELD · KLANTCASE</span>
+        </article>
+
+        <article class="example" data-reveal style="transition-delay: 0.16s;">
+          <div class="linkedin-post">
+            <div class="author">
+              <div class="avatar">RB</div>
+              <div class="meta">
+                <div class="n">Ruben Bakker</div>
+                <div class="r">Founder · 5u · 🌐</div>
+              </div>
+            </div>
+            <div class="body">Onpopulaire mening: de meeste LinkedIn-tips werken niet.
+
+"Post om 9 uur 's ochtends."
+"Gebruik 5 emoji's."
+"Hashtags zijn dood. Of juist niet."
+
+Tips zonder context zijn ruis. Wat werkt is:
+
+1. Schrijf vanuit wat jij vandaag meemaakte
+2. Eén idee per post, niet drie
+3. Publiceer voordat je 't perfect vindt
+
+De rest is bijgeluid.</div>
+            <div class="actions">
+              <span class="reacts">👍 ❤️ 💡 <strong>587</strong></span>
+              <span>62 reacties</span>
+              <span>21 reposts</span>
+            </div>
+          </div>
+          <span class="example-label">VOORBEELD · OPINIE</span>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================== PRICING -->
+  <section class="section" id="pricing" data-screen-label="06 pricing">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="meta">
+          <span class="eyebrow-mono">PRIJZEN</span>
+          <h2 class="display-md">Eerlijke prijs. Of beter: lifetime.</h2>
+        </div>
+        <p class="body-lg">
+          Drie maandopties — gratis om te kijken, basic om te beginnen, premium om ritme te maken. Of eenmalig €199 als Founder, zolang de eerste honderd plekken er nog zijn.
+        </p>
+      </div>
+
+      <div class="pricing-grid four">
+        <!-- FREE -->
+        <article class="price-card">
+          <div class="price-head">
+            <span class="name">Free</span>
+          </div>
+          <div class="price-amount">
+            <span class="amt">€0</span>
+            <span class="per">/maand</span>
+          </div>
+          <p class="tagline">Om te kijken of de stem past.</p>
+          <ul>
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> 3 posts per maand</li>
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Volledige preview</li>
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Geen scheduling</li>
+          </ul>
+          <div class="price-foot">
+            <a href="#start-free" class="btn btn-ghost">Start gratis</a>
+          </div>
+        </article>
+
+        <!-- BASIC -->
+        <article class="price-card">
+          <div class="price-head">
+            <span class="name">Basic</span>
+          </div>
+          <div class="price-amount">
+            <span class="amt">€2,50</span>
+            <span class="per">/maand</span>
+          </div>
+          <p class="tagline">Om een ritme op te bouwen.</p>
+          <ul>
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> 3 posts per maand</li>
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Volledige features</li>
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Eerste maand gratis</li>
+          </ul>
+          <div class="price-foot">
+            <a href="#start-basic" class="btn btn-outline">Kies Basic</a>
+            <span class="price-risk">1 klik opzeggen · geen lock-in</span>
+          </div>
+        </article>
+
+        <!-- PREMIUM (featured: ink) -->
+        <article class="price-card featured">
+          <div class="price-head">
+            <span class="name saffron">Premium</span>
+            <span class="tag">Aanbevolen</span>
+          </div>
+          <div class="price-amount">
+            <span class="amt">€9,95</span>
+            <span class="per">/maand</span>
+          </div>
+          <p class="tagline">100 posts per maand · alle features.</p>
+          <ul>
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> 100 posts per maand</li>
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> AI-visuals</li>
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Inzichten</li>
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Content-kalender</li>
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Eerste maand gratis</li>
+          </ul>
+          <div class="price-foot">
+            <a href="#start-premium" class="btn btn-primary">Kies Premium</a>
+            <span class="price-risk">1 klik opzeggen · geen lock-in</span>
+          </div>
+        </article>
+
+        <!-- FOUNDER (saffron-tint) -->
+        <article class="price-card founder-tint">
+          <div class="price-head">
+            <span class="name">Founder</span>
+            <span class="tag dark">Max 100</span>
+          </div>
+          <div class="price-amount">
+            <span class="amt">€199</span>
+            <span class="per">eenmalig</span>
+          </div>
+          <p class="tagline">Lifetime Premium voor de eerste 100 die instappen.</p>
+          <p class="price-anchor">≈ 20 maanden Premium ineens. Daarna voor altijd.</p>
+          <ul>
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Alles uit Premium</li>
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Lifetime — geen abonnement</li>
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Roadmap-input</li>
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Direct contact</li>
+          </ul>
+          <div class="price-foot">
+            <a href="#founder" class="btn btn-ink">Word Founder</a>
+          </div>
+        </article>
+      </div>
+
+      <div class="pricing-foot">
+        <p class="pricing-mono">JAARBETALING: 15% KORTING · ALLE ABONNEMENTEN: EERSTE MAAND GRATIS</p>
+        <a href="#pricing-page" class="pricing-link">Bekijk alle details op de prijzenpagina &rarr;</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================== FOUNDER DEAL BLOCK -->
+  <section class="founder-block" id="founder" data-screen-label="07 founder deal">
+    <div class="wrap">
+      <div class="founder-inner">
+        <div class="founder-text">
+          <span class="eyebrow-saffron on-dark">FOUNDER DEAL · MAX 100 STUKS</span>
+          <h2 class="display-md on-dark">Word één van de eerste honderd.</h2>
+          <p class="body-lg on-dark-soft">
+            €199 eenmalig. Lifetime Premium-toegang. Embedded in de product-roadmap — jij bepaalt mee waar PostPilot heen gaat.
+          </p>
+          <div class="founder-ctas">
+            <a href="#claim" class="btn btn-primary btn-lg">
+              Claim je Founder-plek
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </a>
+          </div>
+          <p class="founder-after">NA PLEK 100: ALLEEN VIA €9,95 PER MAAND.</p>
+        </div>
+        <div class="founder-counter">
+          <div class="counter-num">
+            <span class="big">33</span>
+            <span class="small">/ 100</span>
+          </div>
+          <div class="counter-bar"><i></i></div>
+          <div class="counter-label">PLEKKEN BESCHIKBAAR</div>
+          <div class="counter-meta">67 vergeven · 33 over</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================== FAQ -->
+  <section class="section" id="faq" data-screen-label="08 faq">
+    <div class="wrap">
+      <div class="faq-wrap">
+        <div class="section-head center">
+          <span class="eyebrow-mono">FAQ</span>
+          <h2 class="display-md">Wat we meestal te horen krijgen.</h2>
+        </div>
+
+        <div class="faq-grid">
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="true">
+              <span>Werkt PostPilot ook als ik geen content-ervaring heb?</span>
+              <svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="faq-a"><div>
+              Ja. Daarvoor is 't gebouwd. Je geeft korte context — een idee, een ervaring, een onderwerp. PostPilot maakt er een complete post van. Je hoeft niets te weten van LinkedIn-algoritmes of post-structuren.
+            </div></div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">
+              <span>Klinkt het straks als generieke AI?</span>
+              <svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="faq-a"><div>
+              Nee, mits je 'm de eerste keer goed instelt. PostPilot leert van jouw eigen schrijfstijl. Je kiest een tone-of-voice preset of upload een paar van je eerdere posts — daarna schrijft 't in jouw stem, niet in een generieke AI-stem.
+            </div></div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">
+              <span>Publiceert PostPilot automatisch?</span>
+              <svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="faq-a"><div>
+              Alleen als jij dat wil. Standaard maakt PostPilot concepten die jij goedkeurt. Je kunt direct publiceren, inplannen voor later, of als concept opslaan. Jij blijft eindredacteur.
+            </div></div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">
+              <span>Hoe veilig is de LinkedIn-koppeling?</span>
+              <svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="faq-a"><div>
+              We gebruiken alleen de officiële LinkedIn OAuth — dezelfde technologie als waarmee je inlogt bij andere LinkedIn-apps. Geen wachtwoord-deling, geen scraping. Je kunt de koppeling op elk moment verbreken.
+            </div></div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">
+              <span>Wat als ik PostPilot wil opzeggen?</span>
+              <svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="faq-a"><div>
+              Eén klik, geen vragen. Je behoudt al je concepten en gepubliceerde posts. Geen lock-in.
+            </div></div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">
+              <span>Kan ik posts plannen voor andere platforms?</span>
+              <svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="faq-a"><div>
+              Op dit moment: alleen LinkedIn. X (Twitter) komt in 2027 erbij. Geen Instagram of TikTok — die werken met beeld als hoofdcontent, dat is een ander product.
+            </div></div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">
+              <span>Wat krijg ik bij de Founder Deal?</span>
+              <svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="faq-a"><div>
+              €199 eenmalig voor lifetime Premium-toegang. 100 posts per maand, alle premium-features (AI-visuals, inzichten, content-kalender). Beperkte oplage van 100. Direct toegang tot ons.
+            </div></div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">
+              <span>Wanneer is de eerste maand "gratis" precies afgelopen?</span>
+              <svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="faq-a"><div>
+              Bij elk maand-abonnement (Basic of Premium) is de eerste maand kosteloos. Je card wordt direct gekoppeld maar pas na 30 dagen voor het eerst geïncasseerd. Wil je tussentijds opzeggen? Dat kan, één klik.
+            </div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================== FINAL CTA -->
+  <section class="final-cta-block" id="start" data-screen-label="09 final cta">
+    <div class="wrap">
+      <div class="final-inner">
+        <h2 class="display-md">Je expertise verdient meer dan een lege cursor.</h2>
+        <a href="#start-free" class="btn btn-primary btn-lg">
+          Probeer gratis
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+        </a>
+        <div class="trust-line">
+          GEEN CREDIT CARD · EERSTE MAAND GRATIS · 1 KLIK OPZEGGEN
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================== FOOTER -->
+  <footer data-screen-label="10 footer">
+    <div class="wrap">
+      <div class="foot">
+        <div class="col brand-col">
+          <div class="name">
+            <svg width="22" height="22" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <rect width="40" height="40" rx="5" fill="#E8A640"></rect>
+              <rect x="10" y="8" width="22" height="13" fill="#0E1014"></rect>
+              <rect x="10" y="21" width="7" height="11" fill="#0E1014"></rect>
+              <rect x="14" y="11" width="14" height="6" fill="#E8A640"></rect>
+            </svg>
+            PostPilot
+          </div>
+          <p>Jouw LinkedIn copilot. Voor professionals die zichtbaar willen zijn zonder content creator te worden.</p>
+          <div class="social">
+            <a href="#linkedin" aria-label="LinkedIn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+            </a>
+            <a href="#x" aria-label="X">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4l16 16"/><path d="M20 4 4 20"/></svg>
+            </a>
+          </div>
+        </div>
+        <div class="col">
+          <h5>Product</h5>
+          <ul>
+            <li><a href="#features">Features</a></li>
+            <li><a href="#pricing">Prijzen</a></li>
+            <li><a href="#roadmap">Roadmap</a></li>
+            <li><a href="#changelog">Wijzigingen</a></li>
+          </ul>
+        </div>
+        <div class="col">
+          <h5>Bedrijf</h5>
+          <ul>
+            <li><a href="#over">Over</a></li>
+            <li><a href="#toms-ambitie">Toms Ambitie</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+        <div class="col">
+          <h5>Resources</h5>
+          <ul>
+            <li><a href="#faq">FAQ</a></li>
+            <li><a href="#help">Help</a></li>
+            <li><a href="#status">Status</a></li>
+          </ul>
+        </div>
+        <div class="col">
+          <h5>Juridisch</h5>
+          <ul>
+            <li><a href="#privacy">Privacy</a></li>
+            <li><a href="#av">Algemene voorwaarden</a></li>
+            <li><a href="#cookies">Cookies</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="foot-bottom">
+        <span>© 2026 POSTPILOT · ONDERDEEL VAN TOMS AMBITIE · ZWOLLE, NL</span>
+        <span>POSTPILOTAPP.NL</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
