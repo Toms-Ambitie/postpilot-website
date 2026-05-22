@@ -1147,3 +1147,120 @@ footer {
   .foot { grid-template-columns: 1fr 1fr; }
   .problem-block { grid-template-columns: 3px 1fr; gap: 20px; }
 }
+
+/* ==========================================================================
+   Pricing page (prijzen.html)
+   ========================================================================== */
+
+.page-header {
+  text-align: center;
+  padding: clamp(56px, 8vw, 104px) 0 clamp(32px, 4vw, 48px);
+}
+.page-header .eyebrow-saffron { margin-bottom: 18px; }
+.page-header h1 { margin: 0 auto 20px; max-width: 18ch; }
+.page-header .body-lg { max-width: 56ch; margin: 0 auto; }
+
+/* Billing toggle */
+.billing-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  margin: 28px auto 0;
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--t-3);
+}
+.billing-toggle .opt { transition: color 0.15s ease; }
+.billing-toggle .opt.is-active { color: var(--t-1); }
+.billing-toggle .save {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  color: var(--signal-press);
+  background: var(--signal-tint);
+  border: 1px solid rgba(232,166,64,0.45);
+  border-radius: 4px;
+  padding: 3px 7px;
+  margin-left: 2px;
+}
+.switch {
+  position: relative;
+  width: 46px;
+  height: 26px;
+  flex-shrink: 0;
+}
+.switch input { position: absolute; opacity: 0; width: 100%; height: 100%; margin: 0; cursor: pointer; }
+.switch .track {
+  position: absolute; inset: 0;
+  background: var(--mute-light);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  transition: background 0.18s ease;
+}
+.switch .track::after {
+  content: "";
+  position: absolute;
+  top: 3px; left: 3px;
+  width: 18px; height: 18px;
+  border-radius: 50%;
+  background: var(--paper-pure);
+  box-shadow: 0 1px 2px rgba(14,16,20,0.25);
+  transition: transform 0.18s ease;
+}
+.switch input:checked + .track { background: var(--ink); border-color: var(--ink); }
+.switch input:checked + .track::after { transform: translateX(20px); }
+.switch input:focus-visible + .track { box-shadow: 0 0 0 3px rgba(232,166,64,0.4); }
+
+.price-amount .per .ann-note { display: block; font-size: 11px; color: var(--t-4); margin-top: 2px; }
+.price-card.featured .price-amount .per .ann-note { color: rgba(247,244,237,0.45); }
+
+/* Comparison table */
+.compare-section { padding-top: clamp(32px, 5vw, 64px); }
+.compare-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+.compare {
+  width: 100%;
+  min-width: 720px;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+.compare th, .compare td {
+  padding: 16px 18px;
+  text-align: center;
+  border-bottom: 1px solid var(--line);
+  vertical-align: middle;
+}
+.compare thead th { border-bottom: 1px solid var(--line-strong); }
+.compare th:first-child, .compare td:first-child {
+  text-align: left;
+  color: var(--t-1);
+  font-weight: 500;
+  width: 34%;
+}
+.compare thead th:first-child {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--t-3);
+  font-weight: 500;
+}
+.compare .tier-name {
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--t-2);
+  display: block;
+}
+.compare .tier-name.saffron { color: var(--signal-press); }
+.compare .tier-price { font-size: 13px; color: var(--t-3); display: block; margin-top: 4px; }
+.compare td .yes { color: var(--ink); }
+.compare td .no { color: var(--t-4); }
+.compare td .val { color: var(--t-1); font-variant-numeric: tabular-nums; }
+.compare tbody tr:hover { background: var(--paper-pure); }
+
+@media (max-width: 680px) {
+  .billing-toggle { flex-wrap: wrap; justify-content: center; gap: 10px; }
+}

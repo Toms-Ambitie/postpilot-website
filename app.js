@@ -70,6 +70,27 @@
     });
   });
 
+  // ---------------- Billing toggle (pricing page) ----------------
+  const billingSwitch = document.getElementById('billingSwitch');
+  const billingToggle = document.getElementById('billingToggle');
+  if (billingSwitch && billingToggle) {
+    const opts = billingToggle.querySelectorAll('.opt');
+    const apply = (annual) => {
+      // amount + suffix swap
+      document.querySelectorAll('.price-amount .amt[data-m]').forEach((el) => {
+        el.textContent = annual ? el.dataset.a : el.dataset.m;
+      });
+      document.querySelectorAll('.price-amount .per[data-m]').forEach((el) => {
+        const note = el.querySelector('.ann-note');
+        el.childNodes[0].nodeValue = annual ? el.dataset.a : el.dataset.m;
+        if (note) note.textContent = annual ? (note.dataset.a || '') : '';
+      });
+      opts.forEach((o) => o.classList.toggle('is-active', (o.dataset.bill === 'annual') === annual));
+    };
+    billingSwitch.addEventListener('change', () => apply(billingSwitch.checked));
+    apply(billingSwitch.checked);
+  }
+
   // ---------------- Mobile nav (lightweight: expand inline) ----------------
   const mobileToggle = document.getElementById('mobileToggle');
   const navLinks = document.querySelector('.nav-links');

@@ -1,0 +1,477 @@
+<!doctype html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Prijzen — PostPilot</title>
+  <meta name="description" content="Alle PostPilot-abonnementen op een rij: Free, Basic, Premium en de Founder Deal. Eerlijke prijs, eerste maand gratis, één klik opzeggen.">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- ============================================== ANNOUNCEMENT BAR -->
+  <div class="founder-strip" data-screen-label="founder-bar">
+    <span class="dot" aria-hidden="true"></span>
+    <span><span class="hide-sm">Founder Deal — </span>€199 lifetime, max 100 stuks.</span>
+    <span class="hide-sm" style="opacity:.55;">·</span>
+    <span class="hide-sm">33 plekken nog beschikbaar.</span>
+    <a href="#founder">Bekijk &rarr;</a>
+  </div>
+
+  <!-- ============================================== NAV -->
+  <div class="nav-wrap" id="nav">
+    <div class="wrap">
+      <nav class="nav" aria-label="Hoofdnavigatie">
+        <div class="nav-left">
+          <a href="index.html" class="nav-logo" aria-label="PostPilot home">
+            <svg class="mark" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <rect width="40" height="40" rx="5" fill="#E8A640"></rect>
+              <rect x="10" y="8" width="22" height="13" fill="#0E1014"></rect>
+              <rect x="10" y="21" width="7" height="11" fill="#0E1014"></rect>
+              <rect x="14" y="11" width="14" height="6" fill="#E8A640"></rect>
+            </svg>
+            <span class="name">PostPilot</span>
+          </a>
+          <div class="nav-links">
+            <a href="index.html#hoe">Hoe het werkt</a>
+            <a href="index.html#voor-wie">Voor wie</a>
+            <a href="index.html#voorbeelden">Voorbeelden</a>
+            <a href="prijzen.html">Prijzen</a>
+            <a href="index.html#faq">FAQ</a>
+          </div>
+        </div>
+        <div class="nav-right">
+          <a href="#login" class="btn btn-link btn-sm">Inloggen</a>
+          <a href="#start" class="btn btn-primary btn-sm">
+            Probeer gratis
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+          </a>
+          <button class="nav-mobile-toggle" aria-label="Menu" id="mobileToggle">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg>
+          </button>
+        </div>
+      </nav>
+    </div>
+  </div>
+
+  <!-- ============================================== PAGE HEADER -->
+  <header class="page-header">
+    <div class="wrap">
+      <div class="eyebrow-saffron">PRIJZEN</div>
+      <h1 class="display-xl">Eerlijke prijs. Of beter: lifetime.</h1>
+      <p class="body-lg">
+        Begin gratis, bouw een ritme op met Basic, maak tempo met Premium — of stap eenmalig in als Founder zolang de eerste honderd plekken er nog zijn. Geen creditcard nodig, eerste maand gratis, één klik opzeggen.
+      </p>
+      <div class="billing-toggle" id="billingToggle">
+        <span class="opt is-active" data-bill="monthly">Maandelijks</span>
+        <label class="switch">
+          <input type="checkbox" id="billingSwitch" aria-label="Wissel tussen maand- en jaarbetaling">
+          <span class="track" aria-hidden="true"></span>
+        </label>
+        <span class="opt" data-bill="annual">Jaarlijks <span class="save">−15%</span></span>
+      </div>
+    </div>
+  </header>
+
+  <!-- ============================================== PRICING CARDS -->
+  <section class="section" id="pricing" style="padding-top: clamp(8px,2vw,24px);">
+    <div class="wrap">
+      <div class="pricing-grid four">
+        <!-- FREE -->
+        <article class="price-card">
+          <div class="price-head">
+            <span class="name">Free</span>
+          </div>
+          <div class="price-amount">
+            <span class="amt">€0</span>
+            <span class="per">/maand</span>
+          </div>
+          <p class="tagline">Om te kijken of de stem past.</p>
+          <ul>
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> 3 posts per maand</li>
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Volledige preview</li>
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Eigen tone-of-voice</li>
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Geen scheduling</li>
+          </ul>
+          <div class="price-foot">
+            <a href="#start-free" class="btn btn-ghost">Start gratis</a>
+          </div>
+        </article>
+
+        <!-- BASIC -->
+        <article class="price-card">
+          <div class="price-head">
+            <span class="name">Basic</span>
+          </div>
+          <div class="price-amount">
+            <span class="amt" data-m="€2,50" data-a="€2,13">€2,50</span>
+            <span class="per" data-m="/maand" data-a="/maand">/maand<span class="ann-note" data-a="bij jaarbetaling (€25,50/jaar)"></span></span>
+          </div>
+          <p class="tagline">Om een ritme op te bouwen.</p>
+          <ul>
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> 3 posts per maand</li>
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Inplannen &amp; concepten</li>
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> LinkedIn-koppeling</li>
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Eerste maand gratis</li>
+          </ul>
+          <div class="price-foot">
+            <a href="#start-basic" class="btn btn-outline">Kies Basic</a>
+            <span class="price-risk">1 klik opzeggen · geen lock-in</span>
+          </div>
+        </article>
+
+        <!-- PREMIUM (featured: ink) -->
+        <article class="price-card featured">
+          <div class="price-head">
+            <span class="name saffron">Premium</span>
+            <span class="tag">Aanbevolen</span>
+          </div>
+          <div class="price-amount">
+            <span class="amt" data-m="€9,95" data-a="€8,46">€9,95</span>
+            <span class="per" data-m="/maand" data-a="/maand">/maand<span class="ann-note" data-a="bij jaarbetaling (€101,49/jaar)"></span></span>
+          </div>
+          <p class="tagline">100 posts per maand · alle features.</p>
+          <ul>
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> 100 posts per maand</li>
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> AI-visuals</li>
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Inzichten</li>
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Content-kalender</li>
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Eerste maand gratis</li>
+          </ul>
+          <div class="price-foot">
+            <a href="#start-premium" class="btn btn-primary">Kies Premium</a>
+            <span class="price-risk">1 klik opzeggen · geen lock-in</span>
+          </div>
+        </article>
+
+        <!-- FOUNDER (saffron-tint) -->
+        <article class="price-card founder-tint">
+          <div class="price-head">
+            <span class="name">Founder</span>
+            <span class="tag dark">Max 100</span>
+          </div>
+          <div class="price-amount">
+            <span class="amt">€199</span>
+            <span class="per">eenmalig</span>
+          </div>
+          <p class="tagline">Lifetime Premium voor de eerste 100 die instappen.</p>
+          <p class="price-anchor">≈ 20 maanden Premium ineens. Daarna voor altijd.</p>
+          <ul>
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Alles uit Premium</li>
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Lifetime — geen abonnement</li>
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Roadmap-input</li>
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Direct contact</li>
+          </ul>
+          <div class="price-foot">
+            <a href="#founder" class="btn btn-ink">Word Founder</a>
+          </div>
+        </article>
+      </div>
+
+      <div class="pricing-foot">
+        <p class="pricing-mono">ALLE PRIJZEN INCL. BTW · JAARBETALING: 15% KORTING · EERSTE MAAND GRATIS</p>
+        <a href="index.html#voorbeelden" class="pricing-link">Bekijk eerst voorbeelden van de output &rarr;</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================== COMPARISON TABLE -->
+  <section class="section compare-section" style="padding-top: 0;">
+    <div class="wrap">
+      <div class="section-head center">
+        <span class="eyebrow-mono">VERGELIJKEN</span>
+        <h2 class="display-md">Alles op een rij.</h2>
+      </div>
+      <div class="compare-wrap">
+        <table class="compare">
+          <colgroup>
+            <col><col><col><col class="is-featured"><col>
+          </colgroup>
+          <thead>
+            <tr>
+              <th scope="col">Feature</th>
+              <th scope="col"><span class="tier-name">Free</span><span class="tier-price">€0</span></th>
+              <th scope="col"><span class="tier-name">Basic</span><span class="tier-price">€2,50/mnd</span></th>
+              <th scope="col"><span class="tier-name saffron">Premium</span><span class="tier-price">€9,95/mnd</span></th>
+              <th scope="col"><span class="tier-name">Founder</span><span class="tier-price">€199 eenmalig</span></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Posts per maand</td>
+              <td><span class="val">3</span></td>
+              <td><span class="val">3</span></td>
+              <td><span class="val">100</span></td>
+              <td><span class="val">100</span></td>
+            </tr>
+            <tr>
+              <td>Eigen tone-of-voice</td>
+              <td><span class="yes">Ja</span></td>
+              <td><span class="yes">Ja</span></td>
+              <td><span class="yes">Ja</span></td>
+              <td><span class="yes">Ja</span></td>
+            </tr>
+            <tr>
+              <td>Volledige post-preview</td>
+              <td><span class="yes">Ja</span></td>
+              <td><span class="yes">Ja</span></td>
+              <td><span class="yes">Ja</span></td>
+              <td><span class="yes">Ja</span></td>
+            </tr>
+            <tr>
+              <td>Inplannen &amp; concepten</td>
+              <td><span class="no">—</span></td>
+              <td><span class="yes">Ja</span></td>
+              <td><span class="yes">Ja</span></td>
+              <td><span class="yes">Ja</span></td>
+            </tr>
+            <tr>
+              <td>LinkedIn-koppeling (OAuth)</td>
+              <td><span class="no">—</span></td>
+              <td><span class="yes">Ja</span></td>
+              <td><span class="yes">Ja</span></td>
+              <td><span class="yes">Ja</span></td>
+            </tr>
+            <tr>
+              <td>AI-visuals</td>
+              <td><span class="no">—</span></td>
+              <td><span class="no">—</span></td>
+              <td><span class="yes">Ja</span></td>
+              <td><span class="yes">Ja</span></td>
+            </tr>
+            <tr>
+              <td>Inzichten</td>
+              <td><span class="no">—</span></td>
+              <td><span class="no">—</span></td>
+              <td><span class="yes">Ja</span></td>
+              <td><span class="yes">Ja</span></td>
+            </tr>
+            <tr>
+              <td>Content-kalender</td>
+              <td><span class="no">—</span></td>
+              <td><span class="no">—</span></td>
+              <td><span class="yes">Ja</span></td>
+              <td><span class="yes">Ja</span></td>
+            </tr>
+            <tr>
+              <td>Eerste maand gratis</td>
+              <td><span class="no">n.v.t.</span></td>
+              <td><span class="yes">Ja</span></td>
+              <td><span class="yes">Ja</span></td>
+              <td><span class="no">n.v.t.</span></td>
+            </tr>
+            <tr>
+              <td>Lifetime — geen abonnement</td>
+              <td><span class="no">—</span></td>
+              <td><span class="no">—</span></td>
+              <td><span class="no">—</span></td>
+              <td><span class="yes">Ja</span></td>
+            </tr>
+            <tr>
+              <td>Roadmap-input &amp; direct contact</td>
+              <td><span class="no">—</span></td>
+              <td><span class="no">—</span></td>
+              <td><span class="no">—</span></td>
+              <td><span class="yes">Ja</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================== FOUNDER DEAL BLOCK -->
+  <section class="founder-block" id="founder" data-screen-label="founder deal">
+    <div class="wrap">
+      <div class="founder-inner">
+        <div class="founder-text">
+          <span class="eyebrow-saffron on-dark">FOUNDER DEAL · MAX 100 STUKS</span>
+          <h2 class="display-md on-dark">Word één van de eerste honderd.</h2>
+          <p class="body-lg on-dark-soft">
+            €199 eenmalig. Lifetime Premium-toegang. Embedded in de product-roadmap — jij bepaalt mee waar PostPilot heen gaat.
+          </p>
+          <div class="founder-ctas">
+            <a href="#claim" class="btn btn-primary btn-lg">
+              Claim je Founder-plek
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </a>
+          </div>
+          <p class="founder-after">NA PLEK 100: ALLEEN VIA €9,95 PER MAAND.</p>
+        </div>
+        <div class="founder-counter">
+          <div class="counter-num">
+            <span class="big">33</span>
+            <span class="small">/ 100</span>
+          </div>
+          <div class="counter-bar"><i></i></div>
+          <div class="counter-label">PLEKKEN BESCHIKBAAR</div>
+          <div class="counter-meta">67 vergeven · 33 over</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================== PRICING FAQ -->
+  <section class="section" id="faq" data-screen-label="prijs-faq">
+    <div class="wrap">
+      <div class="faq-wrap">
+        <div class="section-head center">
+          <span class="eyebrow-mono">PRIJS-FAQ</span>
+          <h2 class="display-md">Vragen over de prijs.</h2>
+        </div>
+
+        <div class="faq-grid">
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="true">
+              <span>Wat houdt de eerste maand gratis precies in?</span>
+              <svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="faq-a"><div>
+              Bij elk maand-abonnement (Basic of Premium) is de eerste maand kosteloos. Je card wordt direct gekoppeld maar pas na 30 dagen voor het eerst geïncasseerd. Wil je tussentijds opzeggen? Dat kan, één klik.
+            </div></div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">
+              <span>Hoeveel scheelt jaarbetaling?</span>
+              <svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="faq-a"><div>
+              Bij jaarbetaling krijg je 15% korting op het maandtarief. Premium komt dan neer op €8,46 per maand (€101,49 per jaar), Basic op €2,13 per maand. Je kunt altijd terug naar maandbetaling bij verlenging.
+            </div></div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">
+              <span>Wat is het verschil tussen Basic en Premium?</span>
+              <svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="faq-a"><div>
+              Basic is voor wie rustig een ritme opbouwt: 3 posts per maand, inplannen en de LinkedIn-koppeling. Premium is voor wie tempo maakt: 100 posts per maand plus AI-visuals, inzichten en de content-kalender.
+            </div></div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">
+              <span>Is de Founder Deal echt eenmalig?</span>
+              <svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="faq-a"><div>
+              Ja. €199 eenmalig geeft je lifetime Premium-toegang — geen abonnement, geen verlenging. Beperkt tot de eerste 100 mensen. Na plek 100 is Premium alleen nog beschikbaar via €9,95 per maand.
+            </div></div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">
+              <span>Kan ik tussen abonnementen wisselen?</span>
+              <svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="faq-a"><div>
+              Altijd. Up- of downgraden kan op elk moment vanuit je account. Bij een upgrade reken je alleen het verschil bij; bij een downgrade gaat het nieuwe tarief in bij de volgende periode. Geen lock-in.
+            </div></div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">
+              <span>Hoe zeg ik op?</span>
+              <svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="faq-a"><div>
+              Eén klik vanuit je account, geen vragen. Je behoudt al je concepten en gepubliceerde posts. Geen opzegtermijn, geen lock-in.
+            </div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================== FINAL CTA -->
+  <section class="final-cta-block" id="start" data-screen-label="final cta">
+    <div class="wrap">
+      <div class="final-inner">
+        <h2 class="display-md">Je expertise verdient meer dan een lege cursor.</h2>
+        <a href="#start-free" class="btn btn-primary btn-lg">
+          Probeer gratis
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+        </a>
+        <div class="trust-line">
+          GEEN CREDIT CARD · EERSTE MAAND GRATIS · 1 KLIK OPZEGGEN
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================== FOOTER -->
+  <footer data-screen-label="footer">
+    <div class="wrap">
+      <div class="foot">
+        <div class="col brand-col">
+          <div class="name">
+            <svg width="22" height="22" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <rect width="40" height="40" rx="5" fill="#E8A640"></rect>
+              <rect x="10" y="8" width="22" height="13" fill="#0E1014"></rect>
+              <rect x="10" y="21" width="7" height="11" fill="#0E1014"></rect>
+              <rect x="14" y="11" width="14" height="6" fill="#E8A640"></rect>
+            </svg>
+            PostPilot
+          </div>
+          <p>Jouw LinkedIn copilot. Voor professionals die zichtbaar willen zijn zonder content creator te worden.</p>
+          <div class="social">
+            <a href="#linkedin" aria-label="LinkedIn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+            </a>
+            <a href="#x" aria-label="X">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4l16 16"/><path d="M20 4 4 20"/></svg>
+            </a>
+          </div>
+        </div>
+        <div class="col">
+          <h5>Product</h5>
+          <ul>
+            <li><a href="index.html#hoe">Features</a></li>
+            <li><a href="prijzen.html">Prijzen</a></li>
+            <li><a href="#roadmap">Roadmap</a></li>
+            <li><a href="#changelog">Wijzigingen</a></li>
+          </ul>
+        </div>
+        <div class="col">
+          <h5>Bedrijf</h5>
+          <ul>
+            <li><a href="#over">Over</a></li>
+            <li><a href="#toms-ambitie">Toms Ambitie</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+        <div class="col">
+          <h5>Resources</h5>
+          <ul>
+            <li><a href="index.html#faq">FAQ</a></li>
+            <li><a href="#help">Help</a></li>
+            <li><a href="#status">Status</a></li>
+          </ul>
+        </div>
+        <div class="col">
+          <h5>Juridisch</h5>
+          <ul>
+            <li><a href="#privacy">Privacy</a></li>
+            <li><a href="#av">Algemene voorwaarden</a></li>
+            <li><a href="#cookies">Cookies</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="foot-bottom">
+        <span>© 2026 POSTPILOT · ONDERDEEL VAN TOMS AMBITIE · ZWOLLE, NL</span>
+        <span>POSTPILOTAPP.NL</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
