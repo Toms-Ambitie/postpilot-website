@@ -21,6 +21,7 @@
   --signal-hover: #D49230;
   --signal-press: #B87A24;
   --signal-tint: #FDF4E2;
+  --signal-text: #8A5A16; /* a11y: saffraan-tekst op licht, >=4.5:1 contrast */
 
   /* Functional */
   --success: #16A34A;
@@ -124,7 +125,7 @@ img, svg { display: block; max-width: 100%; }
   line-height: 1;
   letter-spacing: 0.15em;
   text-transform: uppercase;
-  color: var(--signal-press);
+  color: var(--signal-text);
   margin-bottom: 16px;
   display: inline-block;
 }
@@ -402,7 +403,7 @@ img, svg { display: block; max-width: 100%; }
   font-size: 10px;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: var(--signal-press);
+  color: var(--signal-text);
 }
 .preview-card .stage { padding: 20px 22px 22px; }
 
@@ -539,7 +540,7 @@ img, svg { display: block; max-width: 100%; }
   max-width: 720px;
   text-wrap: balance;
 }
-.pull-quote .accent { color: var(--signal-press); }
+.pull-quote .accent { color: var(--signal-text); }
 
 /* ==========================================================================
    How it works
@@ -573,7 +574,7 @@ img, svg { display: block; max-width: 100%; }
   font-weight: 500;
   letter-spacing: 0.15em;
   text-transform: uppercase;
-  color: var(--signal-press);
+  color: var(--signal-text);
 }
 .how-card h3 { margin: 0; }
 .how-card p {
@@ -806,7 +807,7 @@ img, svg { display: block; max-width: 100%; }
   font-family: var(--mono);
   font-size: 11px;
   letter-spacing: 0.06em;
-  color: var(--signal-press);
+  color: var(--signal-text);
   margin: -8px 0 0;
 }
 .price-card .price-risk {
@@ -819,7 +820,7 @@ img, svg { display: block; max-width: 100%; }
   margin-top: 10px;
   text-align: center;
 }
-.price-card.featured .price-risk { color: rgba(247,244,237,0.45); }
+.price-card.featured .price-risk { color: rgba(247,244,237,0.62); }
 .price-card ul {
   list-style: none; padding: 0; margin: 0;
   display: flex; flex-direction: column; gap: 10px;
@@ -856,7 +857,7 @@ img, svg { display: block; max-width: 100%; }
   background: var(--signal-tint);
   border-color: rgba(232,166,64,0.45);
 }
-.price-card.founder-tint .price-head .name { color: var(--signal-press); }
+.price-card.founder-tint .price-head .name { color: var(--signal-text); }
 
 .pricing-foot {
   margin-top: 32px;
@@ -880,7 +881,7 @@ img, svg { display: block; max-width: 100%; }
   border-bottom: 1px solid var(--line-strong);
   padding-bottom: 1px;
 }
-.pricing-link:hover { color: var(--signal-press); border-bottom-color: var(--signal-press); }
+.pricing-link:hover { color: var(--signal-text); border-bottom-color: var(--signal-text); }
 
 /* ==========================================================================
    Founder Deal block
@@ -908,7 +909,7 @@ img, svg { display: block; max-width: 100%; }
   font-size: 11px;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: rgba(247,244,237,0.5);
+  color: rgba(247,244,237,0.62);
   margin: 16px 0 0;
 }
 
@@ -963,7 +964,7 @@ img, svg { display: block; max-width: 100%; }
   font-family: var(--mono);
   font-size: 11px;
   letter-spacing: 0.06em;
-  color: rgba(247,244,237,0.5);
+  color: rgba(247,244,237,0.62);
 }
 
 /* ==========================================================================
@@ -1048,7 +1049,7 @@ footer {
   font-size: 11px;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: rgba(247,244,237,0.4);
+  color: rgba(247,244,237,0.62);
   margin: 0 0 16px;
   font-weight: 500;
 }
@@ -1079,7 +1080,7 @@ footer {
   font-family: var(--mono);
   font-size: 11px;
   letter-spacing: 0.1em;
-  color: rgba(247,244,237,0.45);
+  color: rgba(247,244,237,0.62);
 }
 
 /* ==========================================================================
@@ -1178,7 +1179,7 @@ footer {
   font-family: var(--mono);
   font-size: 10px;
   letter-spacing: 0.1em;
-  color: var(--signal-press);
+  color: var(--signal-text);
   background: var(--signal-tint);
   border: 1px solid rgba(232,166,64,0.45);
   border-radius: 4px;
@@ -1213,8 +1214,8 @@ footer {
 .switch input:checked + .track::after { transform: translateX(20px); }
 .switch input:focus-visible + .track { box-shadow: 0 0 0 3px rgba(232,166,64,0.4); }
 
-.price-amount .per .ann-note { display: block; font-size: 11px; color: var(--t-4); margin-top: 2px; }
-.price-card.featured .price-amount .per .ann-note { color: rgba(247,244,237,0.45); }
+.price-amount .per .ann-note { display: block; font-size: 11px; color: var(--t-3); margin-top: 2px; }
+.price-card.featured .price-amount .per .ann-note { color: rgba(247,244,237,0.62); }
 
 /* Comparison table */
 .compare-section { padding-top: clamp(32px, 5vw, 64px); }
@@ -1254,10 +1255,10 @@ footer {
   color: var(--t-2);
   display: block;
 }
-.compare .tier-name.saffron { color: var(--signal-press); }
+.compare .tier-name.saffron { color: var(--signal-text); }
 .compare .tier-price { font-size: 13px; color: var(--t-3); display: block; margin-top: 4px; }
 .compare td .yes { color: var(--ink); }
-.compare td .no { color: var(--t-4); }
+.compare td .no { color: var(--t-3); }
 .compare td .val { color: var(--t-1); font-variant-numeric: tabular-nums; }
 .compare tbody tr:hover { background: var(--paper-pure); }
 
@@ -1312,7 +1313,7 @@ footer {
   content: counter(toc, decimal-leading-zero) " · ";
   font-family: var(--mono);
   font-size: 12px;
-  color: var(--signal-press);
+  color: var(--signal-text);
 }
 .legal-toc li a:hover { color: var(--t-1); }
 
@@ -1332,7 +1333,7 @@ footer {
   font-family: var(--mono);
   font-size: 14px;
   font-weight: 500;
-  color: var(--signal-press);
+  color: var(--signal-text);
   margin-right: 10px;
 }
 .legal-body h3 { font-weight: 600; font-size: 17px; color: var(--t-1); margin: 28px 0 8px; }
@@ -1340,7 +1341,7 @@ footer {
 .legal-body ul { margin: 0 0 18px; padding-left: 22px; }
 .legal-body li { margin-bottom: 8px; }
 .legal-body a { color: var(--t-1); border-bottom: 1px solid var(--line-strong); padding-bottom: 1px; }
-.legal-body a:hover { color: var(--signal-press); border-bottom-color: var(--signal-press); }
+.legal-body a:hover { color: var(--signal-text); border-bottom-color: var(--signal-text); }
 .legal-body strong { color: var(--t-1); font-weight: 600; }
 .legal-body .ph {
   background: var(--mute-light);
@@ -1406,7 +1407,7 @@ footer {
   background: var(--signal-tint);
   border: 1px solid rgba(232,166,64,0.45);
   display: inline-flex; align-items: center; justify-content: center;
-  color: var(--signal-press);
+  color: var(--signal-text);
   margin-bottom: 6px;
 }
 .contact-card h3 { margin: 0; font-size: 17px; font-weight: 600; color: var(--t-1); }
@@ -1416,7 +1417,7 @@ footer {
   border-bottom: 1px solid var(--line-strong); padding-bottom: 1px;
   align-self: flex-start; margin-top: 2px;
 }
-.contact-card a.link:hover { color: var(--signal-press); border-bottom-color: var(--signal-press); }
+.contact-card a.link:hover { color: var(--signal-text); border-bottom-color: var(--signal-text); }
 
 .contact-meta {
   margin-top: 24px;
@@ -1481,7 +1482,7 @@ footer {
   font-size: 11px;
   letter-spacing: 0.15em;
   text-transform: uppercase;
-  color: var(--signal-press);
+  color: var(--signal-text);
   margin-bottom: 12px;
 }
 .wl-modal h3 {
@@ -1538,7 +1539,7 @@ footer {
   background: var(--signal-tint);
   border: 1px solid rgba(232,166,64,0.5);
   display: flex; align-items: center; justify-content: center;
-  color: var(--signal-press);
+  color: var(--signal-text);
 }
 .wl-success h3 { margin-bottom: 8px; }
 .wl-spin {
@@ -1549,3 +1550,48 @@ footer {
   animation: wlspin 0.7s linear infinite;
 }
 @keyframes wlspin { to { transform: rotate(360deg); } }
+
+/* ==========================================================================
+   A11y: skip-link, focus target, reduced motion
+   ========================================================================== */
+
+.skip-link {
+  position: absolute;
+  left: 12px;
+  top: -56px;
+  z-index: 100;
+  background: var(--ink);
+  color: var(--paper);
+  padding: 10px 16px;
+  border-radius: var(--r-cta);
+  font-size: 14px;
+  font-weight: 500;
+  transition: top 0.15s ease;
+}
+.skip-link:focus {
+  top: 12px;
+  outline: 2px solid var(--signal);
+  outline-offset: 2px;
+}
+/* Focus-doel van de skip-link (main krijgt tabindex=-1 via JS) — geen lelijke outline */
+main[tabindex="-1"]:focus { outline: none; }
+
+/* Visueel verborgen, wel voor screenreaders (bv. modal-label) */
+.wl-label-sr, .sr-only {
+  position: absolute !important;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}

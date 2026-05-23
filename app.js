@@ -5,6 +5,32 @@
 (function () {
   'use strict';
 
+  const prefersReducedMotion = window.matchMedia &&
+    window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // ---------------- A11y: skip-link + main landmark ----------------
+  (function ensureSkipLink() {
+    const main = document.getElementById('main') || document.querySelector('main');
+    if (main) {
+      if (!main.id) main.id = 'main';
+      main.setAttribute('tabindex', '-1');
+    }
+    if (!document.querySelector('.skip-link')) {
+      const sl = document.createElement('a');
+      sl.className = 'skip-link';
+      sl.href = '#main';
+      sl.textContent = 'Naar inhoud';
+      sl.addEventListener('click', (e) => {
+        const t = document.getElementById('main');
+        if (!t) return;
+        e.preventDefault();
+        t.focus();
+        t.scrollIntoView({ behavior: prefersReducedMotion ? 'auto' : 'smooth' });
+      });
+      document.body.insertBefore(sl, document.body.firstChild);
+    }
+  })();
+
   // ---------------- Sticky nav border on scroll ----------------
   const nav = document.getElementById('nav');
   const onScroll = () => {
@@ -35,15 +61,23 @@
   }
 
   // ---------------- FAQ accordion ----------------
-  document.querySelectorAll('.faq-q').forEach((btn) => {
+  document.querySelectorAll('.faq-q').forEach((btn, i) => {
     const a = btn.nextElementSibling;
+    if (!a) return;
 
-    // Initialize: if expanded by default, set max-height
-    if (btn.getAttribute('aria-expanded') === 'true' && a) {
+    // Link button to its answer region for screen readers
+    if (!a.id) a.id = 'faq-a-' + i;
+    btn.setAttribute('aria-controls', a.id);
+
+    const expanded = btn.getAttribute('aria-expanded') === 'true';
+    if (expanded) {
       // wait a tick so scrollHeight is correct
       requestAnimationFrame(() => {
         a.style.maxHeight = a.scrollHeight + 'px';
       });
+    } else {
+      // Hide collapsed content from keyboard + screen readers (keeps the animation)
+      a.setAttribute('inert', '');
     }
 
     btn.addEventListener('click', () => {
@@ -51,14 +85,17 @@
       btn.setAttribute('aria-expanded', String(!open));
       if (open) {
         a.style.maxHeight = '0px';
+        a.setAttribute('inert', '');
       } else {
         a.style.maxHeight = a.scrollHeight + 'px';
+        a.removeAttribute('inert');
       }
     });
   });
 
   // ---------------- Smooth scroll for hash links ----------------
   document.querySelectorAll('a[href^="#"]').forEach((a) => {
+    if (a.classList.contains('skip-link')) return;
     a.addEventListener('click', (e) => {
       const id = a.getAttribute('href');
       if (!id || id === '#') return;
@@ -66,7 +103,7 @@
       if (!target) return;
       e.preventDefault();
       const top = target.getBoundingClientRect().top + window.scrollY - 80;
-      window.scrollTo({ top, behavior: 'smooth' });
+      window.scrollTo({ top, behavior: prefersReducedMotion ? 'auto' : 'smooth' });
     });
   });
 
@@ -95,8 +132,10 @@
   const mobileToggle = document.getElementById('mobileToggle');
   const navLinks = document.querySelector('.nav-links');
   if (mobileToggle && navLinks) {
+    mobileToggle.setAttribute('aria-expanded', 'false');
     mobileToggle.addEventListener('click', () => {
       const isOpen = navLinks.classList.toggle('is-open');
+      mobileToggle.setAttribute('aria-expanded', String(isOpen));
       if (isOpen) {
         Object.assign(navLinks.style, {
           display: 'flex',
@@ -137,9 +176,10 @@
         '<h3>Als eerste erbij zijn?</h3>' +
         '<p>PostPilot opent binnenkort. Laat je e-mail achter, dan hoor je het meteen — inclusief je kans op de Founder Deal.</p>' +
         '<form class="wl-form" novalidate>' +
-          '<input type="email" name="email" placeholder="jij@bedrijf.nl" autocomplete="email" required>' +
+          '<label for="wl-email" class="wl-label-sr">E-mailadres</label>' +
+          '<input id="wl-email" type="email" name="email" placeholder="jij@bedrijf.nl" autocomplete="email" required aria-describedby="wl-error">' +
           '<button class="btn btn-primary" type="submit"><span class="wl-btn-label">Zet me op de lijst</span></button>' +
-          '<p class="wl-error" role="alert"></p>' +
+          '<p class="wl-error" role="alert" id="wl-error"></p>' +
         '</form>' +
         '<p class="wl-foot">GEEN SPAM · ALLEEN EEN BERICHT BIJ DE LANCERING</p>' +
       '</div>' +
@@ -168,6 +208,7 @@
   function wlOpen(source) {
     wlSource = source || 'website';
     wlError.textContent = '';
+    wlInput.removeAttribute('aria-invalid');
     wlFormView.hidden = false;
     wlSuccessView.hidden = true;
     wlSubmit.disabled = false;
@@ -189,6 +230,26 @@
   overlay.addEventListener('click', (e) => { if (e.target === overlay) wlClose(); });
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && overlay.classList.contains('is-open')) wlClose();
+  });
+
+  // Focus trap: keep Tab focus inside the dialog while it is open.
+  overlay.addEventListener('keydown', (e) => {
+    if (e.key !== 'Tab' || !overlay.classList.contains('is-open')) return;
+    const sel = 'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])';
+    const focusable = Array.prototype.filter.call(
+      overlay.querySelectorAll(sel),
+      (el) => el.offsetParent !== null && !el.disabled
+    );
+    if (!focusable.length) return;
+    const first = focusable[0];
+    const last = focusable[focusable.length - 1];
+    if (e.shiftKey && document.activeElement === first) {
+      e.preventDefault();
+      last.focus();
+    } else if (!e.shiftKey && document.activeElement === last) {
+      e.preventDefault();
+      first.focus();
+    }
   });
 
   // Intercept CTA clicks in the capture phase so the smooth-scroll handler doesn't also fire.
@@ -219,10 +280,12 @@
     const email = (wlInput.value || '').trim();
     if (!EMAIL_RE.test(email)) {
       wlError.textContent = 'Vul een geldig e-mailadres in.';
+      wlInput.setAttribute('aria-invalid', 'true');
       wlInput.focus();
       return;
     }
     wlError.textContent = '';
+    wlInput.removeAttribute('aria-invalid');
     wlSubmit.disabled = true;
     wlLabel.textContent = 'Bezig…';
     try {
