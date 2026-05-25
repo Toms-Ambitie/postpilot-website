@@ -33,6 +33,181 @@
   <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="styles.css">
+
+  <!-- JSON-LD structured data -->
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "@id": "https://www.postpilotapp.nl/#organization",
+  "name": "PostPilot",
+  "legalName": "Toms Ambitie",
+  "url": "https://www.postpilotapp.nl/",
+  "logo": "https://www.postpilotapp.nl/assets/logo-horizontal.svg",
+  "image": "https://www.postpilotapp.nl/assets/og-image.png",
+  "description": "PostPilot is jouw LinkedIn copilot: van losse gedachte naar gepubliceerde LinkedIn-post in 60 seconden, in jouw eigen schrijfstijl.",
+  "email": "hallo@postpilotapp.nl",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Cleyndertstraat 16",
+    "postalCode": "8044 PP",
+    "addressLocality": "Zwolle",
+    "addressCountry": "NL"
+  },
+  "contactPoint": [
+    {
+      "@type": "ContactPoint",
+      "email": "support@postpilotapp.nl",
+      "contactType": "customer support",
+      "availableLanguage": [
+        "Dutch"
+      ]
+    }
+  ],
+  "identifier": {
+    "@type": "PropertyValue",
+    "propertyID": "KvK",
+    "value": "70590907"
+  }
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "@id": "https://www.postpilotapp.nl/#website",
+  "url": "https://www.postpilotapp.nl/",
+  "name": "PostPilot",
+  "inLanguage": "nl-NL",
+  "publisher": {
+    "@id": "https://www.postpilotapp.nl/#organization"
+  }
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "PostPilot",
+  "applicationCategory": "BusinessApplication",
+  "operatingSystem": "Web",
+  "url": "https://www.postpilotapp.nl/",
+  "inLanguage": "nl-NL",
+  "publisher": {
+    "@id": "https://www.postpilotapp.nl/#organization"
+  },
+  "description": "AI-copilot voor LinkedIn. Maak posts in jouw eigen stem, plan ze in en publiceer via de officiele LinkedIn-koppeling.",
+  "offers": {
+    "@type": "AggregateOffer",
+    "priceCurrency": "EUR",
+    "lowPrice": "0",
+    "highPrice": "199",
+    "offerCount": "4",
+    "offers": [
+      {
+        "@type": "Offer",
+        "name": "Free",
+        "price": "0",
+        "priceCurrency": "EUR",
+        "url": "https://app.postpilotapp.nl/signup"
+      },
+      {
+        "@type": "Offer",
+        "name": "Basic",
+        "price": "2.50",
+        "priceCurrency": "EUR",
+        "url": "https://app.postpilotapp.nl/signup?plan=basic&cycle=monthly"
+      },
+      {
+        "@type": "Offer",
+        "name": "Premium",
+        "price": "9.95",
+        "priceCurrency": "EUR",
+        "url": "https://app.postpilotapp.nl/signup?plan=premium&cycle=monthly"
+      },
+      {
+        "@type": "Offer",
+        "name": "Founder",
+        "price": "199",
+        "priceCurrency": "EUR",
+        "url": "https://app.postpilotapp.nl/signup?plan=founder"
+      }
+    ]
+  }
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Werkt PostPilot ook als ik geen content-ervaring heb?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ja. Daarvoor is 't gebouwd. Je geeft korte context — een idee, een ervaring, een onderwerp. PostPilot maakt er een complete post van. Je hoeft niets te weten van LinkedIn-algoritmes of post-structuren."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Klinkt het straks als generieke AI?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Nee, mits je 'm de eerste keer goed instelt. PostPilot leert van jouw eigen schrijfstijl. Je kiest een tone-of-voice preset of upload een paar van je eerdere posts — daarna schrijft 't in jouw stem, niet in een generieke AI-stem."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Publiceert PostPilot automatisch?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Alleen als jij dat wil. Standaard maakt PostPilot concepten die jij goedkeurt. Je kunt direct publiceren, inplannen voor later, of als concept opslaan. Jij blijft eindredacteur."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Hoe veilig is de LinkedIn-koppeling?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "We gebruiken alleen de officiële LinkedIn OAuth — dezelfde technologie als waarmee je inlogt bij andere LinkedIn-apps. Geen wachtwoord-deling, geen scraping. Je kunt de koppeling op elk moment verbreken."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Wat als ik PostPilot wil opzeggen?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Eén klik, geen vragen. Je behoudt al je concepten en gepubliceerde posts. Geen lock-in."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Kan ik posts plannen voor andere platforms?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Op dit moment: alleen LinkedIn. X (Twitter) komt in 2027 erbij. Geen Instagram of TikTok — die werken met beeld als hoofdcontent, dat is een ander product."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Wat krijg ik bij de Founder Deal?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "€199 eenmalig voor lifetime Premium-toegang. 100 posts per maand, alle premium-features (AI-visuals, inzichten, content-kalender). Beperkte oplage van 100. Direct toegang tot ons."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Wanneer is de eerste maand \"gratis\" precies afgelopen?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Bij elk maand-abonnement (Basic of Premium) is de eerste maand kosteloos. Je card wordt direct gekoppeld maar pas na 30 dagen voor het eerst geïncasseerd. Wil je tussentijds opzeggen? Dat kan, één klik."
+      }
+    }
+  ]
+}
+  </script>
 </head>
 <body>
   <!-- Server Side Tracking by Taggrs.io (noscript) -->
