@@ -161,4 +161,31 @@
       }
     });
   }
+
+  // ---------------- Cross-domain: forward UTM + ad click-IDs to the app ----------------
+  // Bewaart campagne-/click-parameters van de landings-URL (first-touch, per sessie) en
+  // plakt ze op alle links naar de app, zodat de app de aanmelding aan de juiste
+  // advertentie kan toeschrijven. GA4 koppelt de bezoeker-ID zelf via de _gl-linker;
+  // dit forwardt de marketing-attributie (gclid, li_fat_id, utm_*, enz.).
+  (function forwardAttribution() {
+    const KEYS = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content',
+      'gclid', 'gbraid', 'wbraid', 'gad_source', 'fbclid', 'li_fat_id', 'ttclid', 'msclkid', 'twclid'];
+    const STORE = 'pp_attrib';
+    let stored = {};
+    try { stored = JSON.parse(sessionStorage.getItem(STORE) || '{}'); } catch (e) {}
+    try {
+      const sp = new URLSearchParams(window.location.search);
+      KEYS.forEach((k) => { const v = sp.get(k); if (v && !stored[k]) stored[k] = v; }); // first-touch
+    } catch (e) {}
+    try { sessionStorage.setItem(STORE, JSON.stringify(stored)); } catch (e) {}
+    const keys = Object.keys(stored);
+    if (!keys.length) return;
+    document.querySelectorAll('a[href*="app.postpilotapp.nl"]').forEach((a) => {
+      try {
+        const u = new URL(a.href);
+        keys.forEach((k) => { if (!u.searchParams.has(k)) u.searchParams.set(k, stored[k]); });
+        a.href = u.toString();
+      } catch (e) {}
+    });
+  })();
 })();
