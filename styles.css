@@ -1262,6 +1262,7 @@ footer {
 .compare td .yes { color: var(--ink); }
 .compare td .no { color: var(--t-3); }
 .compare td .val { color: var(--t-1); font-variant-numeric: tabular-nums; }
+.compare td .soon { font-family: var(--mono); font-size: 11px; font-weight: 600; letter-spacing: 0.03em; color: var(--signal-text); }
 .compare tbody tr:hover { background: var(--paper-pure); }
 
 @media (max-width: 680px) {
@@ -1487,6 +1488,28 @@ main[tabindex="-1"]:focus { outline: none; }
 .price-card ul li.x svg { color: var(--t-4); }
 .price-card.featured ul li.x { color: rgba(247,244,237,0.6); }
 .price-card.featured ul li.x svg { color: rgba(247,244,237,0.4); }
+
+/* "Binnenkort" — feature staat op de roadmap maar is nog niet live */
+.price-card ul li.soon { color: var(--t-3); }
+.price-card ul li.soon svg { color: var(--t-4); }
+.price-card.featured ul li.soon { color: rgba(247,244,237,0.62); }
+.price-card.featured ul li.soon svg { color: rgba(247,244,237,0.45); }
+.soon-badge {
+  display: inline-block;
+  font-family: var(--mono);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  line-height: 1.5;
+  padding: 0 7px;
+  border-radius: 999px;
+  border: 1px solid var(--signal-text);
+  color: var(--signal-text);
+  margin-left: 8px;
+  white-space: nowrap;
+}
+.price-card.featured .soon-badge { border-color: var(--signal); color: var(--signal); }
 
 .final-legal {
   font-size: 13px;
