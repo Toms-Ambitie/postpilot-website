@@ -188,4 +188,39 @@
       } catch (e) {}
     });
   })();
+
+  // ---------------- Founder seats (live teller, social proof vanaf 20) ----------------
+  // Haalt het aantal vergeven Founder-plekken op via een PII-vrije Supabase-RPC
+  // (get_founder_seats geeft alléén {claimed, total}, geen klantdata). Het getal
+  // verschijnt pas vanaf SHOW_FROM; daaronder blijft de statische tekst staan.
+  // Faalt stil (netwerk / te weinig founders) → geen zichtbare wijziging.
+  (function founderSeats() {
+    const SUPA_URL = 'https://qhwwbkculkqmiyraiblz.supabase.co';
+    const SUPA_KEY = 'sb_publishable_6w7e_0sDxK1-7489jdROrg_KilH-KH0';
+    const SHOW_FROM = 20;
+    const metas = document.querySelectorAll('.founder-counter .counter-meta');
+    const strip = document.querySelector('.founder-strip > span:not(.dot)');
+    if (!metas.length && !strip) return;
+    fetch(SUPA_URL + '/rest/v1/rpc/get_founder_seats', {
+      method: 'POST',
+      headers: { apikey: SUPA_KEY, Authorization: 'Bearer ' + SUPA_KEY, 'Content-Type': 'application/json' },
+      body: '{}',
+    })
+      .then((r) => (r.ok ? r.json() : Promise.reject(r.status)))
+      .then((rows) => {
+        const row = Array.isArray(rows) ? rows[0] : rows;
+        if (!row) return;
+        const claimed = parseInt(row.claimed, 10);
+        const total = parseInt(row.total, 10) || 100;
+        if (!Number.isFinite(claimed) || claimed < SHOW_FROM) return; // houd statische tekst
+        metas.forEach((el) => {
+          el.textContent = 'Al ' + claimed + ' van de ' + total + ' Founder-plekken vergeven.';
+        });
+        if (strip) {
+          strip.innerHTML = '<span class="hide-sm">Founder Deal — </span>€199 lifetime · al ' +
+            claimed + ' van ' + total + ' vergeven.';
+        }
+      })
+      .catch(function () {});
+  })();
 })();
