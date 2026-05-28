@@ -152,38 +152,78 @@
     <div class="wrap">
       <div class="legal-wrap">
 
-        <div class="contact-grid">
-          <div class="contact-card">
-            <span class="ico" aria-hidden="true">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 5L2 7"/></svg>
-            </span>
-            <h3>Algemeen &amp; support</h3>
-            <p>Vragen over PostPilot, je account of hoe iets werkt.</p>
-            <a class="link" href="mailto:support@postpilotapp.nl">support@postpilotapp.nl</a>
+        <!-- Contact form -->
+        <form class="contact-form" id="contactForm" novalidate>
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="cf-name">Naam <span class="req" aria-hidden="true">*</span></label>
+              <input class="form-input" type="text" id="cf-name" name="name" autocomplete="name" placeholder="Voor- en achternaam" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="cf-email">E-mailadres <span class="req" aria-hidden="true">*</span></label>
+              <input class="form-input" type="email" id="cf-email" name="email" autocomplete="email" placeholder="jij@bedrijf.nl" required>
+            </div>
           </div>
 
-          <div class="contact-card">
-            <span class="ico" aria-hidden="true">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12V8H6a2 2 0 0 1 0-4h12v4"/><path d="M4 6v12a2 2 0 0 0 2 2h14v-4"/><path d="M18 12a2 2 0 0 0 0 4h4v-4Z"/></svg>
-            </span>
-            <h3>Founder Deal</h3>
-            <p>Twijfels of vragen over de lifetime-deal voor de eerste 100.</p>
-            <a class="link" href="mailto:hallo@postpilotapp.nl?subject=Founder%20Deal">hallo@postpilotapp.nl</a>
+          <div class="form-group">
+            <label class="form-label" for="cf-subject">Onderwerp <span class="req" aria-hidden="true">*</span></label>
+            <select class="form-select" id="cf-subject" name="subject" required>
+              <option value="" disabled selected>Kies een onderwerp</option>
+              <option value="support">Vraag of support</option>
+              <option value="founder-deal">Founder Deal</option>
+              <option value="pers">Pers &amp; samenwerking</option>
+              <option value="overig">Overig</option>
+            </select>
           </div>
 
-          <div class="contact-card">
-            <span class="ico" aria-hidden="true">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l18-5v12L3 14v-3z"/><path d="M11.6 16.8a3 3 0 1 1-5.8-1.6"/></svg>
-            </span>
-            <h3>Pers &amp; samenwerking</h3>
-            <p>Media, partnerships of een goed idee dat we moeten horen.</p>
-            <a class="link" href="mailto:hallo@postpilotapp.nl?subject=Pers">hallo@postpilotapp.nl</a>
+          <div class="form-group">
+            <label class="form-label" for="cf-message">Bericht <span class="req" aria-hidden="true">*</span></label>
+            <textarea class="form-textarea" id="cf-message" name="message" placeholder="Vertel wat je in gedachten hebt — we reageren doorgaans binnen 1 werkdag." required></textarea>
+          </div>
+
+          <div class="form-submit">
+            <button type="submit" class="btn btn-primary btn-lg" id="cfSubmit">
+              Stuur bericht
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </button>
+            <p class="form-status" id="cfStatus" role="status" aria-live="polite"></p>
+          </div>
+        </form>
+
+        <!-- Alternative: direct email -->
+        <div class="contact-alt">
+          <p class="contact-alt-label">Of mail direct</p>
+          <div class="contact-grid">
+            <div class="contact-card">
+              <span class="ico" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 5L2 7"/></svg>
+              </span>
+              <h3>Algemeen &amp; support</h3>
+              <p>Vragen over PostPilot, je account of hoe iets werkt.</p>
+              <a class="link" href="mailto:support@postpilotapp.nl">support@postpilotapp.nl</a>
+            </div>
+            <div class="contact-card">
+              <span class="ico" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12V8H6a2 2 0 0 1 0-4h12v4"/><path d="M4 6v12a2 2 0 0 0 2 2h14v-4"/><path d="M18 12a2 2 0 0 0 0 4h4v-4Z"/></svg>
+              </span>
+              <h3>Founder Deal</h3>
+              <p>Twijfels of vragen over de lifetime-deal voor de eerste 100.</p>
+              <a class="link" href="mailto:hallo@postpilotapp.nl?subject=Founder%20Deal">hallo@postpilotapp.nl</a>
+            </div>
+            <div class="contact-card">
+              <span class="ico" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l18-5v12L3 14v-3z"/><path d="M11.6 16.8a3 3 0 1 1-5.8-1.6"/></svg>
+              </span>
+              <h3>Pers &amp; samenwerking</h3>
+              <p>Media, partnerships of een goed idee dat we moeten horen.</p>
+              <a class="link" href="mailto:hallo@postpilotapp.nl?subject=Pers">hallo@postpilotapp.nl</a>
+            </div>
           </div>
         </div>
 
         <p class="contact-meta">Reactie doorgaans binnen 1 werkdag · Toms Ambitie (PostPilot) · Cleyndertstraat 16, 8044 PP Zwolle · KvK 70590907</p>
 
-        <div class="legal-body" style="margin-top: 40px;">
+        <div class="legal-body" style="margin-top: 32px;">
           <p>
             Liever eerst zelf rondkijken? De meeste vragen worden beantwoord in de <a href="index.html#faq">FAQ</a>, en alle abonnementsdetails vind je op de <a href="prijzen.html">prijzenpagina</a>.
           </p>

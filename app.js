@@ -224,3 +224,70 @@
       .catch(function () {});
   })();
 })();
+
+/* ==========================================================================
+   Contact form — /contact
+   ========================================================================== */
+(function () {
+  'use strict';
+
+  const form    = document.getElementById('contactForm');
+  const btn     = document.getElementById('cfSubmit');
+  const status  = document.getElementById('cfStatus');
+
+  if (!form) return;
+
+  function setStatus(type, msg) {
+    status.textContent    = msg;
+    status.className      = 'form-status is-visible ' + type;
+  }
+
+  form.addEventListener('submit', async function (e) {
+    e.preventDefault();
+
+    /* Clear previous state */
+    status.className = 'form-status';
+    status.textContent = '';
+
+    /* Client-side validation */
+    const name    = form.elements['name'].value.trim();
+    const email   = form.elements['email'].value.trim();
+    const subject = form.elements['subject'].value;
+    const message = form.elements['message'].value.trim();
+
+    if (!name || !email || !subject || !message) {
+      setStatus('error', 'Vul alle verplichte velden in.');
+      return;
+    }
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      setStatus('error', 'Voer een geldig e-mailadres in.');
+      return;
+    }
+
+    /* Send */
+    btn.disabled = true;
+    btn.textContent = 'Versturen…';
+
+    try {
+      const res = await fetch('/api/contact', {
+        method:  'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body:    JSON.stringify({ name, email, subject, message }),
+      });
+
+      const data = await res.json().catch(() => ({}));
+
+      if (res.ok) {
+        setStatus('success', 'Bericht verstuurd. We reageren doorgaans binnen 1 werkdag.');
+        form.reset();
+      } else {
+        setStatus('error', data.error || 'Er ging iets mis. Probeer het opnieuw.');
+      }
+    } catch {
+      setStatus('error', 'Geen verbinding. Controleer je internet en probeer het opnieuw.');
+    } finally {
+      btn.disabled = false;
+      btn.innerHTML = 'Stuur bericht <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>';
+    }
+  });
+})();
