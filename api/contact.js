@@ -11,6 +11,10 @@ const SUBJECT_LABELS = {
   'founder-deal': 'Founder Deal',
   pers:         'Pers & samenwerking',
   overig:       'Overig',
+  // /investeren — drie sporen
+  investeren:   'Investeren in PostPilot',
+  bouwen:       'Mee bouwen aan PostPilot',
+  groei:        'Groei-marketing voor PostPilot',
 };
 
 function escapeHtml(str) {
@@ -30,7 +34,12 @@ module.exports = async function handler(req, res) {
   if (req.method === 'OPTIONS') return res.status(204).end();
   if (req.method !== 'POST')   return res.status(405).json({ error: 'Method not allowed' });
 
-  const { name, email, subject, message } = req.body ?? {};
+  const { name, email, subject, message, website } = req.body ?? {};
+
+  /* Honeypot — bots vullen 'website' in, mensen niet. Stil 200 OK terug. */
+  if (typeof website === 'string' && website.trim().length > 0) {
+    return res.status(200).json({ ok: true });
+  }
 
   /* ── Validation ── */
   if (!name?.trim() || !email?.trim() || !subject || !message?.trim()) {
@@ -99,6 +108,51 @@ module.exports = async function handler(req, res) {
             <a href="mailto:${safeEmail}" style="font-family: monospace; font-size: 11px; font-weight: 700; color: #0E1014; text-decoration: none; letter-spacing: 0.1em; text-transform: uppercase;">
               Beantwoord ${safeName} &rarr;
             </a>
+          </div>
+
+        </div>
+      `,
+    });
+
+    /* ── Bevestigingsmail naar de afzender ── */
+    await resend.emails.send({
+      from:    'PostPilot <noreply@postpilotapp.nl>',
+      to:      email.trim(),
+      replyTo: 'hallo@postpilotapp.nl',
+      subject: `Bericht ontvangen — we komen er zo op terug`,
+      html: `
+        <div style="font-family: -apple-system, 'Geist', sans-serif; max-width: 600px; margin: 0 auto; color: #0E1014;">
+
+          <!-- Header -->
+          <div style="background: #0E1014; padding: 24px 32px; display: flex; align-items: center; gap: 12px;">
+            <svg width="28" height="28" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+              <rect width="40" height="40" rx="5" fill="#E8A640"/>
+              <rect x="10" y="8" width="22" height="13" fill="#0E1014"/>
+              <rect x="10" y="21" width="7" height="11" fill="#0E1014"/>
+              <rect x="14" y="11" width="14" height="6" fill="#E8A640"/>
+            </svg>
+            <span style="font-family: monospace; font-size: 11px; color: rgba(247,244,237,0.55); letter-spacing: 0.16em; text-transform: uppercase;">
+              POSTPILOT &nbsp;·&nbsp; BEVESTIGING
+            </span>
+          </div>
+
+          <!-- Body -->
+          <div style="background: #F7F4ED; padding: 32px;">
+            <p style="margin: 0 0 20px; font-size: 16px; line-height: 1.6;">Hoi ${safeName},</p>
+            <p style="margin: 0 0 20px; font-size: 15px; line-height: 1.7; color: #0E1014;">
+              Je bericht is goed aangekomen. We nemen zo snel mogelijk contact op — meestal binnen een werkdag.
+            </p>
+            <p style="margin: 0 0 4px; font-family: monospace; font-size: 11px; color: rgba(14,16,20,0.45); text-transform: uppercase; letter-spacing: 0.1em;">Onderwerp</p>
+            <p style="margin: 0 0 20px; font-size: 15px; font-weight: 600;">${subjectLabel}</p>
+            <p style="margin: 0 0 8px; font-family: monospace; font-size: 11px; color: rgba(14,16,20,0.45); text-transform: uppercase; letter-spacing: 0.1em;">Jouw bericht</p>
+            <p style="margin: 0; font-size: 15px; line-height: 1.7; color: rgba(14,16,20,0.7); border-left: 3px solid #E8A640; padding-left: 16px;">${safeMessage}</p>
+          </div>
+
+          <!-- Footer -->
+          <div style="background: #0E1014; padding: 16px 32px;">
+            <p style="margin: 0; font-family: monospace; font-size: 11px; color: rgba(247,244,237,0.45); letter-spacing: 0.08em;">
+              PostPilot &nbsp;&middot;&nbsp; <a href="https://www.postpilotapp.nl" style="color: rgba(247,244,237,0.45); text-decoration: none;">postpilotapp.nl</a>
+            </p>
           </div>
 
         </div>
