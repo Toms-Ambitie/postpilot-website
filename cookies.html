@@ -3,28 +3,39 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- Server Side Tracking by Taggrs.io -->
-  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-  j=d.createElement(s),dl=l!=='dataLayer'?'&l='+l:'';j.async=true;j.src=
-  'https://data.postpilotapp.nl/d8zhtxip1v.js?tg='+i+dl;f.parentNode.insertBefore(j,f);
-  })(window,document,'script','dataLayer','NG5RNNJH');</script>
-  <!-- End Server Side Tracking by Taggrs.io -->
+  <!-- ───── Consent & tracking (zelfde setup als de app) ───── -->
+  <!-- 1) Cookiebot CMP (Consent Mode v2). CBID dekt zowel marketing-site als app. -->
+  <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="9ff56b75-d7cb-47ef-a136-444f5b61ac73" data-blockingmode="auto" type="text/javascript"></script>
+  <!-- 2) Consent Mode default: alles geweigerd tot Cookiebot toestemming geeft. -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('consent', 'default', {
+      ad_storage: 'denied', analytics_storage: 'denied',
+      ad_user_data: 'denied', ad_personalization: 'denied',
+      functionality_storage: 'denied', personalization_storage: 'denied',
+      security_storage: 'granted', wait_for_update: 500
+    });
+    gtag('set', 'ads_data_redaction', true);
+  </script>
+  <!-- 3) GTM-NG5RNNJH via Taggrs first-party loader (data.postpilotapp.nl). -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!=='dataLayer'?'&l='+l:'';j.async=true;j.src='https://data.postpilotapp.nl/d8zhtxip1v.js?tg='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','NG5RNNJH');</script>
+  <!-- ───── einde tracking ───── -->
   <title>Cookiebeleid — PostPilot</title>
-  <meta name="description" content="Welke cookies PostPilot gebruikt en waarom. Op dit moment alleen strikt noodzakelijke cookies, geen tracking.">
+  <meta name="description" content="Welke cookies PostPilot gebruikt en waarom — strikt noodzakelijke cookies altijd, analytische cookies alleen na jouw toestemming via de cookiebanner.">
   <link rel="canonical" href="https://www.postpilotapp.nl/cookies">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="PostPilot">
   <meta property="og:locale" content="nl_NL">
   <meta property="og:title" content="Cookiebeleid — PostPilot">
-  <meta property="og:description" content="Welke cookies PostPilot gebruikt en waarom. Op dit moment alleen strikt noodzakelijke cookies, geen tracking.">
+  <meta property="og:description" content="Welke cookies PostPilot gebruikt en waarom — strikt noodzakelijke cookies altijd, analytische cookies alleen na jouw toestemming via de cookiebanner.">
   <meta property="og:url" content="https://www.postpilotapp.nl/cookies">
   <meta property="og:image" content="https://www.postpilotapp.nl/assets/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Cookiebeleid — PostPilot">
-  <meta name="twitter:description" content="Welke cookies PostPilot gebruikt en waarom. Op dit moment alleen strikt noodzakelijke cookies, geen tracking.">
+  <meta name="twitter:description" content="Welke cookies PostPilot gebruikt en waarom — strikt noodzakelijke cookies altijd, analytische cookies alleen na jouw toestemming via de cookiebanner.">
   <meta name="twitter:image" content="https://www.postpilotapp.nl/assets/og-image.png">
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
@@ -96,10 +107,6 @@
   </script>
 </head>
 <body>
-  <!-- Server Side Tracking by Taggrs.io (noscript) -->
-  <noscript><iframe src="https://data.postpilotapp.nl/d8zhtxip1v.html?tg=NG5RNNJH" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-  <!-- End Server Side Tracking by Taggrs.io (noscript) -->
-
   <!-- ============================================== NAV -->
   <div class="nav-wrap is-scrolled" id="nav">
     <div class="wrap">
@@ -141,7 +148,7 @@
     <div class="wrap">
       <div class="eyebrow-mono">JURIDISCH</div>
       <h1 class="display-md">Cookiebeleid</h1>
-      <p class="trust-line" style="margin-top:16px;">LAATST BIJGEWERKT: 24 MEI 2026</p>
+      <p class="trust-line" style="margin-top:16px;">LAATST BIJGEWERKT: 28 MEI 2026</p>
     </div>
   </header>
 
@@ -151,7 +158,7 @@
       <div class="legal-wrap">
 
         <div class="legal-note">
-          <strong>Huidige situatie.</strong> Deze website gebruikt op dit moment <strong>alleen strikt noodzakelijke cookies</strong> en geen tracking- of marketingcookies. Daarom is er nog geen cookiebanner. Zodra we analytische of marketingcookies inzetten (bijvoorbeeld wanneer de app live gaat), vragen we vooraf je toestemming en werken we dit beleid bij.
+          <strong>In het kort.</strong> We gebruiken een beperkt aantal cookies. <strong>Strikt noodzakelijke cookies</strong> plaatsen we altijd (denk aan: de cookiebanner zelf onthouden). <strong>Analytische cookies</strong> (Google Analytics 4, via een first-party server-side koppeling) zetten we alleen in als je daar via de cookiebanner toestemming voor geeft. We zetten geen advertentie- of trackingcookies in. Je keuze kun je op elk moment aanpassen via de knop "Cookie-instellingen" hieronder.
         </div>
 
         <nav class="legal-toc" aria-label="Inhoud">
@@ -177,41 +184,50 @@
           <section id="gebruik">
             <h2><span class="n">02</span>Gebruiken wij cookies?</h2>
             <p>
-              Op dit moment plaatst <strong>postpilotapp.nl</strong> alleen <strong>strikt noodzakelijke cookies</strong> die nodig zijn om de website veilig en correct te tonen. We gebruiken nu géén analytische cookies, géén advertentie- of trackingcookies, en we volgen je niet over andere websites.
+              Ja, een beperkt aantal. Op <strong>postpilotapp.nl</strong> en <strong>app.postpilotapp.nl</strong> tonen we bij je eerste bezoek een <strong>cookiebanner</strong> (Cookiebot) waarin je per categorie kunt aangeven wat je toestaat. Strikt noodzakelijke cookies plaatsen we altijd; alle andere alleen na jouw toestemming. We zetten geen advertentie- of trackingcookies in en we volgen je niet over andere websites.
             </p>
           </section>
 
           <section id="soorten">
             <h2><span class="n">03</span>Soorten cookies</h2>
-            <h3>Strikt noodzakelijk <em>(nu actief)</em></h3>
+            <h3>Strikt noodzakelijk <em>(altijd actief)</em></h3>
             <p>
-              Nodig voor basisfuncties en beveiliging van de website. Voor deze cookies is geen toestemming vereist. Ze bevatten geen informatie waarmee we je als persoon kunnen identificeren voor marketingdoeleinden.
+              Nodig voor basisfuncties en beveiliging — bijvoorbeeld het onthouden van je cookiekeuze (Cookiebot, cookie <code>CookieConsent</code>) en, in de app, het in stand houden van je sessie na inloggen. Voor deze cookies is geen toestemming vereist.
             </p>
-            <h3>Functioneel <em>(straks, in de app)</em></h3>
+            <h3>Functioneel <em>(in de app, altijd)</em></h3>
             <p>
-              Onthouden bijvoorbeeld dat je bent ingelogd of welke voorkeuren je hebt ingesteld.
+              Onthouden bijvoorbeeld dat je bent ingelogd, je gekozen thema (licht/donker) en kleine UI-voorkeuren. Strikt genomen functioneel en noodzakelijk om de app bruikbaar te houden.
             </p>
-            <h3>Analytisch <em>(nog niet actief)</em></h3>
+            <h3>Analytisch <em>(alleen met toestemming)</em></h3>
             <p>
-              Helpen ons begrijpen hoe de site en app gebruikt worden, zodat we ze kunnen verbeteren. We zetten deze pas in met privacyvriendelijke instellingen en, waar vereist, met jouw toestemming.
+              Helpen ons begrijpen hoe de site en app gebruikt worden, zodat we ze kunnen verbeteren. We gebruiken <strong>Google Analytics 4</strong> via een first-party server-side koppeling (Google Tag Manager, Taggrs.io) en draaien <strong>Google Consent Mode v2</strong> met IP-anonimisering en ad-data-redaction. Cookies: onder andere <code>_ga</code> en <code>_ga_*</code>. Worden alleen geplaatst nadat je in de banner op "Toestaan" hebt geklikt.
             </p>
-            <h3>Marketing <em>(nog niet actief)</em></h3>
+            <h3>Marketing</h3>
             <p>
-              Zouden gebruikt kunnen worden om relevantie van advertenties te meten. We plaatsen deze alleen na expliciete toestemming.
+              Worden niet gebruikt. We zetten geen retargeting- of advertentiecookies in.
             </p>
           </section>
 
           <section id="derden">
             <h2><span class="n">04</span>Cookies van derden</h2>
             <p>
-              Wanneer de app live gaat, kunnen sommige diensten die we gebruiken eigen cookies plaatsen — bijvoorbeeld Stripe tijdens het afrekenen of een analyse-dienst voor gebruiksstatistieken. We werken dit overzicht bij zodra die diensten actief zijn.
+              Sommige diensten die we gebruiken kunnen eigen cookies plaatsen, telkens binnen de gekozen categorie:
             </p>
+            <ul>
+              <li><strong>Cookiebot</strong> (Cybot A/S, Denemarken) — voor het onthouden van je cookiekeuze. Categorie: strikt noodzakelijk.</li>
+              <li><strong>Google Analytics 4 + Google Tag Manager</strong> via Taggrs.io (server-side koppeling op <code>data.postpilotapp.nl</code>). Categorie: analytisch, alleen na toestemming.</li>
+              <li><strong>Stripe</strong> tijdens het afrekenen in de app — om fraude te helpen voorkomen en je betaling veilig af te ronden. Categorie: strikt noodzakelijk voor de betaling die je zelf start.</li>
+              <li><strong>LinkedIn</strong> wanneer je vanuit de app de OAuth-koppeling start — om je veilig in te loggen bij LinkedIn. Categorie: strikt noodzakelijk binnen de koppelingsflow die je zelf start.</li>
+            </ul>
           </section>
 
           <section id="beheren">
             <h2><span class="n">05</span>Toestemming beheren</h2>
             <p>
-              Je kunt cookies altijd zelf beheren of verwijderen via de instellingen van je browser. Het uitschakelen van strikt noodzakelijke cookies kan ertoe leiden dat delen van de site niet goed werken. Zodra we niet-noodzakelijke cookies inzetten, krijg je een cookiebanner waarmee je per categorie je keuze kunt maken en later kunt aanpassen.
+              Je kunt je keuze op elk moment aanpassen of intrekken via de knop hieronder. Daarnaast kun je cookies altijd zelf beheren of verwijderen via de instellingen van je browser. Het uitschakelen van strikt noodzakelijke cookies kan ertoe leiden dat delen van de site of app niet goed werken.
+            </p>
+            <p style="margin-top:12px">
+              <button type="button" onclick="if(window.Cookiebot){Cookiebot.renew();}" class="btn btn-outline">Cookie-instellingen openen</button>
             </p>
           </section>
 

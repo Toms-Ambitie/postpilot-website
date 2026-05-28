@@ -3,13 +3,24 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- Server Side Tracking by Taggrs.io -->
-  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-  j=d.createElement(s),dl=l!=='dataLayer'?'&l='+l:'';j.async=true;j.src=
-  'https://data.postpilotapp.nl/d8zhtxip1v.js?tg='+i+dl;f.parentNode.insertBefore(j,f);
-  })(window,document,'script','dataLayer','NG5RNNJH');</script>
-  <!-- End Server Side Tracking by Taggrs.io -->
+  <!-- ───── Consent & tracking (zelfde setup als de app) ───── -->
+  <!-- 1) Cookiebot CMP (Consent Mode v2). CBID dekt zowel marketing-site als app. -->
+  <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="9ff56b75-d7cb-47ef-a136-444f5b61ac73" data-blockingmode="auto" type="text/javascript"></script>
+  <!-- 2) Consent Mode default: alles geweigerd tot Cookiebot toestemming geeft. -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('consent', 'default', {
+      ad_storage: 'denied', analytics_storage: 'denied',
+      ad_user_data: 'denied', ad_personalization: 'denied',
+      functionality_storage: 'denied', personalization_storage: 'denied',
+      security_storage: 'granted', wait_for_update: 500
+    });
+    gtag('set', 'ads_data_redaction', true);
+  </script>
+  <!-- 3) GTM-NG5RNNJH via Taggrs first-party loader (data.postpilotapp.nl). -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!=='dataLayer'?'&l='+l:'';j.async=true;j.src='https://data.postpilotapp.nl/d8zhtxip1v.js?tg='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','NG5RNNJH');</script>
+  <!-- ───── einde tracking ───── -->
   <title>Pagina niet gevonden — PostPilot</title>
   <meta name="robots" content="noindex">
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">

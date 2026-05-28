@@ -3,13 +3,24 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- Server Side Tracking by Taggrs.io -->
-  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-  j=d.createElement(s),dl=l!=='dataLayer'?'&l='+l:'';j.async=true;j.src=
-  'https://data.postpilotapp.nl/d8zhtxip1v.js?tg='+i+dl;f.parentNode.insertBefore(j,f);
-  })(window,document,'script','dataLayer','NG5RNNJH');</script>
-  <!-- End Server Side Tracking by Taggrs.io -->
+  <!-- ───── Consent & tracking (zelfde setup als de app) ───── -->
+  <!-- 1) Cookiebot CMP (Consent Mode v2). CBID dekt zowel marketing-site als app. -->
+  <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="9ff56b75-d7cb-47ef-a136-444f5b61ac73" data-blockingmode="auto" type="text/javascript"></script>
+  <!-- 2) Consent Mode default: alles geweigerd tot Cookiebot toestemming geeft. -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('consent', 'default', {
+      ad_storage: 'denied', analytics_storage: 'denied',
+      ad_user_data: 'denied', ad_personalization: 'denied',
+      functionality_storage: 'denied', personalization_storage: 'denied',
+      security_storage: 'granted', wait_for_update: 500
+    });
+    gtag('set', 'ads_data_redaction', true);
+  </script>
+  <!-- 3) GTM-NG5RNNJH via Taggrs first-party loader (data.postpilotapp.nl). -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!=='dataLayer'?'&l='+l:'';j.async=true;j.src='https://data.postpilotapp.nl/d8zhtxip1v.js?tg='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','NG5RNNJH');</script>
+  <!-- ───── einde tracking ───── -->
   <title>Privacybeleid — PostPilot</title>
   <meta name="description" content="Hoe PostPilot omgaat met je persoonsgegevens — welke gegevens we verwerken, waarom, en welke rechten je hebt onder de AVG.">
   <link rel="canonical" href="https://www.postpilotapp.nl/privacy">
@@ -96,10 +107,6 @@
   </script>
 </head>
 <body>
-  <!-- Server Side Tracking by Taggrs.io (noscript) -->
-  <noscript><iframe src="https://data.postpilotapp.nl/d8zhtxip1v.html?tg=NG5RNNJH" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-  <!-- End Server Side Tracking by Taggrs.io (noscript) -->
-
   <!-- ============================================== NAV -->
   <div class="nav-wrap is-scrolled" id="nav">
     <div class="wrap">
@@ -141,7 +148,7 @@
     <div class="wrap">
       <div class="eyebrow-mono">JURIDISCH</div>
       <h1 class="display-md">Privacybeleid</h1>
-      <p class="trust-line" style="margin-top:16px;">LAATST BIJGEWERKT: 24 MEI 2026</p>
+      <p class="trust-line" style="margin-top:16px;">LAATST BIJGEWERKT: 28 MEI 2026</p>
     </div>
   </header>
 
@@ -186,18 +193,20 @@
 
           <section id="gegevens">
             <h2><span class="n">02</span>Welke gegevens we verwerken</h2>
-            <p><strong>Nu (alleen deze website):</strong></p>
+            <p><strong>Op deze website (postpilotapp.nl):</strong></p>
             <ul>
               <li><strong>Contactgegevens</strong> die je zelf verstrekt als je ons mailt of je aanmeldt voor updates — zoals je naam en e-mailadres.</li>
               <li><strong>Technische gegevens</strong> die nodig zijn om de website te tonen, zoals je IP-adres en browsertype (zie ook ons <a href="cookies.html">Cookiebeleid</a>).</li>
+              <li><strong>Analytische gegevens</strong> over je bezoek (geanonimiseerd, alleen met jouw toestemming via de cookiebanner) — om de site te verbeteren.</li>
             </ul>
-            <p><strong>Straks (wanneer je een account aanmaakt in de app):</strong></p>
+            <p><strong>In de app (app.postpilotapp.nl), wanneer je een account aanmaakt:</strong></p>
             <ul>
-              <li><strong>Accountgegevens:</strong> naam, e-mailadres, wachtwoord (versleuteld) en abonnementsgegevens.</li>
+              <li><strong>Accountgegevens:</strong> naam, e-mailadres, versleuteld wachtwoord en abonnementsgegevens.</li>
               <li><strong>LinkedIn-koppeling:</strong> via de officiële LinkedIn OAuth ontvangen we beperkte profielgegevens en een toegangstoken om namens jou te kunnen publiceren. We vragen nooit je wachtwoord en doen niet aan scraping.</li>
               <li><strong>Inhoud die je invoert:</strong> de ideeën, context en voorbeelden die je aanlevert, plus de posts die PostPilot daaruit genereert.</li>
-              <li><strong>Gebruiksgegevens:</strong> hoe je de app gebruikt, zodat we de dienst kunnen verbeteren.</li>
-              <li><strong>Betaalgegevens:</strong> verwerkt via onze betaalprovider; wij bewaren zelf geen volledige kaartgegevens.</li>
+              <li><strong>Stijlprofiel:</strong> als je voorbeeldposts deelt om je schrijfstijl te leren, slaan we daar een afgeleid profiel van op (geen ruwe posts).</li>
+              <li><strong>Gebruiksgegevens:</strong> hoe je de app gebruikt en welke AI-functies je gebruikt, zodat we de dienst kunnen verbeteren en misbruik kunnen voorkomen.</li>
+              <li><strong>Betaalgegevens:</strong> verwerkt via Stripe; wij bewaren zelf geen volledige kaartgegevens.</li>
             </ul>
 
             <h3>Over de LinkedIn-koppeling</h3>
@@ -232,11 +241,14 @@
               We verkopen je gegevens nooit. We schakelen wel zorgvuldig geselecteerde <strong>verwerkers</strong> in die ons helpen de dienst te leveren. Met hen sluiten we verwerkersovereenkomsten. Het gaat onder andere om:
             </p>
             <ul>
-              <li><strong>Hosting</strong> van de website en app: Vercel.</li>
-              <li><strong>AI-tekstgeneratie</strong> voor het opstellen van posts: onze AI-leverancier (de aangeleverde inhoud wordt niet door de leverancier bewaard voor eigen doeleinden).</li>
-              <li><strong>LinkedIn</strong> — voor de koppeling en het publiceren van posts namens jou.</li>
-              <li><strong>Betalingen</strong> worden afgehandeld door Stripe.</li>
-              <li><strong>E-mail</strong>: Resend (transactionele e-mail) en Google Workspace (zakelijke e-mail).</li>
+              <li><strong>Hosting van de website en app</strong>: Vercel Inc. (Verenigde Staten, met edge-locatie in de EU).</li>
+              <li><strong>Database, opslag en authenticatie</strong>: Supabase Inc., met de productie-database in <em>eu-central-1 (Frankfurt, Duitsland)</em>.</li>
+              <li><strong>AI-tekstgeneratie</strong>: Anthropic, PBC (Verenigde Staten) — voor het opstellen van posts en het analyseren van je schrijfstijl. Anthropic gebruikt de aangeleverde inhoud niet om hun modellen op te trainen.</li>
+              <li><strong>LinkedIn</strong> — voor de OAuth-koppeling en het publiceren van posts namens jou.</li>
+              <li><strong>Betalingen</strong>: Stripe Payments Europe Ltd. (Ierland).</li>
+              <li><strong>E-mail</strong>: Resend (transactionele e-mail, EU-regio) en Google Workspace (zakelijke e-mail).</li>
+              <li><strong>Productanalyse</strong>: Google Analytics 4 en Google Tag Manager via een first-party server-side koppeling. Alleen geplaatst nadat je de cookiebanner accepteert; we gebruiken Consent Mode v2 en anonimiseren waar mogelijk.</li>
+              <li><strong>Cookietoestemmingen</strong>: Cookiebot (Cybot A/S, Denemarken).</li>
             </ul>
             <p>Daarnaast kunnen we gegevens delen als we daartoe wettelijk verplicht zijn.</p>
           </section>
@@ -273,21 +285,21 @@
           <section id="doorgifte">
             <h2><span class="n">08</span>Doorgifte buiten de EER</h2>
             <p>
-              Sommige verwerkers kunnen gegevens verwerken buiten de Europese Economische Ruimte. Als dat gebeurt, zorgen we voor passende waarborgen, zoals de standaardcontractbepalingen van de Europese Commissie.
+              Een deel van onze verwerkers is gevestigd buiten de Europese Economische Ruimte, in het bijzonder de Verenigde Staten (onder andere Vercel, Anthropic en Google). Voor deze doorgiften gebruiken we de <strong>standaardcontractbepalingen</strong> (SCC's) van de Europese Commissie als waarborg. De productie-database met je accountgegevens en content staat in Frankfurt (EU).
             </p>
           </section>
 
           <section id="cookies">
             <h2><span class="n">09</span>Cookies</h2>
             <p>
-              Deze website gebruikt op dit moment alleen strikt noodzakelijke cookies. Meer hierover lees je in ons <a href="cookies.html">Cookiebeleid</a>.
+              We gebruiken een beperkt aantal cookies. Strikt noodzakelijke cookies plaatsen we altijd; analytische cookies (Google Analytics 4 via een first-party server-side koppeling) alleen na jouw toestemming via de cookiebanner. We zetten geen advertentiecookies in. Volledige details staan in ons <a href="cookies.html">Cookiebeleid</a>.
             </p>
           </section>
 
           <section id="wijzigingen">
             <h2><span class="n">10</span>Wijzigingen</h2>
             <p>
-              We kunnen dit privacybeleid aanpassen, bijvoorbeeld wanneer de app live gaat. De meest actuele versie staat altijd op deze pagina, met bovenaan de datum van de laatste wijziging.
+              We kunnen dit privacybeleid aanpassen, bijvoorbeeld wanneer we een nieuwe functie toevoegen of een verwerker wijzigen. De meest actuele versie staat altijd op deze pagina, met bovenaan de datum van de laatste wijziging.
             </p>
           </section>
 
