@@ -1612,6 +1612,45 @@ main[tabindex="-1"]:focus { outline: none; }
 }
 .price-card.featured .soon-badge { border-color: var(--signal); color: var(--signal); }
 
+/* Voice-input spotlight — Premium-only feature, conversie-driver tussen Voorbeelden en Pricing */
+.voice-spotlight { padding-top: clamp(40px, 6vw, 80px); padding-bottom: clamp(40px, 6vw, 80px); }
+.voice-card {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: clamp(20px, 3vw, 40px);
+  align-items: center;
+  padding: clamp(28px, 4vw, 44px);
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+}
+.voice-card-icon {
+  display: grid; place-items: center;
+  width: 60px; height: 60px;
+  border-radius: 14px;
+  background: var(--signal-tint);
+  color: var(--signal-text);
+  flex-shrink: 0;
+}
+.voice-card-body { min-width: 0; }
+.voice-card-body .eyebrow-mono { display: block; margin-bottom: 10px; }
+.voice-card-body h2 { margin: 0 0 10px; }
+.voice-card-body p { margin: 0; max-width: 60ch; color: var(--t-2); }
+.voice-card-cta { display: flex; flex-direction: column; align-items: flex-end; gap: 10px; }
+.voice-card-meta {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--t-3);
+  letter-spacing: 0.04em;
+  margin: 0;
+}
+@media (max-width: 880px) {
+  .voice-card { grid-template-columns: 1fr; text-align: left; }
+  .voice-card-cta { align-items: stretch; }
+  .voice-card-cta .btn { justify-content: center; }
+  .voice-card-meta { text-align: center; }
+}
+
 .final-legal {
   font-size: 13px;
   line-height: 1.5;
