@@ -1162,6 +1162,15 @@ footer {
 .page-header .eyebrow-saffron { margin-bottom: 18px; }
 .page-header h1 { margin: 0 auto 20px; max-width: 18ch; }
 .page-header .body-lg { max-width: 56ch; margin: 0 auto; }
+/* Citeerbare prijs-samenvatting onder H1 (AEO: doelzin voor AI-engines). */
+.price-summary {
+  max-width: 56ch;
+  margin: 0 auto 14px;
+  font-size: 17px;
+  line-height: 1.55;
+  color: var(--t-1);
+  font-weight: 500;
+}
 
 /* Billing toggle */
 .billing-toggle {
@@ -1373,8 +1382,55 @@ footer {
    About + Contact pages
    ========================================================================== */
 
+/* Vergelijkingstabel op /taplio-alternatief (HTML-tabel, geen afbeelding — AEO). */
+.vs-wrap { margin-top: 12px; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+.vs {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: var(--r-card);
+  overflow: hidden;
+  font-size: 14px;
+  line-height: 1.55;
+}
+.vs thead th {
+  background: var(--bone);
+  color: var(--t-1);
+  font-weight: 600;
+  text-align: left;
+  padding: 12px 14px;
+  border-bottom: 1px solid var(--line);
+  white-space: nowrap;
+}
+.vs tbody th, .vs tbody td {
+  padding: 12px 14px;
+  border-bottom: 1px solid var(--line);
+  text-align: left;
+  vertical-align: top;
+}
+.vs tbody th { color: var(--t-2); font-weight: 500; width: 30%; }
+.vs tbody td { color: var(--t-1); }
+.vs tbody tr:last-child th, .vs tbody tr:last-child td { border-bottom: none; }
+
+/* Citeerbaar feitenblok onder de Over-pagina (AEO-doel: ChatGPT/Perplexity). */
+.about-facts {
+  margin-top: 40px;
+  padding: 24px 26px;
+  border: 1px solid var(--line);
+  border-radius: var(--r-card);
+  background: var(--bone);
+}
+.about-facts h2 {
+  margin: 0 0 8px;
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+.about-facts p { margin: 0; max-width: 64ch; color: var(--t-2); }
+
 .about-cta {
-  margin-top: 48px;
+  margin-top: 32px;
   padding: 36px;
   border-radius: var(--r-card);
   background: var(--ink);

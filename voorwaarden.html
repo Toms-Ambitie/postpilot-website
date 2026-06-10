@@ -55,12 +55,10 @@
   "@type": "Organization",
   "@id": "https://www.postpilotapp.nl/#organization",
   "name": "PostPilot",
-  "legalName": "Toms Ambitie",
-  "url": "https://www.postpilotapp.nl/",
+  "url": "https://www.postpilotapp.nl",
   "logo": "https://www.postpilotapp.nl/assets/logo-horizontal.svg",
-  "image": "https://www.postpilotapp.nl/assets/og-image.png",
-  "description": "PostPilot is jouw LinkedIn copilot: van losse gedachte naar gepubliceerde LinkedIn-post in 60 seconden, in jouw eigen schrijfstijl.",
-  "email": "hallo@postpilotapp.nl",
+  "description": "Nederlandstalige AI-tool voor het schrijven van LinkedIn-posts.",
+  "parentOrganization": { "@type": "Organization", "name": "Toms Ambitie" },
   "address": {
     "@type": "PostalAddress",
     "streetAddress": "Cleyndertstraat 16",
@@ -68,16 +66,14 @@
     "addressLocality": "Zwolle",
     "addressCountry": "NL"
   },
-  "contactPoint": [
-    {
-      "@type": "ContactPoint",
-      "email": "support@postpilotapp.nl",
-      "contactType": "customer support",
-      "availableLanguage": [
-        "Dutch"
-      ]
-    }
-  ],
+  "areaServed": ["NL", "BE"],
+  "email": "hallo@postpilotapp.nl",
+  "contactPoint": [{
+    "@type": "ContactPoint",
+    "email": "support@postpilotapp.nl",
+    "contactType": "customer support",
+    "availableLanguage": ["Dutch"]
+  }],
   "identifier": {
     "@type": "PropertyValue",
     "propertyID": "KvK",
@@ -313,6 +309,14 @@
           <ul>
             <li><a href="index.html#hoe">Features</a></li>
             <li><a href="prijzen.html">Prijzen</a></li>
+          </ul>
+        </div>
+        <div class="col">
+          <h2>Voor LinkedIn</h2>
+          <ul>
+            <li><a href="linkedin-post-generator.html">LinkedIn post generator</a></li>
+            <li><a href="linkedin-posts-schrijven.html">LinkedIn-posts schrijven</a></li>
+            <li><a href="taplio-alternatief.html">Taplio alternatief</a></li>
           </ul>
         </div>
         <div class="col">
