@@ -1042,7 +1042,8 @@ footer {
 }
 .foot {
   display: grid;
-  grid-template-columns: 1.4fr repeat(4, 1fr);
+  grid-template-columns: 1.4fr repeat(5, 1fr);
+  align-items: start;
   gap: 40px;
   padding: 64px 0 40px;
 }
