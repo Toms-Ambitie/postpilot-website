@@ -3159,3 +3159,33 @@ body.js-anim .counter-card .cbar i::after {
   outline-offset: 2px;
 }
 main[tabindex="-1"]:focus { outline: none; }
+
+/* ==========================================================================
+   A11y contrast-fixes (Lighthouse audit jun 2026)
+   - .sec-rule .aside was --t-4 (#9ca0a8) — te licht voor 11px op paper/bone
+   - .k-label.saffron was --signal-press (#b87a24) — te licht voor 11px
+   - .step-row dimming 0.55 verlaagde contrast naar 2.4 — naar 0.7
+   - .foot-bottom span was rgba(247,244,237,0.55) — naar 0.7 voor 4.5:1
+   - .demo-caption / .examples-sec / .voor-wie .aside idem
+   ========================================================================== */
+
+.sec-rule .num,
+.sec-rule .ttl { color: #5A5E66; }              /* van --t-3 #6b6f78 → ≥4.68:1 op bone */
+.sec-rule .aside { color: #5A5E66; }            /* van --t-4 #9ca0a8 → ≥4.68:1 op bone/paper */
+
+.k-label.saffron { color: var(--signal-text); }  /* van #b87a24 → #8a5a16, 4.5+:1 op paper */
+
+.demo-caption { color: var(--t-3); }             /* van --t-4 → donker, leesbaar */
+
+.steps-list:has(.step-row.active) .step-row:not(.active) { opacity: 0.7; }  /* van 0.55 → 0.7 */
+
+.foot-bottom { color: rgba(247,244,237,0.72); }  /* van 0.55 → 0.72 voor 4.5:1 op ink */
+.foot-bottom span { color: inherit; }
+
+.step-row .big-num { color: #8E9197; }           /* van --t-4 #9ca0a8 → iets donkerder voor 4.5:1 */
+
+.sv-pill { color: #5A5E66; background: var(--paper-pure); border: 1px solid var(--line); }
+.sv-pill.on { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+
+.sv-btn.ghost { color: #5A5E66; }                /* van #959596 → leesbaar */
+.sv-btn.primary { color: var(--ink); }           /* van #71706e → ink op saffraan, 7+:1 */
