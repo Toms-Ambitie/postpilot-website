@@ -41,6 +41,19 @@
   window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();
 
+  // ---------------- Scroll-progress bar (visuele consistentie met homepage) ----------------
+  const progressBar = document.getElementById('scrollProgress');
+  const onProgress = () => {
+    if (!progressBar) return;
+    const doc = document.documentElement;
+    const max = doc.scrollHeight - window.innerHeight;
+    const p = max > 0 ? (window.scrollY / max) * 100 : 0;
+    progressBar.style.width = p + '%';
+  };
+  window.addEventListener('scroll', onProgress, { passive: true });
+  window.addEventListener('resize', onProgress, { passive: true });
+  onProgress();
+
   // ---------------- Reveal on scroll ----------------
   const revealEls = document.querySelectorAll('[data-reveal]');
   if ('IntersectionObserver' in window) {
@@ -217,7 +230,7 @@
           el.textContent = 'Al ' + claimed + ' van de ' + total + ' Founder-plekken vergeven.';
         });
         if (strip) {
-          strip.innerHTML = '<span class="hide-sm">Founder Deal — </span>€199 lifetime · al ' +
+          strip.innerHTML = '<span class="hide-sm">Founder Deal · </span>€199 lifetime · al ' +
             claimed + ' van ' + total + ' vergeven.';
         }
       })

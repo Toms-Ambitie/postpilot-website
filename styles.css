@@ -1720,3 +1720,20 @@ main[tabindex="-1"]:focus { outline: none; }
   padding-bottom: 1px;
 }
 .final-legal a:hover { color: var(--signal-text); border-bottom-color: var(--signal-text); }
+
+/* Scroll-progress bar — visuele consistentie met homepage redesign */
+.scroll-progress {
+  position: absolute;
+  left: 0; right: 0; bottom: -1px;
+  height: 2px;
+  pointer-events: none;
+}
+.scroll-progress i {
+  display: block;
+  height: 100%;
+  width: 0;
+  background: var(--signal);
+}
+@media (prefers-reduced-motion: reduce) {
+  .scroll-progress i { transition: none; }
+}
