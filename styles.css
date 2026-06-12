@@ -51,7 +51,7 @@
   --mono: "Geist Mono", "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
 
   /* Layout */
-  --maxw: 1200px;
+  --maxw: 1240px;
   --maxw-hero: 1440px;
   --gutter: clamp(20px, 4vw, 56px);
 }
@@ -1749,73 +1749,8 @@ main[tabindex="-1"]:focus { outline: none; }
    Editorial premium · brand guide v2.0
    ========================================================================== */
 
-:root {
-  --paper: #F7F4ED;
-  --paper-pure: #FFFFFF;
-  --bone: #EAE6DC;
-  --mute-light: #E5DFD2;
-
-  --ink: #0E1014;
-  --ink-deep: #050608;
-  --graphite: #1A1D24;
-  --mute-dark: #2A2E36;
-
-  --signal: #E8A640;
-  --signal-hover: #D49230;
-  --signal-press: #B87A24;
-  --signal-tint: #FDF4E2;
-
-  --success: #16A34A;
-
-  --t-1: #0E1014;
-  --t-2: #4F535C;
-  --t-3: #6B6F78;
-  --t-4: #9CA0A8;
-
-  --line: rgba(14,16,20,0.10);
-  --line-soft: rgba(14,16,20,0.06);
-  --line-strong: rgba(14,16,20,0.18);
-
-  --r-input: 4px;
-  --r-card: 6px;
-  --r-cta: 8px;
-  --r-surface: 16px;
-
-  --sans: "Geist", "Geist Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
-  --mono: "Geist Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
-
-  --maxw: 1240px;
-  --gutter: clamp(20px, 4vw, 56px);
-}
-
-* { box-sizing: border-box; }
-
-html { scroll-behavior: smooth; }
-html, body {
-  margin: 0;
-  background: var(--paper);
-  color: var(--t-1);
-  font-family: var(--sans);
-  font-size: 16px;
-  line-height: 1.6;
-  -webkit-font-smoothing: antialiased;
-  text-rendering: optimizeLegibility;
-}
-
-a { color: inherit; text-decoration: none; }
-button { font: inherit; cursor: pointer; }
-img, svg { display: block; max-width: 100%; }
-::selection { background: var(--signal); color: var(--ink); }
-
-.wrap {
-  max-width: var(--maxw);
-  margin: 0 auto;
-  padding-left: var(--gutter);
-  padding-right: var(--gutter);
-}
-
 /* ==========================================================================
-   Type
+   Homepage redesign type/components (tokens + base hierboven al gedefinieerd)
    ========================================================================== */
 
 .display-hero {
