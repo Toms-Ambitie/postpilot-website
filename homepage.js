@@ -281,7 +281,7 @@
 
   var SPOKEN = ['...dus', 'eh,', 'die', 'klant', 'van', 'vier', 'maanden', 'terug', 'belde', 'vanochtend,', 'ineens', 'gewoon', 'ja.', 'Geduld', 'werkt', 'dus', 'echt...'];
 
-  var POST_TEXT = 'Vier maanden geleden gaf ik een pitch waarvan ik dacht: die landt niet.\n\nVanochtend belde de klant. Het landde wel. Het had alleen tijd nodig.\n\nSales is niet altijd opvolgen. Soms is het ruimte geven, bij hen, niet bij jou.\n\nWat is jouw langste \u2018ja\u2019 geweest?';
+  var POST_TEXT = 'Vier maanden geleden gaf ik een pitch waarvan ik dacht: die landt niet. Vanochtend belde de klant. Het landde wel, het had alleen tijd nodig.\n\nSales is niet altijd opvolgen. Soms is het ruimte geven, bij hen, niet bij jou.\n\nWat is jouw langste \u2018ja\u2019 ooit geweest?';
 
   var generation = 0;       // cancel token
   var timerStart = 0;
