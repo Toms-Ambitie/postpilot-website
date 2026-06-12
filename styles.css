@@ -3189,3 +3189,13 @@ main[tabindex="-1"]:focus { outline: none; }
 
 .sv-btn.ghost { color: #5A5E66; }                /* van #959596 → leesbaar */
 .sv-btn.primary { color: var(--ink); }           /* van #71706e → ink op saffraan, 7+:1 */
+
+/* A11y v2: extra contrast-fixes na 2e Lighthouse-run */
+.pricing-mono { color: #5A5E66; }                /* van --t-3 → 4.5+:1 op bone */
+.steps-list:has(.step-row.active) .step-row:not(.active) { opacity: 1; }
+.steps-list:has(.step-row.active) .step-row:not(.active) h3,
+.steps-list:has(.step-row.active) .step-row:not(.active) p,
+.steps-list:has(.step-row.active) .step-row:not(.active) .big-num { color: #5A5E66; }
+.steps-list:has(.step-row.active) .step-row:not(.active) .sv-pill,
+.steps-list:has(.step-row.active) .step-row:not(.active) .sv-btn { opacity: 0.9; }
+.display-hero .soft { color: #7E8189; }          /* van --t-4 #9ca0a8 → 3.1+:1 voor large bold */
