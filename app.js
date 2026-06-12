@@ -202,39 +202,103 @@
     });
   })();
 
-  // ---------------- Founder seats (live teller, social proof vanaf 20) ----------------
-  // Haalt het aantal vergeven Founder-plekken op via een PII-vrije Supabase-RPC
-  // (get_founder_seats geeft alléén {claimed, total}, geen klantdata). Het getal
-  // verschijnt pas vanaf SHOW_FROM; daaronder blijft de statische tekst staan.
-  // Faalt stil (netwerk / te weinig founders) → geen zichtbare wijziging.
+  // ---------------- Founder seats (live data via Supabase RPC) ----------------
+  // Identiek aan homepage.js setup: ondersteunt zowel de oude markup
+  // (.founder-counter .counter-meta + .founder-strip) als de nieuwe homepage-
+  // markup (#counterCard/#counterBig/#counterBar/#counterMeta/#stripScarcity/
+  // #founderProof). Zo werken beide stijlen op alle pagina's.
   (function founderSeats() {
     const SUPA_URL = 'https://qhwwbkculkqmiyraiblz.supabase.co';
     const SUPA_KEY = 'sb_publishable_6w7e_0sDxK1-7489jdROrg_KilH-KH0';
-    const SHOW_FROM = 20;
-    const metas = document.querySelectorAll('.founder-counter .counter-meta');
-    const strip = document.querySelector('.founder-strip > span:not(.dot)');
-    if (!metas.length && !strip) return;
+    const STRIP_FROM = 20;
+    const PROOF_FROM = 5;
+
+    // Nieuwe homepage-stijl IDs
+    const counterCard = document.getElementById('counterCard');
+    const counterBig = document.getElementById('counterBig');
+    const counterBar = document.getElementById('counterBar');
+    const counterMeta = document.getElementById('counterMeta');
+    const stripScarcity = document.getElementById('stripScarcity');
+    const stripSep = document.getElementById('stripSep');
+    const founderProof = document.getElementById('founderProof');
+
+    // Oude markup-fallback (subpagina's met .founder-counter pattern)
+    const oldMetas = document.querySelectorAll('.founder-counter .counter-meta:not(#counterMeta)');
+    const oldStrip = document.querySelector('.founder-strip > span:not(.dot)');
+
+    const hasNewMarkup = counterCard || stripScarcity || founderProof;
+    const hasOldMarkup = oldMetas.length || oldStrip;
+    if (!hasNewMarkup && !hasOldMarkup) return;
+
+    function setupNewMarkup(claimed, total) {
+      const remaining = Math.max(0, total - claimed);
+      const pct = total > 0 ? (claimed / total) * 100 : 0;
+      if (counterMeta) counterMeta.textContent = claimed + ' vergeven · ' + remaining + ' over';
+      if (stripScarcity) {
+        if (claimed < STRIP_FROM) {
+          stripScarcity.style.display = 'none';
+          if (stripSep) stripSep.style.display = 'none';
+        } else {
+          stripScarcity.textContent = remaining + ' plekken over · op = op.';
+        }
+      }
+      if (founderProof) {
+        if (claimed < PROOF_FROM) {
+          founderProof.style.display = 'none';
+        } else {
+          founderProof.textContent = claimed + ' professionals gingen je voor, consultants, founders en coaches.';
+        }
+      }
+      if (!counterCard || !counterBig || !counterBar || !('IntersectionObserver' in window)) return;
+      let counted = false;
+      const cio = new IntersectionObserver((entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting && !counted) {
+            counted = true;
+            cio.unobserve(counterCard);
+            counterBar.style.width = pct + '%';
+            if (prefersReducedMotion) { counterBig.textContent = String(remaining); return; }
+            const start = performance.now();
+            const dur = 1300;
+            (function tick(now) {
+              const p = Math.min(1, (now - start) / dur);
+              const eased = 1 - Math.pow(1 - p, 3);
+              counterBig.textContent = String(Math.round(remaining * eased));
+              if (p < 1) requestAnimationFrame(tick);
+            })(start);
+          }
+        });
+      }, { threshold: 0.4 });
+      cio.observe(counterCard);
+    }
+
+    function setupOldMarkup(claimed, total) {
+      if (claimed < STRIP_FROM) return; // houd statische tekst
+      oldMetas.forEach((el) => {
+        el.textContent = 'Al ' + claimed + ' van de ' + total + ' Founder-plekken vergeven.';
+      });
+      if (oldStrip) {
+        oldStrip.innerHTML = '<span class="hide-sm">Founder Deal · </span>€199 lifetime · al ' +
+          claimed + ' van ' + total + ' vergeven.';
+      }
+    }
+
     fetch(SUPA_URL + '/rest/v1/rpc/get_founder_seats', {
       method: 'POST',
       headers: { apikey: SUPA_KEY, Authorization: 'Bearer ' + SUPA_KEY, 'Content-Type': 'application/json' },
       body: '{}',
     })
-      .then((r) => (r.ok ? r.json() : Promise.reject(r.status)))
+      .then((r) => (r.ok ? r.json() : null))
       .then((rows) => {
         const row = Array.isArray(rows) ? rows[0] : rows;
-        if (!row) return;
-        const claimed = parseInt(row.claimed, 10);
-        const total = parseInt(row.total, 10) || 100;
-        if (!Number.isFinite(claimed) || claimed < SHOW_FROM) return; // houd statische tekst
-        metas.forEach((el) => {
-          el.textContent = 'Al ' + claimed + ' van de ' + total + ' Founder-plekken vergeven.';
-        });
-        if (strip) {
-          strip.innerHTML = '<span class="hide-sm">Founder Deal · </span>€199 lifetime · al ' +
-            claimed + ' van ' + total + ' vergeven.';
-        }
+        const claimed = row ? parseInt(row.claimed, 10) || 0 : 0;
+        const total = row ? parseInt(row.total, 10) || 100 : 100;
+        if (hasNewMarkup) setupNewMarkup(claimed, total);
+        if (hasOldMarkup) setupOldMarkup(claimed, total);
       })
-      .catch(function () {});
+      .catch(() => {
+        if (hasNewMarkup) setupNewMarkup(0, 100);
+      });
   })();
 })();
 
