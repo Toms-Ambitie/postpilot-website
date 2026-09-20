@@ -120,12 +120,10 @@
   // (get_founder_seats geeft alléén {claimed, total}, geen klantdata).
   // - Counter-card: telt naar `remaining` (resterende plekken), bar = vergeven %
   // - Topstrip "X plekken over" verschijnt pas vanaf STRIP_FROM founders
-  // - Social proof "X professionals gingen je voor" verschijnt vanaf PROOF_FROM
   // - Faalt stil: counter-card valt terug op statische defaults (100/100/0%)
   var SUPA_URL = 'https://qhwwbkculkqmiyraiblz.supabase.co';
   var SUPA_KEY = 'sb_publishable_6w7e_0sDxK1-7489jdROrg_KilH-KH0';
   var STRIP_FROM = 20;  // topstrip-schaarste pas vanaf 20 vergeven
-  var PROOF_FROM = 5;   // social-proof "X gingen je voor" pas vanaf 5 vergeven
 
   var counterCard = document.getElementById('counterCard');
   var counterBig = document.getElementById('counterBig');
@@ -133,13 +131,12 @@
   var counterMeta = document.getElementById('counterMeta');
   var stripScarcity = document.getElementById('stripScarcity');
   var stripSep = document.getElementById('stripSep');
-  var founderProof = document.getElementById('founderProof');
 
   function setupCounter(claimed, total) {
     var remaining = Math.max(0, total - claimed);
     var pct = total > 0 ? (claimed / total) * 100 : 0;
 
-    // Update meta-tekst en topstrip + social proof direct (geen wachten op view)
+    // Update meta-tekst en topstrip direct (geen wachten op view)
     if (counterMeta) counterMeta.textContent = claimed + ' vergeven · ' + remaining + ' over';
     if (stripScarcity) {
       if (claimed < STRIP_FROM) {
@@ -147,13 +144,6 @@
         if (stripSep) stripSep.style.display = 'none';
       } else {
         stripScarcity.textContent = remaining + ' plekken over · op = op.';
-      }
-    }
-    if (founderProof) {
-      if (claimed < PROOF_FROM) {
-        founderProof.style.display = 'none';
-      } else {
-        founderProof.textContent = claimed + ' professionals gingen je voor, consultants, founders en coaches.';
       }
     }
 

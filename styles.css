@@ -745,9 +745,9 @@ img, svg { display: block; max-width: 100%; }
    Pricing
    ========================================================================== */
 
-.pricing-grid.four {
+.pricing-grid.three {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 12px;
   align-items: stretch;
 }
@@ -1105,7 +1105,7 @@ footer {
    ========================================================================== */
 
 @media (max-width: 1080px) {
-  .pricing-grid.four { grid-template-columns: 1fr 1fr; }
+  .pricing-grid.three { grid-template-columns: 1fr 1fr; }
   .price-card.featured { transform: none; }
 }
 
@@ -1131,7 +1131,7 @@ footer {
 
 @media (max-width: 680px) {
   .persona-grid { grid-template-columns: 1fr; }
-  .pricing-grid.four { grid-template-columns: 1fr; }
+  .pricing-grid.three { grid-template-columns: 1fr; }
   .examples-row {
     grid-template-columns: 86% 86% 86%;
     overflow-x: auto;
@@ -2539,7 +2539,7 @@ main[tabindex="-1"]:focus { outline: none; }
 .pricing-sec { background: var(--bone); padding: clamp(72px, 9vw, 128px) 0; }
 .pricing-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 12px;
   align-items: stretch;
 }

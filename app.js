@@ -205,13 +205,12 @@
   // ---------------- Founder seats (live data via Supabase RPC) ----------------
   // Identiek aan homepage.js setup: ondersteunt zowel de oude markup
   // (.founder-counter .counter-meta + .founder-strip) als de nieuwe homepage-
-  // markup (#counterCard/#counterBig/#counterBar/#counterMeta/#stripScarcity/
-  // #founderProof). Zo werken beide stijlen op alle pagina's.
+  // markup (#counterCard/#counterBig/#counterBar/#counterMeta/#stripScarcity).
+  // Zo werken beide stijlen op alle pagina's.
   (function founderSeats() {
     const SUPA_URL = 'https://qhwwbkculkqmiyraiblz.supabase.co';
     const SUPA_KEY = 'sb_publishable_6w7e_0sDxK1-7489jdROrg_KilH-KH0';
     const STRIP_FROM = 20;
-    const PROOF_FROM = 5;
 
     // Nieuwe homepage-stijl IDs
     const counterCard = document.getElementById('counterCard');
@@ -220,13 +219,12 @@
     const counterMeta = document.getElementById('counterMeta');
     const stripScarcity = document.getElementById('stripScarcity');
     const stripSep = document.getElementById('stripSep');
-    const founderProof = document.getElementById('founderProof');
 
     // Oude markup-fallback (subpagina's met .founder-counter pattern)
     const oldMetas = document.querySelectorAll('.founder-counter .counter-meta:not(#counterMeta)');
     const oldStrip = document.querySelector('.founder-strip > span:not(.dot)');
 
-    const hasNewMarkup = counterCard || stripScarcity || founderProof;
+    const hasNewMarkup = counterCard || stripScarcity;
     const hasOldMarkup = oldMetas.length || oldStrip;
     if (!hasNewMarkup && !hasOldMarkup) return;
 
@@ -240,13 +238,6 @@
           if (stripSep) stripSep.style.display = 'none';
         } else {
           stripScarcity.textContent = remaining + ' plekken over · op = op.';
-        }
-      }
-      if (founderProof) {
-        if (claimed < PROOF_FROM) {
-          founderProof.style.display = 'none';
-        } else {
-          founderProof.textContent = claimed + ' professionals gingen je voor, consultants, founders en coaches.';
         }
       }
       if (!counterCard || !counterBig || !counterBar || !('IntersectionObserver' in window)) return;
