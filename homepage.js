@@ -57,6 +57,9 @@
   onScroll();
 
   // ---------------- Reveal on scroll ----------------
+  // Alleen elementen die niet al zichtbaar zijn krijgen de reveal-animatie.
+  // Zo blijft de inhoud altijd leesbaar: bij snelle scroll, trage JS-load, of
+  // wanneer JS/IO ontbreekt. De animatie is een accent, geen voorwaarde.
   var revealEls = document.querySelectorAll('[data-reveal]');
   if ('IntersectionObserver' in window && !prefersReduced) {
     var io = new IntersectionObserver(function (entries) {
@@ -66,10 +69,16 @@
           io.unobserve(e.target);
         }
       });
-    }, { threshold: 0.12 });
+    }, { threshold: 0.05, rootMargin: '0px 0px -5% 0px' });
+    var vh = window.innerHeight;
     revealEls.forEach(function (el) {
-      el.classList.add('reveal');
-      io.observe(el);
+      var top = el.getBoundingClientRect().top;
+      if (top < vh) {
+        el.classList.add('reveal', 'is-in');
+      } else {
+        el.classList.add('reveal');
+        io.observe(el);
+      }
     });
   }
 

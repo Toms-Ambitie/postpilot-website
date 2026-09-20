@@ -55,6 +55,8 @@
   onProgress();
 
   // ---------------- Reveal on scroll ----------------
+  // Zelfde logica als op de homepage: al-zichtbare elementen krijgen meteen
+  // is-in zodat de inhoud altijd leesbaar is. Animatie is een accent.
   const revealEls = document.querySelectorAll('[data-reveal]');
   if ('IntersectionObserver' in window) {
     const io = new IntersectionObserver((entries) => {
@@ -64,10 +66,16 @@
           io.unobserve(e.target);
         }
       });
-    }, { threshold: 0.12 });
+    }, { threshold: 0.05, rootMargin: '0px 0px -5% 0px' });
+    const vh = window.innerHeight;
     revealEls.forEach((el) => {
-      el.classList.add('reveal');
-      io.observe(el);
+      const top = el.getBoundingClientRect().top;
+      if (top < vh) {
+        el.classList.add('reveal', 'is-in');
+      } else {
+        el.classList.add('reveal');
+        io.observe(el);
+      }
     });
   } else {
     revealEls.forEach((el) => el.classList.add('is-in'));
