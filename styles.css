@@ -2683,58 +2683,11 @@ main[tabindex="-1"]:focus { outline: none; }
   margin: 18px 0 0;
 }
 
-.counter-card {
-  background: var(--graphite);
-  border: 1px solid rgba(247,244,237,0.08);
-  border-radius: var(--r-surface);
-  padding: clamp(28px, 3vw, 40px);
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
-.counter-card .cnum {
-  display: flex;
-  align-items: baseline;
-  gap: 10px;
-  font-feature-settings: "tnum" 1;
-}
-.counter-card .cnum .big {
-  font-size: clamp(64px, 7vw, 96px);
-  font-weight: 700;
-  letter-spacing: -0.04em;
-  line-height: 1;
-  color: var(--signal);
-}
-.counter-card .cnum .small {
-  font-family: var(--mono);
-  font-size: 20px;
-  color: rgba(247,244,237,0.5);
-}
-.counter-card .cbar {
-  height: 6px;
-  background: rgba(247,244,237,0.1);
-  border-radius: 3px;
-  overflow: hidden;
-}
-.counter-card .cbar i {
-  display: block;
-  height: 100%;
-  width: 0%;
-  background: var(--signal);
-  transition: width 1.4s cubic-bezier(0.22, 1, 0.36, 1);
-}
-.counter-card .clabel {
-  font-family: var(--mono);
-  font-size: 11px;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  color: rgba(247,244,237,0.75);
-}
-.counter-card .cmeta {
-  font-family: var(--mono);
-  font-size: 11px;
-  letter-spacing: 0.06em;
-  color: rgba(247,244,237,0.45);
+/* Founder-sectie zonder teller: één kolom, linksuitgelijnd, max-width. */
+.founder-grid.solo {
+  grid-template-columns: 1fr;
+  max-width: 720px;
+  text-align: left;
 }
 
 /* ==========================================================================
@@ -3032,22 +2985,6 @@ body.js-anim .price-card.featured.is-in .tag {
   0%, 100% { background: rgba(232,166,64,0.18); }
   50% { background: rgba(232,166,64,0.42); }
 }
-.counter-card .cbar { position: relative; }
-.counter-card .cbar i { position: relative; overflow: hidden; }
-body.js-anim .counter-card .cbar i::after {
-  content: "";
-  position: absolute;
-  top: 0; bottom: 0;
-  left: -40%;
-  width: 30%;
-  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.45), transparent);
-  animation: shimmer 2.8s ease-in-out 2s infinite;
-}
-@keyframes shimmer {
-  0% { left: -40%; }
-  60%, 100% { left: 110%; }
-}
-
 /* Founder section — subtle grain for texture */
 .founder-sec::before {
   content: "";
@@ -3057,11 +2994,6 @@ body.js-anim .counter-card .cbar i::after {
   pointer-events: none;
 }
 .founder-sec .wrap { position: relative; }
-.founder-proof {
-  font-size: 14px !important;
-  color: rgba(247,244,237,0.55) !important;
-  margin: -16px 0 26px !important;
-}
 
 /* Marquee items get slight saffron glow on the arrows */
 .marquee-track .item .sep { transition: color 0.2s ease; }
