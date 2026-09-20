@@ -3083,3 +3083,40 @@ main[tabindex="-1"]:focus { outline: none; }
 .steps-list:has(.step-row.active) .step-row:not(.active) .sv-pill,
 .steps-list:has(.step-row.active) .step-row:not(.active) .sv-btn { opacity: 0.9; }
 .display-hero .soft { color: #7E8189; }          /* van --t-4 #9ca0a8 → 3.1+:1 voor large bold */
+
+/* ==========================================================================
+   In de app: twee schermafbeeldingen naast elkaar
+   ========================================================================== */
+
+.app-shots-sec { padding: clamp(36px, 5vw, 72px) 0; }
+.app-shots {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(20px, 2.4vw, 34px);
+  margin-top: clamp(14px, 2vw, 24px);
+}
+.app-shot {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.app-shot img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: var(--paper-pure);
+  box-shadow: 0 1px 0 rgba(14,16,20,0.04), 0 18px 34px -24px rgba(14,16,20,0.28);
+}
+.app-shot figcaption {
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--t-2);
+  max-width: 46ch;
+}
+
+@media (max-width: 980px) {
+  .app-shots { grid-template-columns: 1fr; gap: 30px; }
+}
