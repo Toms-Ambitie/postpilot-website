@@ -5,6 +5,10 @@
   "installCommand": null,
   "outputDirectory": ".",
   "cleanUrls": true,
+  "redirects": [
+    { "source": "/prijzen.html", "destination": "/#pricing", "permanent": true },
+    { "source": "/prijzen", "destination": "/#pricing", "permanent": true }
+  ],
   "headers": [
     {
       "source": "/(.*)",
