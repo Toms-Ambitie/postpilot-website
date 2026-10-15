@@ -119,7 +119,6 @@ async function run(){
     var caret=document.createElement('span');caret.className='caret';var step=reduced?40:3;
     for(var j=0;j<TEXT.length;j+=step){body.textContent=TEXT.slice(0,j+step);body.appendChild(caret);await wait(reduced?4:26,g)}
     body.textContent=TEXT;timerOn(false);
-    // Timer stopt op gemeten gemiddelde. "24,6 s" is nog een schatting; meten door 3× echte flow.
     timer.textContent='24,6 s';
     setBadge('ok','Klaar, jij keurt goed');pub.disabled=false;
     await wait(5500,g);running=false;run();
