@@ -45,13 +45,10 @@
 
   <link rel="stylesheet" href="v6.css">
 
-  <!-- Feature flag: Stripe-proefperiode. Zet true wanneer de 30-dagen-trial in
-       Stripe (trial, kaartregistratie, afschrijving dag 30, bericht dag 27) werkt.
-       Tot die tijd: alle [data-requires="stripe-trial"]-elementen verborgen,
-       Premium-CTA toont "Kies Premium". -->
-  <style id="stripe-trial-flag">
-    [data-requires="stripe-trial"] { display: none !important; }
-  </style>
+  <!-- Feature flag: Stripe-proefperiode. Afscherming staat in v6.css.
+       Zet <html class="trial-aan"> om alle 30-dagen-copy aan te zetten
+       zodra Stripe-trial werkt (trial, kaartregistratie, afschrijving
+       dag 30, bericht dag 27). Nu uit → Premium-CTA toont "Kies Premium". -->
 
   <script type="application/ld+json">
 {
@@ -206,7 +203,7 @@
                   </div>
                   <div class="panel">
                     <span class="lbl">LinkedIn-preview</span>
-                    <div class="lipost" id="demoPost"><div class="author"><span class="av">TM</span><div><div class="n">Tom Mulder</div><div class="r">Founder, Toms Ambitie · Nu · 🌐</div></div></div><div class="body" id="postBody"></div></div>
+                    <div class="lipost" id="demoPost"><div class="author"><span class="av">TM</span><div><div class="n">Tom Mulder</div><div class="r">Oprichter, Toms Ambitie · Nu · 🌐</div></div></div><div class="body" id="postBody"></div></div>
                     <div class="actions"><span class="abtn ghost">Opslaan</span><span class="abtn sec">Plan in</span><button class="abtn pri" id="pubBtn" disabled>Publiceer nu</button></div>
                   </div>
                 </div>
@@ -293,7 +290,7 @@
       <div class="examples">
         <article class="example reveal">
           <div class="lipost">
-            <div class="author"><span class="av">TM</span><div><div class="n">Tom Mulder</div><div class="r">Founder, Toms Ambitie · 24 mei · 🌐</div></div></div>
+            <div class="author"><span class="av">TM</span><div><div class="n">Tom Mulder</div><div class="r">Oprichter, Toms Ambitie · 24 mei · 🌐</div></div></div>
             <div class="body">Drie jaar geleden dacht ik dat een goede consultant vooral inhoud leverde.
 
 Vandaag weet ik beter: inhoud is het minimum. De échte waarde zit in het gesprek dat je een week later opnieuw aandurft.
@@ -312,7 +309,7 @@ Welke vraag stel jij dan?</div>
         </article>
         <article class="example reveal">
           <div class="lipost">
-            <div class="author"><span class="av">TM</span><div><div class="n">Tom Mulder</div><div class="r">Founder, Toms Ambitie · 12 juni · 🌐</div></div></div>
+            <div class="author"><span class="av">TM</span><div><div class="n">Tom Mulder</div><div class="r">Oprichter, Toms Ambitie · 12 juni · 🌐</div></div></div>
             <div class="body">Saaiheid kost merken meer geld dan een slecht kwartaal. Dat hoorde ik gisteren op de NIMA Marketing Day en het bleef hangen.
 
 Peter Field legde het scherp neer: wie puur op performance inzet, vreet aan zijn eigen merk. De 60/40-verdeling tussen branding en performance is geen vuistregel, het is gewoon wiskunde. Emotie werkt op de lange termijn. Clicks niet.
@@ -326,7 +323,7 @@ Ik ging naar huis met een vol hoofd en een half A4 vol aantekeningen. Voor mij h
         </article>
         <article class="example reveal">
           <div class="lipost">
-            <div class="author"><span class="av">TM</span><div><div class="n">Tom Mulder</div><div class="r">Founder, Toms Ambitie · 3 okt · 🌐</div></div></div>
+            <div class="author"><span class="av">TM</span><div><div class="n">Tom Mulder</div><div class="r">Oprichter, Toms Ambitie · 3 okt · 🌐</div></div></div>
             <div class="body">Het hoge woord is er uit! Op 16 november verlaat ik GJ Floors. Ik heb er een mooie periode gehad waarbij ik veel voor het team en het bedrijf heb kunnen betekenen. Maar ik wil meer! Ik ben nou eenmaal een zeer ondernemende marketeer of wellicht zelfs een ondernemer met veel marketingervaring. Ik ben een bouwer, niet iemand die op de 'winkel past'.
 
 Daardoor merk ik dat ik klaar ben voor iets nieuws, iets waar de marketinguitdaging weer echt groot is.</div>
