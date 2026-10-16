@@ -176,6 +176,7 @@
     </div>
   </div>
 
+  <main id="main">
   <section class="hero" data-screen-label="01 hero">
     <div class="wrap">
       <div class="hero2">
@@ -190,7 +191,7 @@
           <div class="app small hero-app" id="demoApp">
             <div class="app-top"><span class="dots"><i></i><i></i><i></i></span><span class="url">app.postpilotapp.nl/nieuwe-post</span><span style="width:54px"></span></div>
             <div class="app-body">
-              <main class="app-main">
+              <div class="app-main">
                 <div class="app-head"><h4>Nieuwe post</h4><div class="meta"><span class="badge" id="demoBadge"><span class="pip"></span><span id="demoState">Klaar om op te nemen</span></span><span class="timer" id="demoTimer">0,0 s</span></div></div>
                 <div class="app-cols">
                   <div class="panel">
@@ -206,7 +207,7 @@
                     <div class="actions"><span class="abtn ghost">Opslaan</span><span class="abtn sec">Plan in</span><button class="abtn pri" id="pubBtn" disabled>Publiceer nu</button></div>
                   </div>
                 </div>
-              </main>
+              </div>
             </div>
           </div>
           <p class="hero-caption">Voorbeeld van de Post Creator. Klik op de microfoon om opnieuw af te spelen.</p>
@@ -280,6 +281,24 @@
     </div>
   </section>
 
+  <section class="section shots-sec" id="in-de-app" data-screen-label="03b in de app">
+    <div class="wrap">
+      <div class="sec-head center"><span class="eyebrow">In de app</span><h2 class="h2">Zo ziet het eruit als je binnen bent.</h2></div>
+      <div class="app-shots">
+        <figure class="app-shot reveal">
+          <img src="assets/screenshots/app-vandaag-2026-09.png" width="2400" height="1600" loading="lazy" decoding="async"
+               alt="Het Vandaag-scherm van PostPilot met de vraag waar je vandaag zichtbaar over wilt zijn, een microfoonknop om je idee in te spreken, een tekstveld met een ingetypt idee, en keuzes voor toon en lengte.">
+          <figcaption>Hier begint je dag: spreek je idee in of typ het, en kies de toon en de lengte.</figcaption>
+        </figure>
+        <figure class="app-shot reveal">
+          <img src="assets/screenshots/app-mijn-stem-2026-09.png" width="2400" height="1600" loading="lazy" decoding="async"
+               alt="Het scherm Mijn stem van PostPilot met drie gekozen kenmerken en vijf schuifjes voor tempo, lengte, formaliteit, persoonlijk en stelligheid.">
+          <figcaption>Hier staat hoe je klinkt: een paar kenmerken en vijf schuifjes, die PostPilot ook zelf uit je posts afleidt.</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
   <section class="section tint" id="voorbeelden" data-screen-label="04 voorbeelden">
     <div class="wrap">
       <div class="sec-head center"><span class="eyebrow">Voorbeelden</span><h2 class="h2">Zo klinkt een post van jou.</h2><p class="lead">Drie gepubliceerde posts van Tom Mulder.</p></div>
@@ -304,7 +323,7 @@ Volgende week start ik bij een nieuwe opdrachtgever. Eerste afspraak: een uur zo
 
 Welke vraag stel jij dan?</div>
           </div>
-          <div class="ex-in" hidden><span class="k"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/></svg>Invoer</span>—</div>
+          <div class="ex-in" hidden><span class="k"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/></svg>Invoer</span></div>
         </article>
         <article class="example reveal">
           <div class="lipost">
@@ -318,7 +337,7 @@ Dat Crisp en Hema de titels Marketing Company of the Year pakten, verraste me da
 Ik ging naar huis met een vol hoofd en een half A4 vol aantekeningen. Voor mij het beste bewijs van een goed evenement.</div>
           </div>
           <p class="ex-note">Ingekort voor deze kaart. De volledige post staat op LinkedIn.</p>
-          <div class="ex-in" hidden><span class="k"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/></svg>Invoer</span>—</div>
+          <div class="ex-in" hidden><span class="k"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/></svg>Invoer</span></div>
         </article>
         <article class="example reveal">
           <div class="lipost">
@@ -327,7 +346,7 @@ Ik ging naar huis met een vol hoofd en een half A4 vol aantekeningen. Voor mij h
 
 Daardoor merk ik dat ik klaar ben voor iets nieuws, iets waar de marketinguitdaging weer echt groot is.</div>
           </div>
-          <div class="ex-in" hidden><span class="k"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/></svg>Invoer</span>—</div>
+          <div class="ex-in" hidden><span class="k"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/></svg>Invoer</span></div>
         </article>
       </div>
     </div>
@@ -425,37 +444,24 @@ Daardoor merk ik dat ik klaar ben voor iets nieuws, iets waar de marketinguitdag
     </div>
   </section>
 
+  </main>
+
   <div class="sticky-cta" id="stickyCta"><span><b>Begin gratis</b> · geen betaalgegevens</span><a href="https://app.postpilotapp.nl/signup" class="btn btn-primary btn-sm">Start nu</a></div>
 
-  <footer data-screen-label="08 footer">
+  <footer data-screen-label="footer">
     <div class="wrap">
       <div class="foot">
-        <div class="brand"><a href="#" class="logo"><svg viewBox="0 0 40 40" aria-hidden="true"><rect width="40" height="40" rx="5" fill="#E8A640"></rect><rect x="10" y="8" width="22" height="13" fill="#0E1014"></rect><rect x="10" y="21" width="7" height="11" fill="#0E1014"></rect><rect x="14" y="11" width="14" height="6" fill="#E8A640"></rect></svg>PostPilot</a><p>Jouw LinkedIn copilot. Spreek het in of typ een paar steekwoorden, PostPilot schrijft, jij publiceert.</p><div class="badges"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>GDPR</span><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Gehost in de EU</span><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Officiële LinkedIn API</span></div></div>
-        <div><h5>Product</h5><ul><li><a href="#hoe">Hoe het werkt</a></li><li><a href="#voorbeelden">Voorbeelden</a></li><li><a href="#pricing">Prijzen</a></li></ul></div>
-        <div><h5>Hulp</h5><ul><li><a href="#faq">Veelgestelde vragen</a></li><li><a href="/contact">Contact</a></li><li><a href="mailto:hallo@postpilotapp.nl">hallo@postpilotapp.nl</a></li></ul></div>
+        <div class="brand"><a href="/" class="logo"><svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect width="40" height="40" rx="5" fill="#E8A640"></rect><rect x="10" y="8" width="22" height="13" fill="#0E1014"></rect><rect x="10" y="21" width="7" height="11" fill="#0E1014"></rect><rect x="14" y="11" width="14" height="6" fill="#E8A640"></rect></svg>PostPilot</a><p>Jouw LinkedIn copilot. Spreek het in of typ een paar steekwoorden, PostPilot schrijft, jij publiceert.</p><div class="badges"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>GDPR</span><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Gehost in de EU</span><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Officiële LinkedIn API</span></div></div>
+        <div><h5>Product</h5><ul><li><a href="#hoe">Hoe het werkt</a></li><li><a href="#voorbeelden">Voorbeelden</a></li><li><a href="#pricing">Prijzen</a></li><li><a href="#faq">Veelgestelde vragen</a></li></ul></div>
+        <div><h5>Voor LinkedIn</h5><ul><li><a href="/linkedin-post-generator">LinkedIn post generator</a></li><li><a href="/linkedin-posts-schrijven">LinkedIn-posts schrijven</a></li><li><a href="/taplio-alternatief">Taplio alternatief</a></li></ul></div>
+        <div><h5>Bedrijf</h5><ul><li><a href="/over">Over PostPilot</a></li><li><a href="/investeren">Investeren</a></li><li><a href="/contact">Contact</a></li><li><a href="mailto:hallo@postpilotapp.nl">hallo@postpilotapp.nl</a></li></ul></div>
         <div><h5>Juridisch</h5><ul><li><a href="/privacy">Privacy</a></li><li><a href="/voorwaarden">Algemene voorwaarden</a></li><li><a href="/cookies">Cookies</a></li></ul></div>
       </div>
-      <div class="foot-bottom"><span>© 2026 PostPilot · onderdeel van Toms Ambitie · Zwolle, NL</span></div>
+      <div class="foot-bottom"><span>© 2026 PostPilot · onderdeel van Toms Ambitie · Zwolle, NL · KvK 70590907</span></div>
     </div>
   </footer>
 
   <script src="v6.js"></script>
-  <!-- Attribution forwarding naar app.postpilotapp.nl (utm_*, gclid, _gl) -->
-  <script>
-    (function(){
-      var p = new URLSearchParams(location.search);
-      var forward = ['utm_source','utm_medium','utm_campaign','utm_term','utm_content','gclid','_gl'];
-      var carry = new URLSearchParams();
-      forward.forEach(function(k){ if(p.has(k)) carry.set(k, p.get(k)); });
-      if(!carry.toString().length) return;
-      document.querySelectorAll('a[href^="https://app.postpilotapp.nl"]').forEach(function(a){
-        try {
-          var u = new URL(a.href);
-          carry.forEach(function(v, k){ if(!u.searchParams.has(k)) u.searchParams.set(k, v); });
-          a.href = u.toString();
-        } catch(e){}
-      });
-    })();
-  </script>
+  <script src="site.js"></script>
 </body>
 </html>

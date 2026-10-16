@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- ───── Consent & tracking (zelfde setup als de app) ───── -->
-  <!-- 2) Consent Mode default: alles geweigerd tot Cookiebot toestemming geeft. -->
+  <!-- 2) Consent Mode default: alles geweigerd tot CookieYes toestemming geeft. -->
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
@@ -36,7 +36,7 @@
   <meta name="twitter:title" content="Cookiebeleid · PostPilot">
   <meta name="twitter:description" content="Welke cookies PostPilot gebruikt en waarom, strikt noodzakelijke cookies altijd, analytische cookies alleen na jouw toestemming via de cookiebanner.">
   <meta name="twitter:image" content="https://www.postpilotapp.nl/assets/og-image.png">
-  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
   <link rel="manifest" href="/manifest.webmanifest">
   <meta name="theme-color" content="#F7F4ED">
@@ -45,7 +45,8 @@
   <link rel="preload" href="/assets/fonts/geist-500-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="/assets/fonts/fonts.css">
 
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="/v6.css">
+  <link rel="stylesheet" href="/v6-pages.css">
 
   <!-- JSON-LD structured data -->
   <script type="application/ld+json">
@@ -102,41 +103,15 @@
   </script>
 </head>
 <body>
-  <!-- ============================================== NAV -->
   <div class="nav-wrap" id="nav">
     <div class="wrap">
       <nav class="nav" aria-label="Hoofdnavigatie">
-        <div class="nav-left">
-          <a href="index.html" class="nav-logo" aria-label="PostPilot home">
-            <svg class="mark" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-              <rect width="40" height="40" rx="5" fill="#E8A640"></rect>
-              <rect x="10" y="8" width="22" height="13" fill="#0E1014"></rect>
-              <rect x="10" y="21" width="7" height="11" fill="#0E1014"></rect>
-              <rect x="14" y="11" width="14" height="6" fill="#E8A640"></rect>
-            </svg>
-            <span class="name">PostPilot</span>
-          </a>
-          <div class="nav-links">
-            <a href="index.html#hoe">Hoe het werkt</a>
-            <a href="index.html#voor-wie">Voor wie</a>
-            <a href="index.html#voorbeelden">Voorbeelden</a>
-            <a href="prijzen.html">Prijzen</a>
-            <a href="index.html#faq">FAQ</a>
-          </div>
-        </div>
-        <div class="nav-right">
-          <a href="https://app.postpilotapp.nl/login" class="btn btn-link btn-sm">Inloggen</a>
-          <a href="https://app.postpilotapp.nl/signup" class="btn btn-primary btn-sm">
-            Probeer gratis
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-          </a>
-          <button class="nav-mobile-toggle" aria-label="Menu" id="mobileToggle">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg>
-          </button>
-        </div>
+        <a href="/" class="logo" aria-label="PostPilot home"><svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect width="40" height="40" rx="5" fill="#E8A640"></rect><rect x="10" y="8" width="22" height="13" fill="#0E1014"></rect><rect x="10" y="21" width="7" height="11" fill="#0E1014"></rect><rect x="14" y="11" width="14" height="6" fill="#E8A640"></rect></svg>PostPilot</a>
+        <div class="nav-links"><a href="/#product">Product</a><a href="/#hoe">Hoe het werkt</a><a href="/#voorbeelden">Voorbeelden</a><a href="/#pricing">Prijzen</a><a href="/#faq">FAQ</a></div>
+        <div class="nav-right"><a href="https://app.postpilotapp.nl/login" class="btn btn-ghost btn-sm">Inloggen</a><a href="https://app.postpilotapp.nl/signup" class="btn btn-primary btn-sm nav-cta">Begin gratis</a><button class="nav-toggle" id="navToggle" aria-label="Menu" aria-expanded="false"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg></button></div>
       </nav>
+      <div class="nav-mobile" id="navMobile"><a href="/#product">Product</a><a href="/#hoe">Hoe het werkt</a><a href="/#voorbeelden">Voorbeelden</a><a href="/#pricing">Prijzen</a><a href="/#faq">FAQ</a><a href="https://app.postpilotapp.nl/login">Inloggen</a><a href="https://app.postpilotapp.nl/signup" class="btn btn-primary">Begin gratis</a></div>
     </div>
-    <div class="scroll-progress" aria-hidden="true"><i id="scrollProgress"></i></div>
   </div>
 
   <!-- ============================================== PAGE HEADER -->
@@ -146,9 +121,10 @@
         <span class="num">·</span>
         <span class="ttl">Juridisch</span>
         <span class="spacer"></span>
-        <span class="aside">LAATST BIJGEWERKT 28 MEI 2026</span>
+        
       </div>
       <h1 class="display-md" style="margin-top: 18px;">Cookiebeleid</h1>
+      <p class="page-meta">Laatst bijgewerkt 16 oktober 2026</p>
     </div>
   </header>
 
@@ -184,7 +160,7 @@
           <section id="gebruik">
             <h2><span class="n">02</span>Gebruiken wij cookies?</h2>
             <p>
-              Ja, een beperkt aantal. Op <strong>postpilotapp.nl</strong> en <strong>app.postpilotapp.nl</strong> tonen we bij je eerste bezoek een <strong>cookiebanner</strong> (Cookiebot) waarin je per categorie kunt aangeven wat je toestaat. Strikt noodzakelijke cookies plaatsen we altijd; alle andere alleen na jouw toestemming. We zetten geen advertentie- of trackingcookies in en we volgen je niet over andere websites.
+              Ja, een beperkt aantal. Op <strong>postpilotapp.nl</strong> en <strong>app.postpilotapp.nl</strong> tonen we bij je eerste bezoek een <strong>cookiebanner</strong> (CookieYes) waarin je per categorie kunt aangeven wat je toestaat. Strikt noodzakelijke cookies plaatsen we altijd; alle andere alleen na jouw toestemming. Advertentiecookies plaatsen we op dit moment niet.
             </p>
           </section>
 
@@ -192,7 +168,7 @@
             <h2><span class="n">03</span>Soorten cookies</h2>
             <h3>Strikt noodzakelijk <em>(altijd actief)</em></h3>
             <p>
-              Nodig voor basisfuncties en beveiliging, bijvoorbeeld het onthouden van je cookiekeuze (Cookiebot, cookie <code>CookieConsent</code>) en, in de app, het in stand houden van je sessie na inloggen. Voor deze cookies is geen toestemming vereist.
+              Nodig voor basisfuncties en beveiliging, bijvoorbeeld het onthouden van je cookiekeuze (CookieYes, cookie <code>cookieyes-consent</code>) en, in de app, het in stand houden van je sessie na inloggen. Voor deze cookies is geen toestemming vereist.
             </p>
             <h3>Functioneel <em>(in de app, altijd)</em></h3>
             <p>
@@ -200,11 +176,11 @@
             </p>
             <h3>Analytisch <em>(alleen met toestemming)</em></h3>
             <p>
-              Helpen ons begrijpen hoe de site en app gebruikt worden, zodat we ze kunnen verbeteren. We gebruiken <strong>Google Analytics 4</strong> via een first-party server-side koppeling (Google Tag Manager, Taggrs.io) en draaien <strong>Google Consent Mode v2</strong> met IP-anonimisering en ad-data-redaction. Cookies: onder andere <code>_ga</code> en <code>_ga_*</code>. Worden alleen geplaatst nadat je in de banner op "Toestaan" hebt geklikt.
+              Helpen ons begrijpen hoe de site en app gebruikt worden, zodat we ze kunnen verbeteren. We gebruiken <strong>Google Analytics 4</strong> via een first-party server-side koppeling (Google Tag Manager, Taggrs.io) en draaien <strong>Google Consent Mode v2</strong> met IP-anonimisering en ad-data-redaction. Cookies: <code>_ga</code> en <code>_ga_*</code> van Google Analytics, en <code>FPID</code> en <code>FPLC</code> van de server-side koppeling. Worden alleen geplaatst nadat je daar in de banner toestemming voor hebt gegeven.
             </p>
-            <h3>Marketing</h3>
+            <h3>Advertenties <em>(alleen met toestemming)</em></h3>
             <p>
-              Worden niet gebruikt. We zetten geen retargeting- of advertentiecookies in.
+              Op dit moment niet in gebruik. Zodra we adverteren via Google Ads of Meta, gebruiken we advertentiecookies om te meten welke advertenties werken en om advertenties af te stemmen. Die worden alleen geplaatst als je daar in de banner toestemming voor geeft. We werken dit cookiebeleid bij voordat dat gebeurt.
             </p>
           </section>
 
@@ -214,7 +190,7 @@
               Sommige diensten die we gebruiken kunnen eigen cookies plaatsen, telkens binnen de gekozen categorie:
             </p>
             <ul>
-              <li><strong>Cookiebot</strong> (Cybot A/S, Denemarken), voor het onthouden van je cookiekeuze. Categorie: strikt noodzakelijk.</li>
+              <li><strong>CookieYes</strong> (CookieYes Limited, Verenigd Koninkrijk), voor het tonen van de cookiebanner en het onthouden van je cookiekeuze. Categorie: strikt noodzakelijk.</li>
               <li><strong>Google Analytics 4 + Google Tag Manager</strong> via Taggrs.io (server-side koppeling op <code>data.postpilotapp.nl</code>). Categorie: analytisch, alleen na toestemming.</li>
               <li><strong>Stripe</strong> tijdens het afrekenen in de app, om fraude te helpen voorkomen en je betaling veilig af te ronden. Categorie: strikt noodzakelijk voor de betaling die je zelf start.</li>
               <li><strong>LinkedIn</strong> wanneer je vanuit de app de OAuth-koppeling start, om je veilig in te loggen bij LinkedIn. Categorie: strikt noodzakelijk binnen de koppelingsflow die je zelf start.</li>
@@ -227,14 +203,14 @@
               Je kunt je keuze op elk moment aanpassen of intrekken via de knop hieronder. Daarnaast kun je cookies altijd zelf beheren of verwijderen via de instellingen van je browser. Het uitschakelen van strikt noodzakelijke cookies kan ertoe leiden dat delen van de site of app niet goed werken.
             </p>
             <p style="margin-top:12px">
-              <button type="button" onclick="if(window.Cookiebot){Cookiebot.renew();}" class="btn btn-outline">Cookie-instellingen openen</button>
+              <button type="button" onclick="if(window.revisitCkyConsent){revisitCkyConsent();}" class="btn btn-outline">Cookie-instellingen openen</button>
             </p>
           </section>
 
           <section id="wijzigingen">
             <h2><span class="n">06</span>Wijzigingen</h2>
             <p>
-              We passen dit cookiebeleid aan zodra dat nodig is. De actuele versie staat altijd op deze pagina, met bovenaan de datum van de laatste wijziging. Meer over hoe we met persoonsgegevens omgaan lees je in ons <a href="privacy.html">privacybeleid</a>.
+              We passen dit cookiebeleid aan zodra dat nodig is. De actuele versie staat altijd op deze pagina, met bovenaan de datum van de laatste wijziging. Meer over hoe we met persoonsgegevens omgaan lees je in ons <a href="/privacy">privacybeleid</a>.
             </p>
           </section>
 
@@ -248,64 +224,20 @@
     </div>
   </main>
 
-  <!-- ============================================== FOOTER -->
-  <footer>
+  <footer data-screen-label="footer">
     <div class="wrap">
       <div class="foot">
-        <div class="col brand-col">
-          <div class="name">
-            <svg width="22" height="22" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-              <rect width="40" height="40" rx="5" fill="#E8A640"></rect>
-              <rect x="10" y="8" width="22" height="13" fill="#0E1014"></rect>
-              <rect x="10" y="21" width="7" height="11" fill="#0E1014"></rect>
-              <rect x="14" y="11" width="14" height="6" fill="#E8A640"></rect>
-            </svg>
-            PostPilot
-          </div>
-          <p>Jouw LinkedIn copilot. Voor professionals die zichtbaar willen zijn zonder content creator te worden.</p>
-        </div>
-        <div class="col">
-          <h2>Product</h2>
-          <ul>
-            <li><a href="index.html#hoe">Features</a></li>
-            <li><a href="prijzen.html">Prijzen</a></li>
-            <li><a href="index.html#faq">FAQ</a></li>
-            <li><a href="contact.html">Help</a></li>
-          </ul>
-        </div>
-        <div class="col">
-          <h2>Voor LinkedIn</h2>
-          <ul>
-            <li><a href="linkedin-post-generator.html">LinkedIn post generator</a></li>
-            <li><a href="linkedin-posts-schrijven.html">LinkedIn-posts schrijven</a></li>
-            <li><a href="taplio-alternatief.html">Taplio alternatief</a></li>
-          </ul>
-        </div>
-        <div class="col">
-          <h2>Bedrijf</h2>
-          <ul>
-            <li><a href="over.html">Over</a></li>
-            <li><a href="over.html#toms-ambitie">Toms Ambitie</a></li>
-            <li><a href="investeren.html">Investeren</a></li>
-            <li><a href="contact.html">Contact</a></li>
-          </ul>
-        </div>
-        <div class="col">
-          <h2>Juridisch</h2>
-          <ul>
-            <li><a href="privacy.html">Privacy</a></li>
-            <li><a href="voorwaarden.html">Algemene voorwaarden</a></li>
-            <li><a href="cookies.html">Cookies</a></li>
-          </ul>
-        </div>
+        <div class="brand"><a href="/" class="logo"><svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect width="40" height="40" rx="5" fill="#E8A640"></rect><rect x="10" y="8" width="22" height="13" fill="#0E1014"></rect><rect x="10" y="21" width="7" height="11" fill="#0E1014"></rect><rect x="14" y="11" width="14" height="6" fill="#E8A640"></rect></svg>PostPilot</a><p>Jouw LinkedIn copilot. Spreek het in of typ een paar steekwoorden, PostPilot schrijft, jij publiceert.</p><div class="badges"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>GDPR</span><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Gehost in de EU</span><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Officiële LinkedIn API</span></div></div>
+        <div><h5>Product</h5><ul><li><a href="/#hoe">Hoe het werkt</a></li><li><a href="/#voorbeelden">Voorbeelden</a></li><li><a href="/#pricing">Prijzen</a></li><li><a href="/#faq">Veelgestelde vragen</a></li></ul></div>
+        <div><h5>Voor LinkedIn</h5><ul><li><a href="/linkedin-post-generator">LinkedIn post generator</a></li><li><a href="/linkedin-posts-schrijven">LinkedIn-posts schrijven</a></li><li><a href="/taplio-alternatief">Taplio alternatief</a></li></ul></div>
+        <div><h5>Bedrijf</h5><ul><li><a href="/over">Over PostPilot</a></li><li><a href="/investeren">Investeren</a></li><li><a href="/contact">Contact</a></li><li><a href="mailto:hallo@postpilotapp.nl">hallo@postpilotapp.nl</a></li></ul></div>
+        <div><h5>Juridisch</h5><ul><li><a href="/privacy">Privacy</a></li><li><a href="/voorwaarden">Algemene voorwaarden</a></li><li><a href="/cookies">Cookies</a></li></ul></div>
       </div>
-      <div class="foot-bottom">
-        <span>© 2026 POSTPILOT · ONDERDEEL VAN TOMS AMBITIE · ZWOLLE · KVK 70590907</span>
-        <span>POSTPILOTAPP.NL</span>
-      </div>
+      <div class="foot-bottom"><span>© 2026 PostPilot · onderdeel van Toms Ambitie · Zwolle, NL · KvK 70590907</span></div>
     </div>
   </footer>
 
-  <script src="app.js"></script>
+  <script src="/v6.js"></script>
+  <script src="/site.js"></script>
 </body>
 </html>
