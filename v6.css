@@ -478,22 +478,3 @@ footer{padding-bottom:72px}
    werkt (trial, kaartregistratie, dag-30-afschrijving, dag-27-bericht). */
 [data-requires="stripe-trial"]{display:none}
 html.trial-aan [data-requires="stripe-trial"]{display:revert}
-
-/* --- CookieYes consent banner naar onderkant ---
-   Overlay verbergen, container fixeren onderaan, max-width volledige
-   breedte, geen zwaar vlak over de hero. Tom kan dit later in het
-   CookieYes-dashboard omzetten naar "Banner" layout voor cleaner resultaat. */
-.cky-overlay,.cky-consent-bar-wrapper .cky-overlay{display:none !important}
-.cky-consent-container{
-  position:fixed !important;
-  bottom:0 !important;left:0 !important;right:0 !important;top:auto !important;
-  transform:none !important;
-  width:100% !important;max-width:100% !important;
-  border-radius:0 !important;
-  box-shadow:0 -8px 24px -12px rgba(14,16,20,.18) !important;
-  z-index:9999 !important;
-}
-.cky-consent-container .cky-consent-bar{max-width:1120px;margin:0 auto}
-@media (min-width:981px){
-  .cky-consent-container{padding:12px 24px !important}
-}
