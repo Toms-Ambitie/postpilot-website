@@ -475,9 +475,8 @@ footer{padding-bottom:72px}
 
 /* --- Stripe-trial afscherming ---
    Default: alle trial-copy verborgen vanaf eerste paint, ook zonder javascript.
-   De vlag stripeTrial in /flags.js zet class "trial-aan" op <html> zodra de
-   Stripe-proefperiode werkt (trial, kaartregistratie, dag-30-afschrijving,
-   dag-27-bericht). */
+   De vlag stripeTrial in /flags.js zet class "trial-aan" op <html>
+   (aan sinds 16 oktober 2026). */
 [data-requires="stripe-trial"]{display:none}
 html.trial-aan [data-requires="stripe-trial"]{display:revert}
 
