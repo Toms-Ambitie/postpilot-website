@@ -48,8 +48,14 @@
 
   <!-- Feature flag: Stripe-proefperiode. De vlag staat in /flags.js (stripeTrial),
        de afscherming en de knopteksten in v6.css. Aan sinds 16 oktober 2026:
-       elke oproep toont "Start 30 dagen gratis". Geen belofte over een bericht
-       vooraf tot de app die herinnering aantoonbaar verstuurt. -->
+       elke oproep toont "Start 30 dagen gratis".
+
+       De belofte over een bericht vooraf staat sinds 16 oktober 2026 weer in
+       de FAQ. Die mag daar alleen staan zolang de app hem waarmaakt. De
+       keten: Stripe stuurt customer.subscription.trial_will_end drie dagen
+       van tevoren, stripe-webhook vangt dat op en verstuurt de mail. Gaat
+       app_settings.proef_herinnering_actief uit, dan gaat deze zin van de
+       site af, want dan is hij niet waar. -->
 
   <script type="application/ld+json">
 {
@@ -418,7 +424,7 @@ Daardoor merk ik dat ik klaar ben voor iets nieuws, iets waar de marketinguitdag
         <div class="faq-item"><button class="faq-q" aria-expanded="false"><span>Klinkt het straks als generieke AI?</span><svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button><div class="faq-a"><div>Nee, mits je 'm de eerste keer goed instelt. Je kiest een toon-preset of upload een paar van je eerdere posts, daarna schrijft PostPilot in jouw stem, met jouw zinslengte en jouw manier van afsluiten.</div></div></div>
         <div class="faq-item"><button class="faq-q" aria-expanded="false"><span>Publiceert PostPilot automatisch?</span><svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button><div class="faq-a"><div>Alleen als jij dat wilt. Standaard maakt PostPilot concepten die jij goedkeurt. Je kunt direct publiceren, inplannen voor later, of als concept opslaan. Jij blijft eindredacteur.</div></div></div>
         <div class="faq-item"><button class="faq-q" aria-expanded="false"><span>Hoe veilig is de LinkedIn-koppeling?</span><svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button><div class="faq-a"><div>We gebruiken alleen de officiële LinkedIn OAuth, dezelfde techniek waarmee je bij andere LinkedIn-apps inlogt. Geen wachtwoord-deling, geen browserextensie, geen scraping. LinkedIn verbiedt in zijn eigen gebruiksvoorwaarden software en extensies die namens jou bij je account komen, en kan accounts die dat gebruiken beperken (zie <a href="https://www.linkedin.com/help/linkedin/answer/a1341387" target="_blank" rel="noopener">de LinkedIn-regels hierover</a>). Je kunt de koppeling op elk moment verbreken.</div></div></div>
-        <div class="faq-item" data-requires="stripe-trial"><button class="faq-q" aria-expanded="false"><span>Hoe werken de 30 gratis dagen bij Premium?</span><svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button><div class="faq-a"><div><!-- TRIAL-COPY -->Bij Premium zijn de eerste 30 dagen gratis. Daarna wordt €19 per maand afgeschreven. Opzeggen kan altijd.</div></div></div>
+        <div class="faq-item" data-requires="stripe-trial"><button class="faq-q" aria-expanded="false"><span>Hoe werken de 30 gratis dagen bij Premium?</span><svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button><div class="faq-a"><div><!-- TRIAL-COPY -->Bij Premium zijn de eerste 30 dagen gratis. Daarna wordt €19 per maand afgeschreven. Drie dagen van tevoren krijg je bericht. Opzeggen kan altijd.</div></div></div>
       </div>
     </div>
   </section>
