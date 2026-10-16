@@ -1,5 +1,5 @@
 /* Gedeeld script voor alle pagina's (naast v6.js):
-   skip-link, attributie naar de app, contactformulier. */
+   skip-link, knopteksten, attributie naar de app, contactformulier. */
 (function () {
   'use strict';
 
@@ -25,6 +25,18 @@
   // zodat een aanmelding aan de juiste advertentie gekoppeld kan worden.
   // First-touch: de eerste waarde in een sessie wint. GA4 koppelt de bezoeker zelf
   // via de _gl-linker; die geven we ook door als hij in de URL staat.
+  // Knopteksten staan op één plek: v6.css (.cta-label::before), gestuurd door de
+  // vlag stripeTrial in /flags.js. Zet die tekst daarna als echte tekst in de
+  // knop, zodat schermlezers, Tag Manager en zoekmachines dezelfde tekst zien.
+  (function ctaLabels() {
+    document.querySelectorAll('.cta-label').forEach(function (el) {
+      var c = getComputedStyle(el, '::before').content;
+      if (!c || c === 'none' || c === 'normal') return;
+      el.textContent = c.replace(/^["']|["']$/g, '');
+      el.classList.add('is-set');
+    });
+  })();
+
   (function forwardAttribution() {
     var KEYS = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content',
       'gclid', 'gbraid', 'wbraid', 'gad_source', 'fbclid', 'li_fat_id', 'ttclid',

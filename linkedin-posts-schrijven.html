@@ -43,6 +43,7 @@
 
   <link rel="preload" href="/assets/fonts/geist-400-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/assets/fonts/geist-500-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <script src="/flags.js"></script>
   <link rel="stylesheet" href="/assets/fonts/fonts.css">
 
   <link rel="stylesheet" href="/v6.css">
@@ -98,9 +99,9 @@
       <nav class="nav" aria-label="Hoofdnavigatie">
         <a href="/" class="logo" aria-label="PostPilot home"><svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect width="40" height="40" rx="5" fill="#E8A640"></rect><rect x="10" y="8" width="22" height="13" fill="#0E1014"></rect><rect x="10" y="21" width="7" height="11" fill="#0E1014"></rect><rect x="14" y="11" width="14" height="6" fill="#E8A640"></rect></svg>PostPilot</a>
         <div class="nav-links"><a href="/#product">Product</a><a href="/#hoe">Hoe het werkt</a><a href="/#voorbeelden">Voorbeelden</a><a href="/#pricing">Prijzen</a><a href="/#faq">FAQ</a></div>
-        <div class="nav-right"><a href="https://app.postpilotapp.nl/login" class="btn btn-ghost btn-sm">Inloggen</a><a href="https://app.postpilotapp.nl/signup" class="btn btn-primary btn-sm nav-cta">Begin gratis</a><button class="nav-toggle" id="navToggle" aria-label="Menu" aria-expanded="false"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg></button></div>
+        <div class="nav-right"><a href="https://app.postpilotapp.nl/login" class="btn btn-ghost btn-sm">Inloggen</a><a href="https://app.postpilotapp.nl/signup" class="btn btn-primary btn-sm nav-cta"><span class="cta-label"></span></a><button class="nav-toggle" id="navToggle" aria-label="Menu" aria-expanded="false"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg></button></div>
       </nav>
-      <div class="nav-mobile" id="navMobile"><a href="/#product">Product</a><a href="/#hoe">Hoe het werkt</a><a href="/#voorbeelden">Voorbeelden</a><a href="/#pricing">Prijzen</a><a href="/#faq">FAQ</a><a href="https://app.postpilotapp.nl/login">Inloggen</a><a href="https://app.postpilotapp.nl/signup" class="btn btn-primary">Begin gratis</a></div>
+      <div class="nav-mobile" id="navMobile"><a href="/#product">Product</a><a href="/#hoe">Hoe het werkt</a><a href="/#voorbeelden">Voorbeelden</a><a href="/#pricing">Prijzen</a><a href="/#faq">FAQ</a><a href="https://app.postpilotapp.nl/login">Inloggen</a><a href="https://app.postpilotapp.nl/signup" class="btn btn-primary"><span class="cta-label"></span></a></div>
     </div>
   </div>
 
@@ -177,14 +178,14 @@
 
           <section class="about-facts">
             <h2>In het kort</h2>
-            <p>LinkedIn-posts schrijf je sneller door te beginnen bij een concreet moment, één idee per post te kiezen, en te publiceren voordat het perfect is. ChatGPT kan helpen, maar kent je toon niet en publiceert niet zelf. Een Nederlandse tool als PostPilot verkort het schrijven van ongeveer 30 minuten naar ongeveer 1 minuut, vanaf €0 per maand.</p>
+            <p>LinkedIn-posts schrijf je sneller door te beginnen bij een concreet moment, één idee per post te kiezen, en te publiceren voordat het perfect is. ChatGPT kan helpen, maar kent je toon niet en publiceert niet zelf. Een Nederlandse tool als PostPilot verkort het schrijven van ongeveer 30 minuten naar ongeveer 1 minuut, voor €19 per maand.</p>
           </section>
 
           <div class="about-cta">
             <h3>Klaar om het te proberen?</h3>
-            <p>Begin gratis, zonder betaalgegevens. Je eerste post staat er binnen een minuut.</p>
+            <p>Premium is €19 per maand en altijd opzegbaar.</p>
             <a href="https://app.postpilotapp.nl/signup" class="btn btn-primary btn-lg">
-              Begin gratis
+              <span class="cta-label"></span>
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
             </a>
           </div>
