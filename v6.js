@@ -11,7 +11,7 @@ window.addEventListener('scroll',onScroll,{passive:true});onScroll();
 var tgl=document.getElementById('navToggle'),mob=document.getElementById('navMobile');
 if(tgl&&mob){tgl.addEventListener('click',function(){var o=mob.classList.toggle('open');tgl.setAttribute('aria-expanded',String(o))});mob.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){mob.classList.remove('open')})})}
 
-// Reveal on scroll — alles al zichtbaar bij load krijgt direct .in,
+// Reveal on scroll: alles al zichtbaar bij load krijgt direct .in,
 // zodat inhoud nooit achter opacity:0 blijft hangen.
 var rv=document.querySelectorAll('.reveal');
 if('IntersectionObserver' in window && !reduced){
@@ -40,12 +40,19 @@ document.querySelectorAll('.faq-q').forEach(function(b){
 (function(){
   var root=document.getElementById('tabs');if(!root)return;
   var tabs=[].slice.call(root.querySelectorAll('.tab')),panes=[].slice.call(root.querySelectorAll('.tab-pane'));
+  var list=root.querySelector('.tab-list'),paneWrap=root.querySelector('.tab-panes');
   var i=0,tm=null,DUR=7000,paused=false,started=false;
+  // Mobile: tabs scroll sideways. Keep the active one in view, without moving the page.
+  function reveal(t){if(list.scrollWidth<=list.clientWidth)return;var d=t.getBoundingClientRect().left-list.getBoundingClientRect().left;list.scrollTo({left:Math.max(0,list.scrollLeft+d-4),behavior:reduced?'auto':'smooth'})}
+  // Reserve the tallest pane's height so the page below does not jump on every switch.
+  function fit(){if(!paneWrap)return;paneWrap.style.minHeight='';var h=0;panes.forEach(function(p){var c=p.firstElementChild;if(c)h=Math.max(h,c.offsetHeight)});if(h)paneWrap.style.minHeight=h+'px'}
+  fit();window.addEventListener('resize',fit);window.addEventListener('load',fit);
   function bars(){tabs.forEach(function(t){var b=t.querySelector('.prog i');b.style.transition='none';b.style.width='0'})}
   function show(n){
     i=n;
     tabs.forEach(function(t,k){t.classList.toggle('on',k===n);t.setAttribute('aria-selected',String(k===n))});
     panes.forEach(function(p,k){p.classList.toggle('on',k===n)});
+    reveal(tabs[n]);
     cycle();
   }
   function cycle(){
@@ -64,13 +71,15 @@ document.querySelectorAll('.faq-q').forEach(function(b){
 })();
 
 // Sticky CTA (mobile)
-var sc=document.getElementById('stickyCta'),pr=document.getElementById('pricing');
+var sc=document.getElementById('stickyCta'),pr=document.getElementById('pricing'),fin=document.getElementById('start');
 if(sc){
   window.addEventListener('scroll',function(){
     var past=window.scrollY>700;
     var r=pr?pr.getBoundingClientRect():null;
     var inPricing=r&&r.top<window.innerHeight&&r.bottom>0;
-    sc.classList.toggle('show',past&&!inPricing);
+    // From the closing call to action down, that section's own button takes over.
+    var atEnd=fin?fin.getBoundingClientRect().top<window.innerHeight:false;
+    sc.classList.toggle('show',past&&!inPricing&&!atEnd);
   },{passive:true});
 }
 
@@ -81,6 +90,12 @@ document.querySelectorAll('[data-static-wave]').forEach(function(w){
     b.style.height=(6+Math.round(Math.abs(Math.sin(i*.7))*22+Math.random()*6))+'px';
     w.appendChild(b);
   }
+});
+
+// Example posts: fade the last lines only when a phone screen cuts the post off
+document.querySelectorAll('.examples .lipost .body').forEach(function(b){
+  function f(){b.classList.toggle('is-clamped',b.scrollHeight>b.clientHeight+1)}
+  f();window.addEventListener('resize',f);
 });
 
 // Hero demo FSM
