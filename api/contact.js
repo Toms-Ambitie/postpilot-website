@@ -62,7 +62,7 @@ module.exports = async function handler(req, res) {
       from:    'PostPilot <noreply@postpilotapp.nl>',
       to:      'hallo@postpilotapp.nl',
       replyTo: email.trim(),
-      subject: `[Contact] ${subjectLabel} — ${name.trim()}`,
+      subject: `[Contact] ${subjectLabel} · ${name.trim()}`,
       html: `
         <div style="font-family: -apple-system, 'Geist', sans-serif; max-width: 600px; margin: 0 auto; color: #0E1014;">
 
@@ -119,7 +119,7 @@ module.exports = async function handler(req, res) {
       from:    'PostPilot <noreply@postpilotapp.nl>',
       to:      email.trim(),
       replyTo: 'hallo@postpilotapp.nl',
-      subject: `Bericht ontvangen — we komen er zo op terug`,
+      subject: `Bericht ontvangen. We komen er zo op terug`,
       html: `
         <div style="font-family: -apple-system, 'Geist', sans-serif; max-width: 600px; margin: 0 auto; color: #0E1014;">
 
@@ -140,7 +140,7 @@ module.exports = async function handler(req, res) {
           <div style="background: #F7F4ED; padding: 32px;">
             <p style="margin: 0 0 20px; font-size: 16px; line-height: 1.6;">Hoi ${safeName},</p>
             <p style="margin: 0 0 20px; font-size: 15px; line-height: 1.7; color: #0E1014;">
-              Je bericht is goed aangekomen. We nemen zo snel mogelijk contact op — meestal binnen een werkdag.
+              Je bericht is goed aangekomen. We nemen zo snel mogelijk contact op, meestal binnen een werkdag.
             </p>
             <p style="margin: 0 0 4px; font-family: monospace; font-size: 11px; color: rgba(14,16,20,0.45); text-transform: uppercase; letter-spacing: 0.1em;">Onderwerp</p>
             <p style="margin: 0 0 20px; font-size: 15px; font-weight: 600;">${subjectLabel}</p>
