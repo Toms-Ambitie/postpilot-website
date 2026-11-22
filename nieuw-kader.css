@@ -64,7 +64,7 @@ main[tabindex="-1"]:focus{outline:none}
 .voet-grid a:hover{color:#F7F4ED}
 .voet-grid .kop-logo{display:flex;color:#F7F4ED;margin-bottom:12px;padding:0}
 .voet-grid .kop-logo svg{width:26px;height:26px}
-.voet-grid p{margin:0}
+.voet-grid p{margin:0}.voet-grid p+p{margin-top:8px;font-size:14px}
 .voet-onder{margin:0;font-size:13px;color:#A9ABB1;border-top:1px solid #2E323A;padding-top:20px}
 @media(max-width:1080px){.voet-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.voet-grid>div:first-child{grid-column:1/-1}}
 @media(max-width:600px){.voet-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
