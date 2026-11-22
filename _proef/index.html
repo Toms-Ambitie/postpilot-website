@@ -1,0 +1,372 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>PostPilot website proef</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap">
+<style>
+/* Opzet: bovenaan een film (donker podium, ondertitels die een post worden), daarna licht en donker om en om, elke sectie een eigen vorm. Eén accentkleur. */
+:root{--ink:#0E1014;--ink2:#16181D;--ink3:#1F232A;--line-d:#2E323A;--paper:#F7F4ED;--bone:#EAE6DC;--white:#FFFFFF;--saf:#E8A640;--saf-h:#F0B254;--saf-t:#8A5A14;--mark:#FDEBC4;--mute:#4A4D54;--mute-d:#A9ABB1;--soft-d:#D5D2CA;--rec:#F0524B;--line:#D9D3C6;
+--sans:'Geist',system-ui,-apple-system,'Segoe UI',sans-serif;--mono:'Geist Mono',ui-monospace,Menlo,monospace}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font:400 17px/1.55 var(--sans);-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:30;background:var(--ink)}
+h1,h2,h3,p,ul,ol{margin:0;padding:0}li{list-style:none}a{color:inherit}
+h1,h2{text-wrap:balance;letter-spacing:-.035em;font-weight:600;line-height:1.04}
+h2{font-size:clamp(34px,4.4vw,56px)}h3{font-size:22px;line-height:1.2;letter-spacing:-.02em;font-weight:600}
+.w{max-width:1200px;margin:0 auto;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
+.mono{font:500 11px/1.4 var(--mono);letter-spacing:.1em;text-transform:uppercase}
+.ic{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:54px;padding:0 24px;border-radius:8px;font:600 17px/1 var(--sans);text-decoration:none;border:0;cursor:pointer;transition:background .15s,box-shadow .15s,transform .15s}
+.btn .ic{width:20px;height:20px;transition:transform .2s}.btn:hover .arr{transform:translateX(4px)}.btn:active{transform:scale(.98)}
+.btn-s{background:var(--saf);color:var(--ink)}.btn-s:hover{background:var(--saf-h)}
+.btn-g{background:transparent;color:var(--paper);box-shadow:inset 0 0 0 1px #5A5E67}.btn-g:hover{box-shadow:inset 0 0 0 1px var(--paper)}
+.btn-k{background:var(--ink);color:var(--paper)}.btn-k:hover{background:var(--ink3)}
+:focus-visible{outline:2px solid var(--saf);outline-offset:3px;border-radius:4px}
+.js .rv{transform:translateY(16px);opacity:.55;transition:transform .7s cubic-bezier(.2,.8,.2,1),opacity .7s}.js .rv.in{transform:none;opacity:1}
+
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:rgba(14,16,20,.94);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);color:var(--paper)}
+.top .w{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:64px}
+.logo{display:flex;align-items:center;gap:10px;font-weight:700;font-size:19px;letter-spacing:-.02em;text-decoration:none}
+.nav{display:flex;gap:30px;font-size:15px;font-weight:500}
+.nav a{text-decoration:none;color:var(--soft-d);position:relative;padding:10px 0}
+.nav a::after{content:"";position:absolute;left:0;right:100%;bottom:4px;height:2px;background:var(--saf);transition:right .22s}
+.nav a:hover{color:var(--paper)}.nav a:hover::after{right:0}
+.acts{display:flex;align-items:center;gap:18px;font-size:15px;font-weight:500}.acts a{text-decoration:none}
+.acts .btn{min-height:40px;padding:0 16px;font-size:15px}
+.mm{display:none;position:relative}.mm summary{list-style:none;cursor:pointer;min-height:40px;display:flex;align-items:center;gap:8px;font-size:15px;font-weight:500}.mm summary::-webkit-details-marker{display:none}
+.mm div{position:absolute;right:0;top:48px;background:var(--ink2);border:1px solid var(--line-d);border-radius:12px;padding:8px;display:flex;flex-direction:column;min-width:210px}
+.mm div a{padding:12px 14px;border-radius:8px;text-decoration:none}.mm div a:hover{background:var(--ink3)}
+
+.hero{position:relative;background:var(--ink);color:var(--paper);overflow:hidden}
+.hero canvas{position:absolute;inset:0;width:100%;height:100%}
+.hero-in{position:relative;display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:64px;align-items:center;padding-block:84px 150px}
+.pitch{display:flex;flex-direction:column;gap:26px}
+.pitch h1{font-size:clamp(40px,4.7vw,66px)}
+.sub{font-size:19px;color:var(--soft-d);max-width:30em}
+.cta{display:flex;flex-wrap:wrap;gap:12px}
+.trust{color:var(--mute-d)}
+.film{position:relative;display:flex;flex-direction:column;gap:12px;padding-bottom:84px}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--rec)}.js .dot{animation:blink 1.3s steps(2,start) infinite}@keyframes blink{50%{opacity:.25}}
+.reel{display:flex;gap:8px;height:470px}
+.clip{position:relative;flex:0 1 58px;min-width:0;padding:0;border:0;border-radius:18px;overflow:hidden;background:var(--ink3);cursor:pointer;transition:flex-grow .7s cubic-bezier(.2,.8,.2,1);font:inherit;color:var(--paper);text-align:left}
+.clip.on{flex-grow:1;cursor:default}
+.clip video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 35%;filter:brightness(.5) saturate(.6);transition:filter .6s}
+.clip.on video{filter:none}.clip:not(.on):hover video{filter:brightness(.75) saturate(.8)}
+.tagc{position:absolute;left:12px;top:12px;display:none;align-items:center;gap:7px;background:rgba(14,16,20,.74);padding:7px 11px;border-radius:15px}
+.clip .cap{position:absolute;left:12px;right:12px;bottom:12px;display:none;background:rgba(14,16,20,.8);border-radius:12px;padding:12px 14px;font-size:clamp(17px,1.55vw,21px);line-height:1.28;letter-spacing:-.01em;font-weight:500}
+.clip.on .tagc{display:flex}.clip.on .cap{display:block}
+.cap span{transition:opacity .3s}.cap .n{opacity:.2}
+
+.pc{position:absolute;right:-22px;bottom:0;width:min(330px,80%);background:var(--white);color:var(--ink);border-radius:16px;padding:16px 18px 18px;box-shadow:0 30px 70px rgba(0,0,0,.55);display:flex;flex-direction:column;gap:10px;transition:transform .7s cubic-bezier(.2,.8,.2,1),opacity .45s}
+.pc.away{transform:translateY(34px) scale(.97);opacity:0}
+.who{display:flex;align-items:center;gap:10px}.av{width:40px;height:40px;border-radius:50%;background:var(--ink);color:var(--paper);display:flex;align-items:center;justify-content:center;font-weight:600;font-size:13px;flex-shrink:0}
+.who b{display:block;font-size:15px;font-weight:600;line-height:1.3}.who small{display:block;font-size:13px;color:var(--mute);line-height:1.3}
+.fold{display:flex;align-items:center;gap:10px;color:var(--saf-t)}.fold::before{content:"";flex:1;border-top:1px dashed var(--saf-t)}
+.pc p{font-size:16px;line-height:1.5}
+
+.tiles{position:relative;margin-top:-84px;padding-bottom:104px}
+.tiles ul{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;background:var(--line);border-radius:18px;overflow:hidden;box-shadow:0 1px 2px rgba(14,16,20,.06),0 24px 60px rgba(14,16,20,.14)}
+.tiles a{display:flex;flex-direction:column;gap:10px;height:100%;background:var(--white);padding:22px 22px 24px;text-decoration:none;transition:background .2s}
+.tiles a:hover{background:var(--mark)}
+.tiles .ic{color:var(--saf-t);transition:transform .25s cubic-bezier(.2,.8,.2,1)}.tiles a:hover .ic{transform:translateY(-3px) scale(1.12)}.tiles b{font-size:17px;font-weight:600;letter-spacing:-.01em}.tiles span{font-size:14.5px;line-height:1.4;color:var(--mute)}
+
+.flow{padding-bottom:40px}
+.flow-head{display:flex;flex-direction:column;gap:14px;max-width:820px;padding-bottom:28px}.flow-head p{font-size:19px;color:var(--mute)}
+.flow-grid{display:grid;grid-template-columns:minmax(0,340px) minmax(0,1fr);gap:88px}
+.phone-wrap{position:sticky;top:104px;align-self:start}
+.phone{width:300px;height:616px;background:var(--ink);border-radius:46px;padding:8px;box-shadow:0 34px 70px rgba(14,16,20,.3),0 6px 14px rgba(14,16,20,.14)}
+.screen{position:relative;height:100%;border-radius:38px;overflow:hidden;background:var(--ink)}
+.scr{position:absolute;inset:0;padding:22px 18px 18px;display:flex;flex-direction:column;gap:12px;opacity:0;transform:scale(1.03);transition:opacity .5s,transform .6s cubic-bezier(.2,.8,.2,1)}
+.scr.on{opacity:1;transform:none}
+.s-l{background:var(--paper);color:var(--ink)}.s-d{background:var(--ink);color:var(--paper);border:1px solid var(--line-d);border-radius:38px}
+.scr h4{margin:0;font-size:23px;line-height:1.1;letter-spacing:-.03em;font-weight:600}
+.micb{width:78px;height:78px;border-radius:50%;background:var(--saf);color:var(--ink);display:flex;align-items:center;justify-content:center;box-shadow:0 0 0 9px rgba(232,166,64,.16),0 0 0 20px rgba(232,166,64,.07);margin:0 auto}.micb .ic{width:30px;height:30px}
+.console{margin:auto -18px -18px;background:var(--ink);color:var(--paper);border-radius:24px 24px 0 0;padding:34px 18px 26px;display:flex;flex-direction:column;align-items:center;gap:26px}
+.bars{display:flex;align-items:center;gap:4px;height:44px}.bars i{width:4px;border-radius:2px;background:var(--saf);height:calc(var(--h)*1px)}.js .scr.on .bars i{animation:bar 1s ease-in-out infinite alternate;animation-delay:calc(var(--h)*-31ms)}@keyframes bar{to{transform:scaleY(.35)}}
+.fake-btn{min-height:44px;border-radius:7px;background:var(--saf);color:var(--ink);display:flex;align-items:center;justify-content:center;font-weight:600;font-size:14px}
+.sheet{background:var(--white);border-radius:13px;padding:13px 14px;box-shadow:0 10px 24px rgba(14,16,20,.1);display:flex;flex-direction:column;gap:9px;font-size:11.5px;line-height:1.5}
+.steps{display:flex;flex-direction:column}
+.steps li{min-height:440px;display:flex;flex-direction:column;justify-content:center;gap:12px;max-width:520px;color:var(--mute);transition:color .4s}
+.steps li.on{color:var(--ink)}
+.steps .num{font:500 13px/1 var(--mono);letter-spacing:.1em;width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:inset 0 0 0 1px var(--line);transition:background .4s,box-shadow .4s,color .4s}
+.steps li.on .num{background:var(--saf);box-shadow:none;color:var(--ink)}
+.steps h3{font-size:clamp(28px,3vw,40px);letter-spacing:-.03em;line-height:1.08}.steps p{font-size:19px}
+
+.claim{background:var(--ink);color:var(--paper)}
+.claim .w{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:72px;align-items:center;padding-block:112px}
+.claim h2{font-size:clamp(38px,5vw,68px)}
+.pts{display:flex;flex-direction:column;margin-top:36px}.pts li{padding:18px 0;border-top:1px solid var(--line-d);display:flex;flex-direction:column;gap:3px}.pts b{font-size:18px;font-weight:600}.pts span{color:var(--mute-d);font-size:16px}
+.proof{background:var(--white);color:var(--ink);border-radius:18px;padding:26px 28px 22px;display:flex;flex-direction:column;gap:14px;box-shadow:0 30px 70px rgba(0,0,0,.45)}
+.proof p{font-size:17px;line-height:1.6}
+.hl{background:linear-gradient(var(--mark),var(--mark)) no-repeat 0 0/100% 100%;padding:2px 0;transition:background-size .7s cubic-bezier(.2,.8,.2,1);transition-delay:calc(var(--d,0)*1ms)}
+.js .proof:not(.in) .hl,.proof.off .hl{background-size:0 100%}.proof.off .hl{transition-delay:0ms}
+.sw-row{display:flex;align-items:center;gap:12px;border-top:1px solid var(--bone);padding-top:14px;font-size:15px;font-weight:500}
+.sw{width:50px;height:30px;border-radius:15px;border:0;background:var(--line);padding:3px;cursor:pointer;margin-left:auto;transition:background .2s;flex-shrink:0}.sw i{display:block;width:24px;height:24px;border-radius:50%;background:var(--white);transition:transform .22s cubic-bezier(.2,.8,.2,1)}
+.sw[aria-checked="true"]{background:var(--ink)}.sw[aria-checked="true"] i{transform:translateX(20px)}
+
+.mom .w{padding-block:112px;display:flex;flex-direction:column;gap:36px}
+.tabs{display:flex;flex-wrap:wrap;gap:8px}
+.tab{min-height:46px;padding:0 18px;border-radius:23px;border:0;background:transparent;box-shadow:inset 0 0 0 1px var(--line);font:500 16px/1 var(--sans);color:var(--ink);cursor:pointer;transition:background .2s,color .2s,box-shadow .2s}
+.tab:hover{box-shadow:inset 0 0 0 1px var(--ink)}.tab[aria-selected="true"]{background:var(--ink);color:var(--paper);box-shadow:none}
+.pan{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}.js .pan{animation:pan .5s cubic-bezier(.2,.8,.2,1)}@keyframes pan{from{transform:translateY(12px);opacity:.4}}
+.cell{border-radius:16px;padding:22px 24px 26px;display:flex;flex-direction:column;gap:12px;min-width:0}
+.c-d{background:var(--ink);color:var(--paper)}.c-d .mono{color:var(--mute-d)}.c-b{background:var(--bone)}.c-w{background:var(--white);box-shadow:0 12px 30px rgba(14,16,20,.08)}
+.cell .mono{color:var(--mute)}.cell p{font-size:21px;line-height:1.3;letter-spacing:-.015em;font-weight:500}.cell p.sm{font-size:16px;line-height:1.5;font-weight:400;letter-spacing:0;color:var(--mute)}
+
+.who4{background:var(--ink2);color:var(--paper)}
+.who4 .w{padding-block:104px;display:flex;flex-direction:column;gap:44px}
+.who4 ul{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;background:var(--line-d);border:1px solid var(--line-d);border-radius:16px;overflow:hidden}
+.who4 li{background:var(--ink2);transition:background .25s}.who4 li:hover{background:var(--ink3)}
+.who4 li a{display:flex;flex-direction:column;gap:10px;padding:26px 24px 28px;height:100%;text-decoration:none}
+.who4 img{width:100%;aspect-ratio:4/3;object-fit:cover;object-position:50% 28%;border-radius:10px;margin-bottom:6px}.who4 .mono{color:var(--saf)}.who4 b{font-size:22px;line-height:1.15;letter-spacing:-.02em;font-weight:600}.who4 span{font-size:15.5px;color:var(--mute-d)}
+.who4 em{font-style:normal;margin-top:auto;padding-top:14px;display:flex;align-items:center;gap:8px;font-size:15px;font-weight:500}.who4 em .ic{width:18px;height:18px;transition:transform .2s}.who4 li:hover em .ic{transform:translateX(4px)}
+
+.maker .w{padding-block:112px;display:grid;grid-template-columns:minmax(0,380px) minmax(0,1fr);gap:72px;align-items:center}
+.ph{aspect-ratio:4/5;max-width:100%;border-radius:18px;background:var(--bone);display:flex;align-items:flex-end;padding:18px;color:var(--mute)}
+.maker blockquote{margin:0;font-size:clamp(24px,2.8vw,36px);line-height:1.22;letter-spacing:-.025em;font-weight:500}
+.maker .txt{display:flex;flex-direction:column;gap:26px}.cred{display:flex;flex-wrap:wrap;gap:8px}.cred span{padding:8px 14px;border-radius:20px;box-shadow:inset 0 0 0 1px var(--line);font-size:14.5px;font-weight:500}
+
+.price{background:var(--bone)}.price .w{padding-block:104px;display:flex;flex-direction:column;gap:40px}
+.cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.card{border-radius:18px;padding:30px 30px 32px;display:flex;flex-direction:column;gap:18px}
+.card.k{background:var(--ink);color:var(--paper)}.card.l{background:var(--white)}
+.amt{font-size:60px;line-height:1;letter-spacing:-.04em;font-weight:600}.amt small{font-size:17px;letter-spacing:0;font-weight:500;margin-left:6px}
+.card ul{display:flex;flex-direction:column;gap:9px;font-size:16px}.card li{display:flex;gap:10px;align-items:flex-start}.card li .ic{width:18px;height:18px;margin-top:4px;color:var(--saf)}
+.card.l li .ic{color:var(--saf-t)}.card .btn{margin-top:auto}
+
+.faq .w{padding-block:104px;display:grid;grid-template-columns:minmax(0,360px) minmax(0,1fr);gap:72px;align-items:start}
+.faq details{border-top:1px solid var(--line)}.faq details:last-child{border-bottom:1px solid var(--line)}
+.faq summary{list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:20px;padding:22px 0;font-size:20px;font-weight:600;letter-spacing:-.015em}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"";width:12px;height:12px;border-right:1.5px solid var(--ink);border-bottom:1.5px solid var(--ink);transform:rotate(45deg);transition:transform .25s;flex-shrink:0;margin-right:6px}
+.faq details[open] summary::after{transform:rotate(225deg)}
+.faq details p{padding:0 40px 24px 0;color:var(--mute);max-width:38em}
+.end{background:var(--ink);color:var(--paper)}.end .w{padding-block:120px 44px;display:flex;flex-direction:column;gap:84px}
+.end-top{display:flex;flex-direction:column;align-items:flex-start;gap:30px}.end h2{font-size:clamp(40px,6vw,84px);max-width:13em}
+.foot{display:grid;grid-template-columns:1.4fr repeat(3,minmax(0,1fr));gap:32px;border-top:1px solid var(--line-d);padding-top:36px;font-size:15px;color:var(--mute-d)}
+.foot .logo{display:flex}.foot b{display:block;color:var(--paper);font-weight:600;margin-bottom:12px}.foot a{display:block;text-decoration:none;padding:5px 0}.foot a:hover{color:var(--paper)}
+
+@media(max-width:900px){
+.nav{display:none}.mm{display:block}.acts .login{display:none}
+.hero-in{grid-template-columns:minmax(0,1fr);gap:44px;padding-block:48px 128px}
+.reel{height:400px}.clip{flex-basis:46px}.film{padding-bottom:0}.pc{position:relative;right:auto;width:auto;margin:-8px 0 0 22px}
+.tiles ul{grid-template-columns:repeat(2,minmax(0,1fr))}.tiles a{padding:16px 14px 18px}
+.flow-grid{display:block}
+.phone-wrap{top:calc(64px + env(safe-area-inset-top,0px));z-index:3;background:var(--paper);padding:10px 0 14px;display:flex;justify-content:center}
+.phone{zoom:.62}
+.steps li{min-height:300px;justify-content:flex-start;padding-top:18px;position:relative;z-index:1}
+.claim .w,.maker .w,.faq .w{grid-template-columns:minmax(0,1fr);gap:36px;padding-block:80px}
+.pan,.cards{grid-template-columns:minmax(0,1fr)}
+.who4 ul{grid-template-columns:repeat(2,minmax(0,1fr))}
+.foot{grid-template-columns:repeat(2,minmax(0,1fr))}
+.mom .w,.who4 .w,.price .w{padding-block:80px}
+}
+@media(max-width:520px){.who4 ul{grid-template-columns:minmax(0,1fr)}.cta .btn{width:100%}.amt{font-size:48px}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
+</style>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+<symbol id="i-mic" viewBox="0 0 24 24"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><path d="M12 19v3"/></symbol>
+<symbol id="i-arr" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></symbol>
+<symbol id="i-ask" viewBox="0 0 24 24"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><path d="M12 17h.01"/></symbol>
+<symbol id="i-pen" viewBox="0 0 24 24"><path d="M12 20h9"/><path d="M16.376 3.622a1 1 0 0 1 3.002 3.002L7.368 18.635a2 2 0 0 1-.855.506l-2.872.838a.5.5 0 0 1-.62-.62l.838-2.872a2 2 0 0 1 .506-.854z"/></symbol>
+<symbol id="i-shield" viewBox="0 0 24 24"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></symbol>
+<symbol id="i-eye" viewBox="0 0 24 24"><path d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0"/><circle cx="12" cy="12" r="3"/></symbol>
+<symbol id="i-cal" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4"/><path d="M8 2v4"/><path d="M3 10h18"/></symbol>
+<symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></symbol>
+<symbol id="i-send" viewBox="0 0 24 24"><path d="M14.536 21.686a.5.5 0 0 0 .937-.024l6.5-19a.496.496 0 0 0-.635-.635l-19 6.5a.5.5 0 0 0-.024.937l7.93 3.18a2 2 0 0 1 1.112 1.11z"/><path d="m21.854 2.147-10.94 10.939"/></symbol>
+<symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol>
+<symbol id="i-logo" viewBox="0 0 40 40"><rect width="40" height="40" rx="5" fill="#E8A640" stroke="none"/><rect x="10" y="8" width="22" height="13" fill="#0E1014" stroke="none"/><rect x="10" y="21" width="7" height="11" fill="#0E1014" stroke="none"/><rect x="14" y="11" width="14" height="6" fill="#E8A640" stroke="none"/></symbol>
+</defs></svg>
+
+<header class="top"><div class="w">
+<a class="logo" href="#top"><svg width="30" height="30" aria-hidden="true"><use href="#i-logo"/></svg>PostPilot</a>
+<nav class="nav" aria-label="Hoofdmenu"><a href="waarom.html">Waarom PostPilot</a><a href="zo-werkt-het.html">Zo werkt het</a><a href="voor-wie.html">Voor wie</a><a href="prijzen.html">Prijzen</a></nav>
+<div class="acts"><a class="login" href="#inloggen">Inloggen</a><a class="btn btn-s" href="#prijzen">Start gratis</a>
+<details class="mm"><summary>Menu</summary><div><a href="waarom.html">Waarom PostPilot</a><a href="zo-werkt-het.html">Zo werkt het</a><a href="voor-wie.html">Voor wie</a><a href="prijzen.html">Prijzen</a><a href="#inloggen">Inloggen</a></div></details></div>
+</div></header>
+
+<main id="top">
+<section class="hero">
+<canvas id="veld" aria-hidden="true"></canvas>
+<div class="w hero-in">
+<div class="pitch">
+<h1>Je vertelt het aan iedereen. Behalve op LinkedIn.</h1>
+<p class="sub">Spreek het in zoals je het aan een collega vertelt. PostPilot stelt hooguit drie vragen en maakt er een post van in jouw stijl.</p>
+<div class="cta"><a class="btn btn-s" href="#prijzen"><svg class="ic" aria-hidden="true"><use href="#i-mic"/></svg>Spreek je eerste post in</a><a class="btn btn-g" href="#zo-werkt-het">Bekijk hoe het werkt<svg class="ic arr" aria-hidden="true"><use href="#i-arr"/></svg></a></div>
+<p class="mono trust">30 dagen gratis · Officiële LinkedIn-koppeling · Je plaatst altijd zelf</p>
+</div>
+<div class="film">
+<div class="reel" id="reel">
+<button type="button" class="clip on" aria-label="Voorbeeld 1, in de auto na een klantgesprek"><video muted loop playsinline autoplay preload="auto" poster="p1.jpg" src="v1.mp4"></video><span class="mono tagc"><span class="dot"></span><span class="rt">Opname 0:07</span></span><span class="cap">Net een klant gesproken die drie maanden geleden nee zei. Vandaag belde ze zelf terug.</span></button>
+<button type="button" class="clip" aria-label="Voorbeeld 2, onderweg na een opdracht"><video muted loop playsinline preload="metadata" poster="p2.jpg" src="v2.mp4"></video><span class="mono tagc"><span class="dot"></span><span class="rt">Opname 0:06</span></span><span class="cap">Vanochtend een opdracht afgerond voor een klant die via via bij me kwam.</span></button>
+<button type="button" class="clip" aria-label="Voorbeeld 3, op kantoor over een campagne"><video muted loop playsinline preload="metadata" poster="p3.jpg" src="v3.mp4"></video><span class="mono tagc"><span class="dot"></span><span class="rt">Opname 0:07</span></span><span class="cap">Onze campagne liep twee weken slechter dan gepland. Toen hebben we één ding veranderd.</span></button>
+<button type="button" class="clip" aria-label="Voorbeeld 4, na een training"><video muted loop playsinline preload="metadata" poster="p4.jpg" src="v4.mp4"></video><span class="mono tagc"><span class="dot"></span><span class="rt">Opname 0:08</span></span><span class="cap">Aan het eind van de dag bleef één deelnemer zitten. Ze had een vraag die ik nooit eerder kreeg.</span></button>
+</div>
+<article class="pc" id="pc" aria-label="Zo opent de post die eruit kwam">
+<div class="who"><span class="av"><svg class="ic" style="width:18px;height:18px" aria-hidden="true"><use href="#i-pen"/></svg></span><span><b>Zo opent de post</b><small>Voorbeeld</small></span></div>
+<p id="pc-t">Ken je dat? Een klant zegt nee, en drie maanden later belt ze zelf terug.</p>
+<div class="fold mono">tot hier leest iedereen</div>
+</article>
+</div>
+</div>
+</section>
+
+<section class="tiles" id="waarom"><div class="w"><ul>
+<li><a href="#zo-werkt-het"><svg class="ic" aria-hidden="true"><use href="#i-mic"/></svg><b>Inspreken</b><span>Vertel het in een minuut, met haperingen en al.</span></a></li>
+<li><a href="#zo-werkt-het"><svg class="ic" aria-hidden="true"><use href="#i-ask"/></svg><b>Doorvragen</b><span>Hooguit drie vragen naar wat je verhaal sterk maakt.</span></a></li>
+<li><a href="#eigen-woorden"><svg class="ic" aria-hidden="true"><use href="#i-pen"/></svg><b>Jouw stijl</b><span>PostPilot leert hoe jij vertelt, opent en afsluit.</span></a></li>
+<li><a href="#eigen-woorden"><svg class="ic" aria-hidden="true"><use href="#i-shield"/></svg><b>Feitencontrole</b><span>In je post staat alleen wat jij zei of goedkeurde.</span></a></li>
+<li><a href="#eigen-woorden"><svg class="ic" aria-hidden="true"><use href="#i-eye"/></svg><b>De opening</b><span>Je ziet tot waar iedereen leest.</span></a></li>
+<li><a href="#momenten"><svg class="ic" aria-hidden="true"><use href="#i-cal"/></svg><b>Agendamomenten</b><span>Een herinnering op het moment dat er iets gebeurt.</span></a></li>
+<li><a href="#zo-werkt-het"><svg class="ic" aria-hidden="true"><use href="#i-clock"/></svg><b>Inplannen</b><span>Kies de dag en het uur.</span></a></li>
+<li><a href="#zo-werkt-het"><svg class="ic" aria-hidden="true"><use href="#i-send"/></svg><b>Plaatsen</b><span>Rechtstreeks op LinkedIn, als jij erop drukt.</span></a></li>
+</ul></div></section>
+
+<section class="flow" id="zo-werkt-het"><div class="w">
+<div class="flow-head rv"><h2>Geen leeg vak. Een gesprek van twee minuten.</h2><p>Scroll mee en zie wat er op je telefoon gebeurt.</p></div>
+<div class="flow-grid">
+<div class="phone-wrap"><div class="phone" aria-hidden="true"><div class="screen">
+<div class="scr s-l on"><span class="mono" style="color:var(--mute)">Zondag 15 november</span><h4>Wat heb je deze week meegemaakt dat je aan iemand zou vertellen?</h4><div class="console"><div class="micb"><svg class="ic"><use href="#i-mic"/></svg></div><b style="font-size:15px">Vertel het in een minuut</b></div></div>
+<div class="scr s-d"><span class="mono" style="color:var(--mute-d);display:flex;align-items:center;gap:7px;justify-content:center"><span class="dot"></span>0:41</span><span class="mono" style="color:var(--mute-d);margin-top:10px">Je zegt</span><h4 style="font-weight:500;letter-spacing:-.02em;line-height:1.25;font-size:21px">Ik heb het afgelopen jaar een paar platformen gebouwd terwijl ik zelf niet kan programmeren. Gewoon met AI.</h4><div class="bars" style="margin-top:auto"><i style="--h:10"></i><i style="--h:24"></i><i style="--h:36"></i><i style="--h:18"></i><i style="--h:44"></i><i style="--h:28"></i><i style="--h:14"></i><i style="--h:34"></i><i style="--h:42"></i><i style="--h:22"></i><i style="--h:38"></i><i style="--h:16"></i><i style="--h:30"></i><i style="--h:40"></i><i style="--h:20"></i><i style="--h:32"></i><i style="--h:12"></i><i style="--h:26"></i></div><div class="fake-btn">Klaar</div></div>
+<div class="scr s-d"><span class="mono" style="color:var(--mute-d)">Vraag 1 van hooguit 3</span><div style="background:var(--ink3);border-radius:12px;padding:11px 13px;font-size:12px;line-height:1.45;color:var(--soft-d)">Je zei: een paar platformen gebouwd terwijl ik zelf niet kan programmeren.</div><h4 style="margin-top:8px">Welke platformen heb je gebouwd, en wat doen ze?</h4><div style="margin-top:auto;padding-bottom:26px"><div class="micb"><svg class="ic"><use href="#i-mic"/></svg></div></div><b style="font-size:15px;text-align:center;padding-bottom:10px">Zeg het maar</b></div>
+<div class="scr s-l"><b style="text-align:center;font-size:13px">Je post</b><div class="sheet"><div class="who"><span class="av" style="width:30px;height:30px;font-size:10px">TM</span><span><b style="font-size:11.5px">Tom Mulder</b><small style="font-size:10px">Voorbeeld, nog niet geplaatst</small></span></div><span>Heb jij ook al eens een idee gehad voor een eigen tool of platform, en het meteen weer weggelegd omdat je niet kunt programmeren?</span><div class="fold mono" style="font-size:8px">tot hier leest iedereen</div><span>Dan heb ik goed nieuws, want ik kan het ook niet! Ik ben al twintig jaar marketeer en geen programmeur, en toch heb ik het afgelopen jaar gewoon met AI een paar platformen gebouwd. Het begon met PostPilot, en daarna kwamen EmmaStudio, twee CRM-systemen, een CRO-dashboard, twee Shopify-webshops en een complete BI-tool.</span></div><div class="fake-btn" style="margin-top:auto">Plaats op LinkedIn</div></div>
+</div></div></div>
+<ol class="steps">
+<li class="on"><span class="num">01</span><h3>Jij vertelt</h3><p>Een klant die terugkwam, iets wat je opviel, een dag waar je vol van bent. Je opent de app en er staat één vraag.</p></li>
+<li><span class="num">02</span><h3>Je praat, PostPilot luistert</h3><p>Je hoeft niet netjes te praten. Haperingen en stopwoorden gaan er straks uit. Typen mag ook.</p></li>
+<li><span class="num">03</span><h3>PostPilot vraagt door</h3><p>Hooguit drie vragen, naar een moment, een getal of wat het met je deed. Overslaan mag altijd.</p></li>
+<li><span class="num">04</span><h3>Jij leest en plaatst</h3><p>Je krijgt een post in jouw stijl. Stelt PostPilot een zin voor die jij niet zei, dan zie je dat en zeg jij klopt of weg. Er staat pas iets op LinkedIn als jij op plaatsen drukt.</p></li>
+</ol>
+</div></div></section>
+
+<section class="claim" id="eigen-woorden"><div class="w">
+<div class="rv"><h2>In je post staat alleen wat jij zei of goedkeurde.</h2>
+<ul class="pts">
+<li><b>De feiten zijn van jou</b><span>Geen cijfer, geen citaat en geen ervaring die jij niet hebt genoemd.</span></li>
+<li><b>Een voorstel blijft een voorstel</b><span>Wil PostPilot er een gevoel of een slotzin bij zetten, dan staat dat gemarkeerd. Jij zegt klopt of weg.</span></li>
+<li><b>Een tweede lezer kijkt mee</b><span>Elke post wordt nagelopen op wat erbij is gekomen of is weggevallen.</span></li>
+<li><b>De stijl is ook van jou</b><span>Wie kort en droog schrijft, krijgt korte en droge posts. Wie graag vertelt, krijgt een verhaal.</span></li>
+</ul></div>
+<div class="proof" id="bewijs">
+<div class="who"><span class="av">TM</span><span><b>Tom Mulder</b><small>Voorbeeld, nog niet geplaatst</small></span></div>
+<p>Dan heb ik goed nieuws, want ik kan het ook niet! Toch heb ik het afgelopen jaar <span class="hl">gewoon met AI</span> een paar platformen gebouwd: <span class="hl" style="--d:250">PostPilot, EmmaStudio, twee CRM-systemen, een CRO-dashboard, twee Shopify-webshops, een complete BI-tool</span> en een monitor voor opdrachten en vacatures.</p>
+<p>En <span class="hl" style="--d:800">wat ik daarvan geleerd heb</span>? <span class="hl" style="--d:1050">Het bouwen is niet meer het moeilijke. Weten wát je moet bouwen, dat is het moeilijke!</span></p>
+<div class="sw-row"><span>Laat zien wat letterlijk van Tom is</span><button class="sw" id="sw" type="button" role="switch" aria-checked="true" aria-label="Laat zien wat letterlijk van Tom is"><i></i></button></div>
+</div>
+</div></section>
+
+<section class="mom" id="momenten"><div class="w">
+<h2 class="rv">Voor de momenten die je anders laat liggen.</h2>
+<div class="tabs" role="tablist" aria-label="Momenten">
+<button class="tab" id="t-a" role="tab" aria-selected="true" aria-controls="p-a">Je hebt iets geleerd</button>
+<button class="tab" id="t-b" role="tab" aria-selected="false" aria-controls="p-b" tabindex="-1">Je hebt nieuws</button>
+<button class="tab" id="t-c" role="tab" aria-selected="false" aria-controls="p-c" tabindex="-1">Je was ergens</button>
+</div>
+<div class="pan" id="p-a" role="tabpanel" aria-labelledby="t-a">
+<div class="cell c-d"><span class="mono">Je zegt</span><p>Het bouwen is niet meer het moeilijke. Weten wát je moet bouwen, dat is het moeilijke.</p></div>
+<div class="cell c-b"><span class="mono">PostPilot vraagt</span><p>Welke platformen heb je gebouwd, en wat doen ze?</p></div>
+<div class="cell c-w"><span class="mono">Zo opent je post</span><p>Heb jij ook al eens een idee gehad voor een eigen tool of platform, en het meteen weer weggelegd?</p></div>
+</div>
+<div class="pan" id="p-b" role="tabpanel" aria-labelledby="t-b" hidden>
+<div class="cell c-d"><span class="mono">Je zegt</span><p>Vanaf volgende week werk ik voor mezelf, onder de naam OAK Marketing.</p></div>
+<div class="cell c-b"><span class="mono">PostPilot vraagt</span><p>Wat betekent OAK in de naam, en mag dat in de post staan?</p></div>
+<div class="cell c-w"><span class="mono">Zo opent je post</span><p>Hoe lang zit jij al op een plek waar iemand anders aan het stuur zit?</p></div>
+</div>
+<div class="pan" id="p-c" role="tabpanel" aria-labelledby="t-c" hidden>
+<div class="cell c-d"><span class="mono">Donderdag 15:10, je bent er nu</span><p>Klantdag in Zwolle. Maak één foto. Meer hoeft nu niet.</p></div>
+<div class="cell c-b"><span class="mono">Vrijdag 08:30</span><p>Hoe was het gisteren? Vertel het in een minuut.</p></div>
+<div class="cell c-w"><span class="mono">Zo werkt het</span><p class="sm">Je kiest zelf welke afspraken uit je agenda een post waard zijn. Je krijgt één herinnering op het moment zelf, en de dag erna de vraag hoe het was. Je foto staat dan klaar.</p></div>
+</div>
+</div></section>
+
+<section class="who4" id="voor-wie"><div class="w">
+<h2 class="rv">Voor wie meer te vertellen heeft dan hij post.</h2>
+<ul>
+<li><a href="voor-wie.html#consultants"><img src="p1.jpg" alt="" loading="lazy"><span class="mono">Consultants</span><b>Je klantwerk is je content.</b><span>Na elk gesprek weet je iets wat je vakgenoten ook willen weten.</span><em>Zo gebruik je het<svg class="ic" aria-hidden="true"><use href="#i-arr"/></svg></em></a></li>
+<li><a href="voor-wie.html#zelfstandigen"><img src="p2.jpg" alt="" loading="lazy"><span class="mono">Zelfstandigen</span><b>Marketing naast al het andere.</b><span>Twee minuten in de auto is genoeg voor de post van deze week.</span><em>Zo gebruik je het<svg class="ic" aria-hidden="true"><use href="#i-arr"/></svg></em></a></li>
+<li><a href="voor-wie.html#marketingmanagers"><img src="p3.jpg" alt="" loading="lazy"><span class="mono">Marketingmanagers</span><b>Het bedrijf post. Jij nog niet.</b><span>Je eigen profiel, in je eigen woorden, zonder er een project van te maken.</span><em>Zo gebruik je het<svg class="ic" aria-hidden="true"><use href="#i-arr"/></svg></em></a></li>
+<li><a href="voor-wie.html#sprekers"><img src="p4.jpg" alt="" loading="lazy"><span class="mono">Sprekers en trainers</span><b>Elke zaal levert een verhaal op.</b><span>Vertel het op de terugweg, dan staat het er voor je thuis bent.</span><em>Zo gebruik je het<svg class="ic" aria-hidden="true"><use href="#i-arr"/></svg></em></a></li>
+</ul>
+</div></section>
+
+<section class="maker"><div class="w">
+<div class="ph rv"><span class="mono">Hier komt een foto van Tom</span></div>
+<div class="txt rv">
+<span class="mono" style="color:var(--mute)">Waarom PostPilot bestaat</span>
+<blockquote>Ik wist al jaren dat LinkedIn belangrijk is. Maar ik postte zelden. Te druk, te weinig discipline, steeds uitgesteld. Dus bouwde ik mijn eigen oplossing.</blockquote>
+<div class="cred"><span>Tom Mulder, oprichter</span><span>20 jaar marketing</span><span>Senior Marketing Professional (NIMA)</span><span>Master Neuromarketing</span></div>
+</div>
+</div></section>
+
+<section class="price" id="prijzen"><div class="w">
+<h2 class="rv">30 dagen gratis. Daarna €19 per maand.</h2>
+<div class="cards">
+<div class="card k rv"><span class="mono" style="color:var(--saf)">Premium</span><p class="amt">€19<small>per maand</small></p>
+<ul><li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg>De eerste 30 dagen betaal je niets</li><li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg>Per maand opzegbaar</li><li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg>Drie dagen voor het einde van je proef krijg je bericht</li></ul>
+<a class="btn btn-s" href="#prijzen"><svg class="ic" aria-hidden="true"><use href="#i-mic"/></svg>Spreek je eerste post in</a></div>
+<div class="card l rv"><span class="mono" style="color:var(--saf-t)">Founder, voor de eerste honderd</span><p class="amt">€299<small>eenmalig</small></p>
+<ul><li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg>Alles uit Premium, voor altijd</li><li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg>Geen abonnement, geen facturen</li><li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg>Je praat mee over wat er gebouwd wordt</li></ul>
+<a class="btn btn-k" href="#prijzen">Word Founder<svg class="ic arr" aria-hidden="true"><use href="#i-arr"/></svg></a></div>
+</div>
+</div></section>
+<section class="faq" id="vragen"><div class="w">
+<h2 class="rv">Wat mensen eerst willen weten.</h2>
+<div>
+<details open><summary>Klinkt het straks als AI?</summary><p>PostPilot schrijft met jouw woorden en op jouw manier. De feiten komen alleen uit wat jij vertelt, en elke post wordt daarna nagelopen op alles wat erbij is gekomen.</p></details>
+<details><summary>Plaatst PostPilot iets zonder dat ik het weet?</summary><p>Nee. Er staat pas iets op LinkedIn als jij op plaatsen drukt.</p></details>
+<details><summary>Ik post bijna nooit. Werkt het dan ook?</summary><p>Ja. Je kiest uit vier voorbeelden hoe je wilt klinken, en PostPilot leert daarna van wat je aanpast. Heb je wel eigen posts, dan leert het daarvan.</p></details>
+<details><summary>Moet ik goed kunnen praten?</summary><p>Nee. Haperingen, stopwoorden en zijpaden gaan eruit. Typen mag ook.</p></details>
+<details><summary>Hoe veilig is de koppeling met LinkedIn?</summary><p>PostPilot gebruikt de officiële koppeling van LinkedIn. Je kunt de toegang op elk moment weer intrekken.</p></details>
+<details><summary>Is PostPilot een alternatief voor Taplio of Supergrow?</summary><p>Ja, als het je om je eigen posts gaat. Beide zijn Engelstalige tools die schrijven vanuit een onderwerp of je profiel. PostPilot is Nederlands, begint bij wat jij vertelt en zet er niets bij zonder dat jij het goedkeurt. <a href="waarom.html#vergelijk">Bekijk de vergelijking</a>.</p></details>
+<details><summary>Waarom niet gewoon ChatGPT of Claude?</summary><p>Dat kan, maar dan staat er van alles in je post wat jij niet hebt gezegd. PostPilot vraagt door, schrijft in jouw stijl en loopt elke post na. <a href="waarom.html#vergelijk">Bekijk wat we hebben gemeten</a>.</p></details>
+<details><summary>Wat gebeurt er na de 30 dagen?</summary><p>Dan betaal je €19 per maand, inclusief btw. Drie dagen voor het einde van je proef krijg je bericht, en je kunt per maand opzeggen.</p></details>
+</div>
+</div></section>
+</main>
+
+<footer class="end"><div class="w">
+<div class="end-top rv"><h2>Je volgende post zit al in je hoofd.</h2><a class="btn btn-s" href="#prijzen"><svg class="ic" aria-hidden="true"><use href="#i-mic"/></svg>Spreek hem in</a></div>
+<div class="foot">
+<div><a class="logo" href="#top" style="color:var(--paper);margin-bottom:10px"><svg width="26" height="26" aria-hidden="true"><use href="#i-logo"/></svg>PostPilot</a>Een product van Toms Ambitie, Zwolle</div>
+<div><b>Product</b><a href="zo-werkt-het.html">Zo werkt het</a><a href="#waarom">Functies</a><a href="prijzen.html">Prijzen</a></div>
+<div><b>Voor wie</b><a href="voor-wie.html#consultants">Consultants</a><a href="voor-wie.html#zelfstandigen">Zelfstandigen</a><a href="voor-wie.html#marketingmanagers">Marketingmanagers</a><a href="voor-wie.html#sprekers">Sprekers en trainers</a></div>
+<div><b>PostPilot</b><a href="waarom.html">Waarom PostPilot</a><a href="#top">Privacy</a><a href="#top">Voorwaarden</a><a href="#top">Contact</a></div>
+</div>
+</div></footer>
+
+<script>
+(function(){
+var R=document.documentElement;R.classList.add('js');
+try{if('scrollRestoration' in history)history.scrollRestoration='manual'}catch(e){}
+if(!location.hash)window.scrollTo({top:0,left:0,behavior:'instant'});
+var rm=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+var $=function(s){return document.querySelector(s)},$$=function(s){return [].slice.call(document.querySelectorAll(s))};
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.2});
+$$('.rv,.proof').forEach(function(el){io.observe(el)});
+var steps=$$('.steps li'),scr=$$('.scr');
+var so=new IntersectionObserver(function(es){es.forEach(function(e){if(!e.isIntersecting)return;var i=steps.indexOf(e.target);steps.forEach(function(s,j){s.classList.toggle('on',j===i)});scr.forEach(function(s,j){s.classList.toggle('on',j===i)})})},{rootMargin:window.matchMedia('(max-width:900px)').matches?'-62% 0px -28% 0px':'-48% 0px -48% 0px'});
+steps.forEach(function(s){so.observe(s)});
+var sw=$('#sw'),proof=$('#bewijs');
+sw.addEventListener('click',function(){var on=sw.getAttribute('aria-checked')!=='true';sw.setAttribute('aria-checked',String(on));proof.classList.add('in');proof.classList.toggle('off',!on)});
+var tabs=$$('.tab');
+function kies(t){tabs.forEach(function(x){var a=x===t;x.setAttribute('aria-selected',String(a));x.tabIndex=a?0:-1;document.getElementById(x.getAttribute('aria-controls')).hidden=!a})}
+tabs.forEach(function(t,i){t.addEventListener('click',function(){kies(t)});t.addEventListener('keydown',function(e){var d=e.key==='ArrowRight'?1:e.key==='ArrowLeft'?-1:0;if(!d)return;var n=tabs[(i+d+tabs.length)%tabs.length];kies(n);n.focus()})});
+var cv=$('#veld'),cx=cv.getContext('2d'),W=0,H=0,level=.35,target=.35,t=0,zichtbaar=true,bezig=false;
+function maat(){var r=cv.getBoundingClientRect(),d=Math.min(window.devicePixelRatio||1,2);W=r.width;H=r.height;cv.width=W*d;cv.height=H*d;cx.setTransform(d,0,0,d,0,0)}
+function teken(){bezig=false;level+=(target-level)*.05;cx.clearRect(0,0,W,H);for(var k=0;k<6;k++){cx.beginPath();var basis=H*(.2+.12*k),amp=(10+k*8)*level;for(var x=0;x<=W+8;x+=8){var y=basis+Math.sin(x*.0052+t*(.55+k*.12)+k*1.7)*amp+Math.sin(x*.0149-t*(.8+k*.06)+k)*amp*.45;if(x)cx.lineTo(x,y);else cx.moveTo(x,y)}cx.strokeStyle='rgba(232,166,64,'+(.11+.045*k)+')';cx.lineWidth=1.5;cx.stroke()}t+=.016;if(zichtbaar&&!rm)lus()}
+function lus(){if(!bezig){bezig=true;requestAnimationFrame(teken)}}
+maat();teken();window.addEventListener('resize',function(){maat();lus()});
+new IntersectionObserver(function(es){zichtbaar=es[0].isIntersecting;if(zichtbaar)lus()}).observe(cv);
+var clips=$$('.clip'),pc=$('#pc'),pcT=$('#pc-t'),huidig=0,ronde=0,gestart=false;
+var posts=['Ken je dat? Een klant zegt nee, en drie maanden later belt ze zelf terug.','Vanochtend rondde ik een opdracht af voor een klant die ik niet heb hoeven zoeken.','Twee weken liep onze campagne slechter dan gepland. Toen veranderden we één ding.','Na de training bleef één deelnemer zitten, met een vraag die ik nooit eerder kreeg.'];
+var says=clips.map(function(c){return c.querySelector('.cap').textContent});
+function wacht(ms){return new Promise(function(r){setTimeout(r,ms)})}
+function toon(i){huidig=i;clips.forEach(function(c,j){var vd=c.querySelector('video');c.classList.toggle('on',j===i);if(j===i){var pr=vd.play();if(pr&&pr.catch)pr.catch(function(){})}else{vd.pause()}})}
+async function scene(i,m){toon(i);pc.classList.add('away');var cap=clips[i].querySelector('.cap'),rt=clips[i].querySelector('.rt');cap.textContent='';var ws=says[i].split(' ').map(function(w){var el=document.createElement('span');el.className='n';el.textContent=w;cap.appendChild(el);cap.appendChild(document.createTextNode(' '));return el});target=1;await wacht(500);for(var j=0;j<ws.length;j++){if(m!==ronde)return;ws[j].classList.remove('n');rt.textContent='Opname 0:'+('0'+Math.floor(j*.5)).slice(-2);await wacht(200)}target=.3;await wacht(800);if(m!==ronde)return;pcT.textContent=posts[i];pc.classList.remove('away');await wacht(5200)}
+async function film(i){gestart=true;for(;;){var m=++ronde;await scene(i%clips.length,m);if(m!==ronde)return;i++}}
+clips.forEach(function(c,i){c.addEventListener('click',function(){if(i===huidig)return;if(rm){toon(i);pcT.textContent=posts[i]}else{film(i)}})});
+if(!rm)wacht(5600).then(function(){if(!gestart)film(1)});
+})();
+</script>
+
+</body></html>
