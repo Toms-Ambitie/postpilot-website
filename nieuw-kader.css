@@ -1,0 +1,70 @@
+/* Kop en voet van het nieuwe ontwerp. Laadt op elke pagina:
+   op de vijf nieuwe pagina's samen met nieuw.css, op de overige pagina's
+   na v6.css en v6-pages.css. Alle klassen hier beginnen met kop- of voet-,
+   zodat ze niet botsen met v6.css. */
+
+/* Lettertypes staan lokaal in /assets/fonts/fonts.css (Geist en Geist Mono). */
+
+/* --- Proefperiode-vlag ---
+   De vlag stripeTrial in /flags.js zet class "trial-aan" op <html>.
+   Zonder die class is alle 30-dagen-tekst verborgen, ook zonder javascript.
+   Anders dan in v6.css niet met display:revert, want dat haalt flex en grid weg. */
+html:not(.trial-aan) [data-requires="stripe-trial"]{display:none!important}
+
+/* --- Oproepknoppen: de knoptekst staat alleen hier en in v6.css ---
+   Vlag uit: "Probeer Premium". Vlag aan: "Start 30 dagen gratis".
+   site.js zet de tekst daarna als echte tekst in de knop. */
+.cta-label::before{content:"Probeer Premium"}
+html.trial-aan .cta-label::before{content:"Start 30 dagen gratis"}
+html .cta-label.is-set::before,html.trial-aan .cta-label.is-set::before{content:none}
+
+/* --- Toegankelijkheid --- */
+.skip-link{position:absolute;left:12px;top:-60px;z-index:100;background:#0E1014;color:#F7F4ED;padding:10px 16px;border-radius:10px;font:500 14px/1.4 'Geist',system-ui,sans-serif;text-decoration:none;transition:top .15s}
+.skip-link:focus{top:12px;outline:2px solid #E8A640;outline-offset:2px}
+main[tabindex="-1"]:focus{outline:none}
+
+/* --- Kop --- */
+.kop{position:sticky;top:0;z-index:40;background:rgba(14,16,20,.94);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);color:#F7F4ED;font-family:'Geist',system-ui,-apple-system,'Segoe UI',sans-serif}
+.kop-w{max-width:1200px;margin:0 auto;padding:0 max(20px,env(safe-area-inset-left,0px));display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:64px}
+.kop a{color:inherit;text-decoration:none}
+.kop a:hover{color:#FFFFFF}
+.kop-logo{display:flex;align-items:center;gap:10px;font-weight:700;font-size:19px;line-height:1;letter-spacing:-.02em;color:inherit;text-decoration:none;flex-shrink:0}
+.kop-logo svg{display:block;width:30px;height:30px;flex-shrink:0}
+.kop-nav{display:flex;gap:30px;font-size:15px;font-weight:500}
+.kop-nav a{color:#D5D2CA;position:relative;padding:10px 0}
+.kop-nav a::after{content:"";position:absolute;left:0;right:100%;bottom:4px;height:2px;background:#E8A640;transition:right .22s}
+.kop-nav a:hover::after,.kop-nav a[aria-current="page"]::after{right:0}
+.kop-nav a[aria-current="page"]{color:#F7F4ED}
+.kop-acts{display:flex;align-items:center;gap:18px;font-size:15px;font-weight:500}
+.kop-btn{display:inline-flex;align-items:center;justify-content:center;min-height:40px;padding:0 16px;border-radius:8px;background:#E8A640;color:#0E1014!important;font:600 15px/1 'Geist',system-ui,sans-serif;white-space:nowrap;transition:background .15s}
+.kop-btn:hover{background:#F0B254}
+.kop-mm{display:none;position:relative}
+.kop-mm summary{list-style:none;cursor:pointer;min-height:40px;display:flex;align-items:center;gap:8px;font-size:15px;font-weight:500;padding:0 4px}
+.kop-mm summary::-webkit-details-marker{display:none}
+.kop-mm summary svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round}
+.kop-mm>div{position:absolute;right:0;top:48px;background:#16181D;border:1px solid #2E323A;border-radius:12px;padding:8px;display:flex;flex-direction:column;min-width:220px;box-shadow:0 20px 40px rgba(0,0,0,.35)}
+.kop-mm>div a{padding:12px 14px;border-radius:8px}
+.kop-mm>div a:hover{background:#1F232A}
+.kop-mm>div a.kop-btn{margin-top:6px;padding:0 14px}
+.kop :focus-visible,.voet :focus-visible{outline:2px solid #E8A640;outline-offset:3px;border-radius:4px}
+
+@media(max-width:900px){
+.kop-nav{display:none}.kop-mm{display:block}.kop-login{display:none}
+}
+@media(max-width:520px){
+.kop-acts>.kop-btn{display:none}
+}
+
+/* --- Voet --- */
+.voet{background:#0E1014;color:#F7F4ED;font-family:'Geist',system-ui,-apple-system,'Segoe UI',sans-serif}
+.voet-w{max-width:1200px;margin:0 auto;padding:56px max(20px,env(safe-area-inset-left,0px)) 40px;display:flex;flex-direction:column;gap:84px}
+.voet-grid{display:grid;grid-template-columns:1.3fr repeat(5,minmax(0,1fr));gap:32px;border-top:1px solid #2E323A;padding-top:36px;font-size:15px;line-height:1.5;color:#A9ABB1}
+.voet-grid b{display:block;color:#F7F4ED;font-weight:600;margin-bottom:12px}
+.voet-grid a{display:block;color:inherit;text-decoration:none;padding:5px 0;overflow-wrap:anywhere}
+.voet-grid a:hover{color:#F7F4ED}
+.voet-grid .kop-logo{display:flex;color:#F7F4ED;margin-bottom:12px;padding:0}
+.voet-grid .kop-logo svg{width:26px;height:26px}
+.voet-grid p{margin:0}
+.voet-onder{margin:0;font-size:13px;color:#A9ABB1;border-top:1px solid #2E323A;padding-top:20px}
+@media(max-width:1080px){.voet-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.voet-grid>div:first-child{grid-column:1/-1}}
+@media(max-width:600px){.voet-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
