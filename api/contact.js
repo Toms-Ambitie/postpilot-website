@@ -1,4 +1,4 @@
-/* PostPilot — contact form API endpoint (Vercel serverless)
+/* PostPilot: contact form API endpoint (Vercel serverless)
    Receives POST { name, email, subject, message }
    Sends email via Resend to hallo@postpilotapp.nl          */
 
@@ -11,7 +11,7 @@ const SUBJECT_LABELS = {
   'founder-deal': 'Founder Deal',
   pers:         'Pers & samenwerking',
   overig:       'Overig',
-  // /investeren — drie sporen
+  // /investeren: drie sporen
   investeren:   'Investeren in PostPilot',
   bouwen:       'Mee bouwen aan PostPilot',
   groei:        'Groei-marketing voor PostPilot',
@@ -26,7 +26,7 @@ function escapeHtml(str) {
 }
 
 module.exports = async function handler(req, res) {
-  /* CORS — only same origin needs this; belt-and-suspenders */
+  /* CORS: only same origin needs this; belt-and-suspenders */
   res.setHeader('Access-Control-Allow-Origin', 'https://www.postpilotapp.nl');
   res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
@@ -36,7 +36,7 @@ module.exports = async function handler(req, res) {
 
   const { name, email, subject, message, website } = req.body ?? {};
 
-  /* Honeypot — bots vullen 'website' in, mensen niet. Stil 200 OK terug. */
+  /* Honeypot: bots vullen 'website' in, mensen niet. Stil 200 OK terug. */
   if (typeof website === 'string' && website.trim().length > 0) {
     return res.status(200).json({ ok: true });
   }
