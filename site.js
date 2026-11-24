@@ -80,11 +80,17 @@
       else if (nu !== k) zet(k);
     } catch (e) {}
 
-    // CookieYes stuurt dit na elke keuze, met de geaccepteerde categorieën.
-    document.addEventListener('cookieyes_consent_update', function (ev) {
+    // CookieYes stuurt dit na elke keuze in de banner, maar ook bij de eerste
+    // paginalading zonder keuze (met de standaardwaarden, alles behalve
+    // noodzakelijk op nee). Alleen een echte keuze telt: isUserActionCompleted.
+    document.addEventListener('cookieyes_consent_update', function () {
       try {
-        var aan = (ev && ev.detail && ev.detail.accepted) || [];
-        zet(waarde(aan.indexOf('analytics') !== -1, aan.indexOf('advertisement') !== -1));
+        var c = typeof window.getCkyConsent === 'function' ? window.getCkyConsent() : null;
+        if (c && c.isUserActionCompleted) {
+          zet(waarde(!!c.categories.analytics, !!c.categories.advertisement));
+        } else if (huidig() !== null) {
+          wis();
+        }
       } catch (e) {}
     });
   })();
