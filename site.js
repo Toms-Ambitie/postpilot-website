@@ -1,5 +1,6 @@
 /* Gedeeld script voor alle pagina's (naast v6.js):
-   skip-link, knopteksten, attributie naar de app, contactformulier. */
+   skip-link, knopteksten, cookiekeuze voor de app, attributie naar de app,
+   contactformulier. */
 (function () {
   'use strict';
 
@@ -21,10 +22,6 @@
     document.body.insertBefore(a, document.body.firstChild);
   })();
 
-  // Campagne- en klik-ID's van de landings-URL doorgeven aan links naar de app,
-  // zodat een aanmelding aan de juiste advertentie gekoppeld kan worden.
-  // First-touch: de eerste waarde in een sessie wint. GA4 koppelt de bezoeker zelf
-  // via de _gl-linker; die geven we ook door als hij in de URL staat.
   // Knopteksten staan op één plek: v6.css (.cta-label::before), gestuurd door de
   // vlag stripeTrial in /flags.js. Zet die tekst daarna als echte tekst in de
   // knop, zodat schermlezers, Tag Manager en zoekmachines dezelfde tekst zien.
@@ -34,6 +31,67 @@
       if (!c || c === 'none' || c === 'normal') return;
       el.textContent = c.replace(/^["']|["']$/g, '');
       el.classList.add('is-set');
+    });
+  })();
+
+  // Cookiekeuze delen met de app. CookieYes bewaart de keuze alleen op de host
+  // van de website (_rootDomain is leeg; delen met subdomeinen kan alleen met
+  // CookieYes Pro). Daarom zetten we dezelfde keuze in pp_toestemming op
+  // .postpilotapp.nl, zodat app.postpilotapp.nl hem kan lezen.
+  // - Waarde: analytics:yes|no,advertisement:yes|no.
+  // - Na elke keuze in de banner opnieuw gezet, ook bij intrekken (dan "no").
+  // - Bij het laden alleen gezet als hij ontbreekt of afwijkt, zodat hij niet
+  //   langer geldt dan de keuze in CookieYes (scriptExpiry: 365 dagen).
+  // - Nog geen keuze in CookieYes: geen pp_toestemming, een oude wordt gewist.
+  (function deelToestemming() {
+    var NAAM = 'pp_toestemming';
+    var DAGEN = 365;
+    var host = location.hostname;
+    var domein = (host === 'postpilotapp.nl' || /\.postpilotapp\.nl$/.test(host)) ? '; Domain=.postpilotapp.nl' : '';
+
+    function waarde(analytics, advertisement) {
+      return 'analytics:' + (analytics ? 'yes' : 'no') + ',advertisement:' + (advertisement ? 'yes' : 'no');
+    }
+    function zet(w) {
+      document.cookie = NAAM + '=' + w + '; Max-Age=' + (DAGEN * 86400) + '; Path=/' + domein + '; SameSite=Lax; Secure';
+    }
+    function wis() {
+      document.cookie = NAAM + '=; Max-Age=0; Path=/' + domein + '; SameSite=Lax; Secure';
+    }
+    function huidig() {
+      var m = document.cookie.match(new RegExp('(?:^|;\\s*)' + NAAM + '=([^;]*)'));
+      return m ? m[1] : null;
+    }
+    // De keuze zoals CookieYes hem in zijn eigen cookie heeft staan, of null.
+    function keuzeUitCookieYes() {
+      try {
+        var m = document.cookie.match(/(?:^|;\s*)cookieyes-consent=([^;]*)/);
+        if (!m) return null;
+        var w = decodeURIComponent(m[1]);
+        if (!/(?:^|,)\s*action:yes(?:,|$)/.test(w)) return null;
+        return waarde(/(?:^|,)\s*analytics:yes(?:,|$)/.test(w), /(?:^|,)\s*advertisement:yes(?:,|$)/.test(w));
+      } catch (e) { return null; }
+    }
+
+    try {
+      var k = keuzeUitCookieYes();
+      var nu = huidig();
+      if (k === null) { if (nu !== null) wis(); }
+      else if (nu !== k) zet(k);
+    } catch (e) {}
+
+    // CookieYes stuurt dit na elke keuze in de banner, maar ook bij de eerste
+    // paginalading zonder keuze (met de standaardwaarden, alles behalve
+    // noodzakelijk op nee). Alleen een echte keuze telt: isUserActionCompleted.
+    document.addEventListener('cookieyes_consent_update', function () {
+      try {
+        var c = typeof window.getCkyConsent === 'function' ? window.getCkyConsent() : null;
+        if (c && c.isUserActionCompleted) {
+          zet(waarde(!!c.categories.analytics, !!c.categories.advertisement));
+        } else if (huidig() !== null) {
+          wis();
+        }
+      } catch (e) {}
     });
   })();
 
