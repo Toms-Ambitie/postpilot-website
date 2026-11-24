@@ -37,26 +37,76 @@
     });
   })();
 
+  // Campagnevelden uit het adres van de bezoeker meegeven aan links naar de
+  // app, zodat een aanmelding zijn bron houdt.
+  // - utm_* gaan altijd mee in de link van deze pagina (er wordt niets bewaard).
+  // - Onthouden over meerdere pagina's (sessionStorage) alleen met
+  //   toestemming voor analytische cookies; _gl ook alleen dan.
+  // - Click-ID's van advertentienetwerken alleen met toestemming voor
+  //   advertenties.
+  // De toestemming wordt bij elke klik opnieuw gelezen, zodat een keuze in de
+  // cookiebanner meteen telt. De app legt zelf ook alleen met toestemming vast.
   (function forwardAttribution() {
-    var KEYS = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content',
-      'gclid', 'gbraid', 'wbraid', 'gad_source', 'fbclid', 'li_fat_id', 'ttclid',
-      'msclkid', 'twclid', '_gl'];
+    var UTM = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content'];
+    var ANALYTICS = ['_gl'];
+    var ADS = ['gclid', 'gbraid', 'wbraid', 'gad_source', 'fbclid', 'li_fat_id', 'ttclid', 'msclkid', 'twclid'];
     var STORE = 'pp_attrib';
-    var stored = {};
-    try { stored = JSON.parse(sessionStorage.getItem(STORE) || '{}'); } catch (e) {}
-    try {
-      var sp = new URLSearchParams(window.location.search);
-      KEYS.forEach(function (k) { var v = sp.get(k); if (v && !stored[k]) stored[k] = v; });
-    } catch (e) {}
-    try { sessionStorage.setItem(STORE, JSON.stringify(stored)); } catch (e) {}
-    var keys = Object.keys(stored);
-    if (!keys.length) return;
-    document.querySelectorAll('a[href*="app.postpilotapp.nl"]').forEach(function (a) {
+
+    function toestemming() {
+      var uit = { analytics: false, advertenties: false };
       try {
+        var m = document.cookie.match(/(?:^|;\s*)cookieyes-consent=([^;]*)/);
+        if (!m) return uit;
+        var w = decodeURIComponent(m[1]);
+        uit.analytics = /(?:^|,)\s*analytics:yes(?:,|$)/.test(w);
+        uit.advertenties = /(?:^|,)\s*advertisement:yes(?:,|$)/.test(w);
+      } catch (e) {}
+      return uit;
+    }
+
+    function velden() {
+      var t = toestemming();
+      var mag = UTM.slice();
+      if (t.analytics) mag = mag.concat(ANALYTICS);
+      if (t.advertenties) mag = mag.concat(ADS);
+      var stored = {};
+      if (t.analytics) {
+        try { stored = JSON.parse(sessionStorage.getItem(STORE) || '{}') || {}; } catch (e) { stored = {}; }
+      }
+      var uit = {};
+      mag.forEach(function (k) { if (stored[k]) uit[k] = String(stored[k]).slice(0, 200); });
+      try {
+        var sp = new URLSearchParams(window.location.search);
+        mag.forEach(function (k) { var v = sp.get(k); if (v && !uit[k]) uit[k] = v.slice(0, 200); });
+      } catch (e) {}
+      if (t.analytics && Object.keys(uit).length) {
+        try { sessionStorage.setItem(STORE, JSON.stringify(uit)); } catch (e) {}
+      }
+      return uit;
+    }
+
+    function versier(a) {
+      try {
+        var mee = velden();
+        var keys = Object.keys(mee);
+        if (!keys.length) return;
         var u = new URL(a.href);
-        keys.forEach(function (k) { if (!u.searchParams.has(k)) u.searchParams.set(k, stored[k]); });
+        if (u.hostname !== 'app.postpilotapp.nl') return;
+        keys.forEach(function (k) { if (!u.searchParams.has(k)) u.searchParams.set(k, mee[k]); });
         a.href = u.toString();
       } catch (e) {}
+    }
+
+    function alle() {
+      document.querySelectorAll('a[href*="app.postpilotapp.nl"]').forEach(versier);
+    }
+    alle();
+    // Vlak voor het volgen van een link nog een keer, met de toestemming van dat moment.
+    ['pointerdown', 'keydown'].forEach(function (soort) {
+      document.addEventListener(soort, function (ev) {
+        var a = ev.target && ev.target.closest ? ev.target.closest('a[href*="app.postpilotapp.nl"]') : null;
+        if (a) versier(a);
+      }, true);
     });
   })();
 
@@ -117,28 +167,4 @@
       }
     });
   })();
-})();
-
-// Campagnevelden (alleen utm_*) uit het adres van de bezoeker meegeven aan
-// links naar de app, zodat een aanmelding zijn bron houdt. Geen click-ID's.
-// De app legt de bron alleen vast met cookietoestemming.
-(function () {
-  try {
-    var hier = new URLSearchParams(window.location.search);
-    var velden = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term'];
-    var mee = [];
-    velden.forEach(function (v) {
-      var w = hier.get(v);
-      if (w) mee.push([v, w.slice(0, 200)]);
-    });
-    if (!mee.length) return;
-    var links = document.querySelectorAll('a[href^="https://app.postpilotapp.nl"]');
-    Array.prototype.forEach.call(links, function (a) {
-      try {
-        var u = new URL(a.href);
-        mee.forEach(function (paar) { if (!u.searchParams.has(paar[0])) u.searchParams.set(paar[0], paar[1]); });
-        a.href = u.toString();
-      } catch (e) { /* link laten zoals hij is */ }
-    });
-  } catch (e) { /* niets doen */ }
 })();
