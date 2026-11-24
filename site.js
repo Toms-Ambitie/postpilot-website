@@ -118,3 +118,27 @@
     });
   })();
 })();
+
+// Campagnevelden (alleen utm_*) uit het adres van de bezoeker meegeven aan
+// links naar de app, zodat een aanmelding zijn bron houdt. Geen click-ID's.
+// De app legt de bron alleen vast met cookietoestemming.
+(function () {
+  try {
+    var hier = new URLSearchParams(window.location.search);
+    var velden = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term'];
+    var mee = [];
+    velden.forEach(function (v) {
+      var w = hier.get(v);
+      if (w) mee.push([v, w.slice(0, 200)]);
+    });
+    if (!mee.length) return;
+    var links = document.querySelectorAll('a[href^="https://app.postpilotapp.nl"]');
+    Array.prototype.forEach.call(links, function (a) {
+      try {
+        var u = new URL(a.href);
+        mee.forEach(function (paar) { if (!u.searchParams.has(paar[0])) u.searchParams.set(paar[0], paar[1]); });
+        a.href = u.toString();
+      } catch (e) { /* link laten zoals hij is */ }
+    });
+  } catch (e) { /* niets doen */ }
+})();
