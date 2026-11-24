@@ -29,6 +29,17 @@ if('IntersectionObserver' in window){
   $$('.rv,.proof,.other,.qs,.nots,.tl').forEach(function(el){el.classList.add('in')});
 }
 
+// Home: getallen tellen een keer op als ze in beeld komen. In de HTML staat het
+// eindgetal; zonder script of met minder beweging blijft dat gewoon staan.
+var tellers=$$('[data-tel]').filter(function(el){return +el.getAttribute('data-tel')>0});
+if(tellers.length&&!rm&&'IntersectionObserver' in window&&window.requestAnimationFrame){
+  var tel=function(el){var doel=+el.getAttribute('data-tel'),duur=700,t0=null;
+    var stap=function(t){if(t0===null)t0=t;var p=Math.min(1,(t-t0)/duur),e=1-Math.pow(1-p,3);el.textContent=String(Math.round(doel*e));if(p<1)requestAnimationFrame(stap)};
+    el.textContent='0';requestAnimationFrame(stap)};
+  var to=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){to.unobserve(e.target);tel(e.target)}})},{threshold:.6});
+  tellers.forEach(function(el){to.observe(el)});
+}
+
 // Schakelaars die markeringen aan en uit zetten
 $$('.sw').forEach(function(sw){var doel=document.getElementById(sw.getAttribute('data-voor'));sw.addEventListener('click',function(){var aan=sw.getAttribute('aria-checked')!=='true';sw.setAttribute('aria-checked',String(aan));if(doel){doel.classList.add('in');doel.classList.toggle('off',!aan)}})});
 
