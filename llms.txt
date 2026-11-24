@@ -1,0 +1,26 @@
+# PostPilot
+
+> PostPilot is een Nederlandse app die van wat je vertelt een LinkedIn-post maakt in jouw eigen stijl. Je spreekt in of typt wat je meemaakte, PostPilot vraagt door als het verhaal nog dun is, schrijft de post en jij leest, past aan en plaatst of plant in. PostPilot zet er niets bij zonder jouw akkoord en plaatst nooit zonder dat jij op plaatsen drukt.
+
+PostPilot is gemaakt door Toms Ambitie in Zwolle. De app is in het Nederlands, werkt in de browser op telefoon en computer en plaatst op je persoonlijke LinkedIn-profiel.
+
+## Prijzen
+
+- Premium: 19 euro per maand inclusief btw, 100 posts per maand, altijd opzegbaar. De eerste 30 dagen zijn gratis.
+- Founder: 299 euro eenmalig inclusief btw, alleen voor de eerste honderd.
+
+## Pagina's
+
+- [Home](https://www.postpilotapp.nl/): wat PostPilot doet
+- [Zo werkt het](https://www.postpilotapp.nl/zo-werkt-het): elk scherm, van inspreken tot plaatsen
+- [Waarom PostPilot](https://www.postpilotapp.nl/waarom): vergelijking met Taplio, Supergrow, ChatGPT en Claude
+- [Voor wie](https://www.postpilotapp.nl/voor-wie): consultants, zelfstandigen, marketingmanagers en sprekers
+- [Prijzen](https://www.postpilotapp.nl/prijzen)
+- [Over](https://www.postpilotapp.nl/over)
+- [Contact](https://www.postpilotapp.nl/contact)
+- [Privacy](https://www.postpilotapp.nl/privacy)
+- [Voorwaarden](https://www.postpilotapp.nl/voorwaarden)
+
+## App
+
+- [Inloggen en starten](https://app.postpilotapp.nl/)
